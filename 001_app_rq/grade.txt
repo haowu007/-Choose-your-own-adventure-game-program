@@ -1,7 +1,0 @@
-Grading at 08/24/2021:00:29:56.926801
-For commit ID 85e3e90962d030ad374e218d72c9214887a23576
-Grading at Mon Aug 23 20:29:56 EDT 2021
-Reading your quiz answers from answers.txt
-You have 1 wrong answer
-
-Overall Grade: FAILED
