@@ -1,9 +1,9 @@
-In anotherFunction(2,3)
+In anotherFunction(2, 3)
 a is 2, b is 3
 a is 2, b is 3
 a = 44
 x = 2
-In anotherFunction(2,9)
+In anotherFunction(2, 9)
 a is 2, b is 9
 a is 2, b is 9
 a is 2, b is 8
