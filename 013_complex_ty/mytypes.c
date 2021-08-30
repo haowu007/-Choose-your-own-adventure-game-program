@@ -1,5 +1,5 @@
 
-struct _comlex_num_t {
+struct _complex_num_t {
   double real_part;
   double imaginary_part;
 };
