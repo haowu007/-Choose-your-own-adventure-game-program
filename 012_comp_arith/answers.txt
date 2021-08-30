@@ -2,8 +2,8 @@
 2. double 7.4
 3. int 2
 4. double 3.4
-5. char f
+5. int 102
 6. int 4
-7. int 0x80000004
+7. int 34359738372
 8. double 99.4
 
