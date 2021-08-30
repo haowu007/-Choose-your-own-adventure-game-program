@@ -1,10 +1,10 @@
 #include <stdio.h>
 int between(int x, int a, int b) {
   if (a >= b) {
-    return (x >= b && x <= a) ? 1 : 0;
+    return (x >= b && x < a) ? 1 : 0;
   }
   else {
-    return (x >= a && x <= b) ? 1 : 0;
+    return (x >= a && x < b) ? 1 : 0;
   }
 }
 
