@@ -5,11 +5,11 @@ unsigned power(unsigned x, unsigned y);
 
 void run_check(unsigned x, unsigned y, unsigned expected_ans) {
   if (power(x, y) != expected_ans) {
-    printf("wrong answer for %d to the power of %d !!\n", x, y);
+    printf("wrong answer for %u to the power of %u !!\n", x, y);
     exit(EXIT_FAILURE);
   }
   else {
-    printf("wow!Right ans!\n");
+    printf("wow!Right ans! %u to the power of %u is exactly %u!\n", x, y, power(x, y));
   }
 }
 
@@ -18,6 +18,7 @@ int main(void) {
   run_check(1, 10, 1);
   run_check(0, 12, 0);
   run_check(-1, 2, 1);
+  run_check(-1, 3, -1);
   run_check(2, 2, 4);
   run_check(2, 5, 32);
   run_check(3, 3, 27);
@@ -34,5 +35,8 @@ int main(void) {
   run_check(3, 0, 1);
   run_check(99, 1, 99);
   run_check(-1, 1, -1);
+  run_check(-1, 2, 1);
+  run_check(-1, 3, -1);
+  run_check(-10, 4, 10000);
   return EXIT_SUCCESS;
 }
