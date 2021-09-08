@@ -1,0 +1,117 @@
+Grading at 09/08/2021:00:16:19.327510
+For commit ID 303192e17d1671256d41cdbd420cc307e560ffb7
+Grading at Tue Sep  7 20:16:18 EDT 2021
+**Testing broken implementation 10 **
+-------------------------------------
+
+wrong answer for 2 to the power of 3 !!
+
+**Testing broken implementation 11 **
+-------------------------------------
+
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wrong answer for -1 to the power of 2 !!
+
+**Testing broken implementation 1 **
+-------------------------------------
+
+wrong answer for 2 to the power of 3 !!
+
+**Testing broken implementation 2 **
+-------------------------------------
+
+wrong answer for 2 to the power of 3 !!
+
+**Testing broken implementation 3 **
+-------------------------------------
+
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wrong answer for 0 to the power of 0 !!
+
+**Testing broken implementation 4 **
+-------------------------------------
+
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wrong answer for -1 to the power of 1 !!
+
+**Testing broken implementation 5 **
+-------------------------------------
+
+wrong answer for 2 to the power of 3 !!
+
+**Testing broken implementation 6 **
+-------------------------------------
+
+wow!Right ans!
+wrong answer for 1 to the power of 10 !!
+
+**Testing broken implementation 7 **
+-------------------------------------
+
+wrong answer for 2 to the power of 3 !!
+
+**Testing broken implementation 8 **
+-------------------------------------
+
+wrong answer for 2 to the power of 3 !!
+
+**Testing broken implementation 9 **
+-------------------------------------
+
+wrong answer for 2 to the power of 3 !!
+
+**Testing correct implementation **
+-------------------------------------
+
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+wow!Right ans!
+
+All tests were ok.
+
+
+Overall Grade: PASSED
