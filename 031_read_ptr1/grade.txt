@@ -1,16 +1,10 @@
-Grading at 09/13/2021:16:42:16.499940
-For commit ID 947fb9117b5653131ac814d9748ad5244398070d
-Grading at Mon Sep 13 12:42:16 EDT 2021
+Grading at 09/13/2021:18:57:58.758592
+For commit ID 4fd7ae548b24a771d1ff77945da4d550a0fcb181
+Grading at Mon Sep 13 14:57:58 EDT 2021
 Attempting to compile test.c
 gcc -std=gnu99 -pedantic -Werror -Wall -o test test.c
 compiled
-I expected to find a file called 'answer.txt' but it did not exist
-(or was not a regular file)
-Here are the files that I can find:
-Makefile
-README
-test
-test.c
-Your output did not match what we expected.
+Your file matched the expected output
+Your output matched what we expected
 
-Overall Grade: FAILED
+Overall Grade: PASSED
