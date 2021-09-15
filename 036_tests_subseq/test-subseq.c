@@ -1,8 +1,10 @@
+#include <stdio.h>
 #include <stdlib.h>
 size_t maxSeq(int * array, size_t n);
 
 void run_check(int * a, size_t n, size_t ans) {
   if (maxSeq(a, n) != ans) {
+    printf("wrong ans with input n=%ld , and ans =%ld !\n", n, ans);
     exit(EXIT_FAILURE);
   }
 }
