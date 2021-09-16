@@ -28,6 +28,7 @@ int main(void) {
   run_check(arr3, 5, 1);                           //no-increasing array
   int arr4[] = {-1, -2, -1, 0, 1, 2, 3, 2, 1, 1};  //ordinary array
   run_check(arr4, 10, 6);
+
   int arr5[] = {0, 1, 2, 2, 3, 4, 5, 4, 3, 2, 1};
   run_check(arr5, 11, 4);
   int arr6[] = {1, 2, 2, 3, 4, 5};
