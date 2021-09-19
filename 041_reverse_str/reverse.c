@@ -3,19 +3,21 @@
 #include <string.h>
 
 void reverse(char * str) {
-  char * a = str;
-  int i = 0;
-  for (i = 0; *(a + i) != '\0'; i++) {
-  }
-  if (i >= 2) {
-    int start = 0;
-    int end = i - 1;
-    while (start < end) {
-      char temp = a[start];
-      a[start] = a[end];
-      a[end] = temp;
-      start++;
-      end--;
+  if (str != NULL) {
+    char * a = str;
+    int i = 0;
+    for (i = 0; *(a + i) != '\0'; i++) {
+    }
+    if (i >= 2) {
+      int start = 0;
+      int end = i - 1;
+      while (start < end) {
+        char temp = a[start];
+        a[start] = a[end];
+        a[end] = temp;
+        start++;
+        end--;
+      }
     }
   }
 }
