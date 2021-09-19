@@ -4,16 +4,18 @@
 
 void reverse(char * str) {
   int i = 0;
-  for (i = 0; str[i] != '\0'; i++) {
+  for (i = 0; *(str + i) != '\0'; i++) {
   }
-  int start = 0;
-  int end = i - 1;
-  while (start < end) {
-    char temp = str[start];
-    str[start] = str[end];
-    str[end] = temp;
-    start++;
-    end--;
+  if (i >= 2) {
+    int start = 0;
+    int end = i - 1;
+    while (start < end) {
+      char temp = str[start];
+      str[start] = str[end];
+      str[end] = temp;
+      start++;
+      end--;
+    }
   }
 }
 
