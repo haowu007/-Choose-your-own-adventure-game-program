@@ -2,19 +2,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int all(void) {
-  return 0;
-}
-
 int break_function(FILE * f) {
   int c;
   int count_array[26];
   for (int i = 0; i <= 25; i++) {
     count_array[i] = 0;
   }
-  while ((c = fgetc(f) != EOF)) {
+  while ((c = fgetc(f)) != EOF) {
+    //    printf("we are in the while! c is %c!\n", c);
     if (isalpha(c)) {
+      // printf("we are in the if!\n");
       c = tolower(c);
+      //      printf("c is %d\n", c);
       c = c - 'a';
       count_array[c]++;
     }
@@ -27,7 +26,7 @@ int break_function(FILE * f) {
       max_label = i;
     }
   }
-  return max_label - 4;
+  return (max_label >= 4) ? (max_label - 4) : max_label + 21;
 }
 
 int main(int argc, char ** argv) {
