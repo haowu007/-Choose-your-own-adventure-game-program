@@ -1,23 +1,22 @@
-Grading at 09/23/2021:22:45:35.841070
-For commit ID 5457453f2cadaa2b6a0ca6d410942ad90cb41179
-Grading at Thu Sep 23 18:45:31 EDT 2021
-Attempting to compile rotateMatrix.c
-testcase1 passed
-#################################################
-testcase2:
-valgrind reported memory errors
-#################################################
-testcase3:
-valgrind reported memory errors
-#################################################
-testcase4:
-testcase4 passed
-#################################################
-testcase5:
-testcase5 failed, your program didn't indicate this is a failure case
-#################################################
-testcase6:
-Your file matched the expected output
-testcase6 passed
+Grading at 09/23/2021:02:40:44.344837
+For commit ID 6a1c349104f4070aa9013c3aa4d24fc92ac51669
+Grading at Wed Sep 22 22:40:44 EDT 2021
+Checking rotateMatrix1
+Your tests identified the problem with rotateMatrix1
+Checking rotateMatrix2
+Your tests identified the problem with rotateMatrix2
+Checking rotateMatrix3
+Your tests identified the problem with rotateMatrix3
+Checking rotateMatrix4
+Your tests identified the problem with rotateMatrix4
+Checking rotateMatrix5
+Your tests identified the problem with rotateMatrix5
+Checking rotateMatrix6
+Your tests identified the problem with rotateMatrix6
+Checking rotateMatrix7
+Your tests identified the problem with rotateMatrix7
+Checking rotateMatrix8
+Your tests identified the problem with rotateMatrix8
+Your tests identified problems with all broken programs
 
-Overall Grade: F
+Overall Grade: PASSED
