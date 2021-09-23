@@ -3,12 +3,12 @@
 #include <stdlib.h>
 
 int break_function(FILE * f) {
-  int c;
+  int c = 0;
   int count_array[26];
   for (int i = 0; i <= 25; i++) {
     count_array[i] = 0;
   }
-  int count;
+  int count = 0;
   while ((c = fgetc(f)) != EOF) {
     count++;
     //    printf("we are in the while! c is %c!\n", c);
