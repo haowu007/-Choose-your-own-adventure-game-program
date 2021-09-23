@@ -26,6 +26,9 @@ int break_function(FILE * f) {
       max_label = i;
     }
   }
+  if (max_label = -1) {
+    return 0;
+  }
   return (max_label >= 4) ? (max_label - 4) : max_label + 21;
 }
 
