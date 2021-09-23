@@ -1,17 +1,9 @@
-Grading at 09/23/2021:00:46:23.366262
-For commit ID d6a71fc6612436f6494b49c35f8a876e4e14338e
-Grading at Wed Sep 22 20:46:18 EDT 2021
+Grading at 09/23/2021:00:52:18.866013
+For commit ID 5d2062db14d43295f772ab55e1b35df09272cff2
+Grading at Wed Sep 22 20:52:18 EDT 2021
 Attempting to compile breaker.c 
 gcc -o breaker -std=gnu99 -Werror -Wall -pedantic breaker.c
-testcase1 passed
-#################################################
-testcase2:
-testcase2 passed
-#################################################
-testcase3:
-testcase3 failed
-#################################################
-testcase4:
-testcase4 passed
+Makefile:3: recipe for target 'breaker' failed
+The code did not compile!
 
-Overall Grade: C
+Overall Grade: F
