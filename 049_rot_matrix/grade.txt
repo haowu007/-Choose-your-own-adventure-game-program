@@ -1,10 +1,23 @@
-Grading at 09/23/2021:21:59:16.709863
-For commit ID c7c45aa6d992b83a8f15dc6a24f2de1ebeb216c9
-Grading at Thu Sep 23 17:59:16 EDT 2021
+Grading at 09/23/2021:22:02:51.437074
+For commit ID baddb2dd8a0fa171e36d917251e65f121d6fa466
+Grading at Thu Sep 23 18:02:46 EDT 2021
 Attempting to compile rotateMatrix.c
-gcc: error: rotateMatrix.c: No such file or directory
-gcc: fatal error: no input files
-compilation terminated.
-The code did not compile!
+testcase1 passed
+#################################################
+testcase2:
+valgrind reported memory errors
+#################################################
+testcase3:
+valgrind reported memory errors
+#################################################
+testcase4:
+testcase4 passed
+#################################################
+testcase5:
+testcase5 failed, your program didn't indicate this is a failure case
+#################################################
+testcase6:
+Your file matched the expected output
+testcase6 passed
 
 Overall Grade: F
