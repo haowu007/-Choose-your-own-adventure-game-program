@@ -1,0 +1,10 @@
+
+
+#error
+printcountries miss_comma_population.csv
+printcountries invalid_population.csv
+printcountries no_number_population.csv
+
+#success
+printcountries population.csv
+printRunningavg population.csv daily_cases.csv
