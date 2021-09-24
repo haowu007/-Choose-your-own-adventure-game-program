@@ -1,8 +1,30 @@
-Grading at 09/24/2021:20:04:37.134810
-For commit ID 4c079efbc852e02a20886a7259b9e9734cca24f2
-Grading at Fri Sep 24 16:04:36 EDT 2021
+Grading at 09/24/2021:20:06:10.165217
+For commit ID 96dca39d36c34710ecf47d172144ae609746576b
+Grading at Fri Sep 24 16:06:07 EDT 2021
 Running your test cases
+
+Compiling printCountries
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
++-----------------------------------------------------------------------+
+Test case printCountries miss_comma_population.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries invalid_population.csv
+Our printCountries does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printCountries no_number_population.csv
+India: 1380004385
+Nigeria: 206139587
+Norway: 0
+South Korea: 51269183
+United Kingdom: 67886004
+United States: 331002647
+Your program did not indicate a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population.csv
+Your file matched the expected output
 Program must be one of printCountries printRunningAvg printCumulative printDailyMax
-But found "printcountries"
+But found "printRunningavg"
 
 Overall Grade: NO GRADE YET
