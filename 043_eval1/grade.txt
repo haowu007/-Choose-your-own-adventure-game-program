@@ -1,6 +1,6 @@
-Grading at 09/24/2021:20:28:59.625469
-For commit ID aeca09352c9bd0124aa4579e516e809bb6848dcc
-Grading at Fri Sep 24 16:28:55 EDT 2021
+Grading at 09/24/2021:20:43:09.615133
+For commit ID 58099593c5ebdb48a82cba01a8ad1c47d87f490c
+Grading at Fri Sep 24 16:43:05 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -13,24 +13,24 @@ Your program successfully indicated a failure case
 Test case printCountries no_number_population.csv
 India: 1380004385
 Nigeria: 206139587
-Norwaya: 0
-South KoreaX: 51269183
+Norway: 0
+South Korea: 51269183
 United Kingdom: 67886004
 United States: 331002647
-Valgrind reported memory errors
+Your program did not indicate a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
-Valgrind reported memory errors
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printCountries invalid_population.csv
-Valgrind reported memory errors
+Your file matched the expected output
 
 Compiling printRunningAvg
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
 +-----------------------------------------------------------------------+
 Test case printRunningAvg population.csv daily_cases.csv
-Valgrind reported memory errors
+Your file matched the expected output
 
 You have FAILED one or more of your test cases
 Keep debugging
