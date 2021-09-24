@@ -31,7 +31,7 @@ country_t parseLine(char * line) {
     line++;
   }
   popul[j] = '\0';  //append a \0 at the end of the char array to make it a valid string
-  if (j == 0) {     //no population number found after the comma
+  if (j <= 1) {     //no population number found after the comma
     perror("no population data!\n");
     fprintf(stderr, "No population data!");
     exit(EXIT_FAILURE);
