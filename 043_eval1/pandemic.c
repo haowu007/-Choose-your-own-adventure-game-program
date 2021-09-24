@@ -14,7 +14,7 @@ country_t parseLine(char * line) {
     i++;
     line++;
   }
-  //ans.name[i] = '\0';   // add a mark to let program know this is the end of name
+  ans.name[i] = '\0';   // add a mark to let program know this is the end of name
   if (*line == '\0') {  //error handling: reach the end without finding the population
     fprintf(stderr, "Failed when trying to find the population data\n");
     exit(EXIT_FAILURE);
@@ -31,10 +31,12 @@ country_t parseLine(char * line) {
     line++;
   }
   popul[j] = '\0';  //append a \0 at the end of the char array to make it a valid string
-  if (j !=
-      0) {  //at least some number found, it's not a "APPLE,"(missing population data)
-    ans.population = atoi(popul);
+  if (j == 0) {     //no population number found after the comma
+    perror("no population data!\n");
+    fprintf(stderr, "No population data!");
+    exit(EXIT_FAILURE);
   }
+  ans.population = atoi(popul);
   return ans;
 }
 
