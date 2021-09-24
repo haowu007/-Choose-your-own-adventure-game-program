@@ -25,10 +25,9 @@ country_t parseLine(char * line) {
   char popul[40];
   int j = 0;
   while (*line != '\0') {
-    if (*line > '0' && *line < '9') {  // is 9092272aa013 ACCEPTABLE?
-      popul[j] = *line;
-      j++;
-    }
+    // if (*line > '0' && *line < '9') { } // is 9092272aa013 ACCEPTABLE?
+    popul[j] = *line;
+    j++;
     line++;
   }
   popul[j] = '\0';  //append a \0 at the end of the char array to make it a valid string
