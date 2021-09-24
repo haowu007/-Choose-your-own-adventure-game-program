@@ -1,6 +1,6 @@
-Grading at 09/24/2021:20:17:44.662529
-For commit ID 506c3e1df31a37ad7598d12803adf5b4124671aa
-Grading at Fri Sep 24 16:17:41 EDT 2021
+Grading at 09/24/2021:20:19:57.895945
+For commit ID c426ac2f93bad65ecebeb933435c23f1afd65b9f
+Grading at Fri Sep 24 16:19:54 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -14,24 +14,16 @@ Test case printCountries invalid_population.csv
 Our printCountries does not consider this an error case
 +-----------------------------------------------------------------------+
 Test case printCountries no_number_population.csv
-India: 1384385
-Nigeria: 2613587
+India: 1380004385
+Nigeria: 206139587
 Norway: 0
-South Korea: 5126183
-United Kingdom: 678864
-United States: 3312647
+South Korea: 51269183
+United Kingdom: 67886004
+United States: 331002647
 Your program did not indicate a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
-Line_1_did_not_match
-Line_2_did_not_match
-Line_3_did_not_match
-Line_4_did_not_match
-Line_5_did_not_match
-Line_7_did_not_match
-Line_8_did_not_match
-Line_9_did_not_match
-Your file did not match the expected ouput
+Your file matched the expected output
 
 Compiling printRunningAvg
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
