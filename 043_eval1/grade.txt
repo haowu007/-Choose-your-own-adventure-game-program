@@ -1,6 +1,6 @@
-Grading at 09/24/2021:20:25:25.779719
-For commit ID fec1d918ad28e42b84015e0c4b8039e1ec7fe652
-Grading at Fri Sep 24 16:25:22 EDT 2021
+Grading at 09/24/2021:20:28:59.625469
+For commit ID aeca09352c9bd0124aa4579e516e809bb6848dcc
+Grading at Fri Sep 24 16:28:55 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -11,6 +11,12 @@ Test case printCountries miss_comma_population.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries no_number_population.csv
+India: 1380004385
+Nigeria: 206139587
+Norwaya: 0
+South KoreaX: 51269183
+United Kingdom: 67886004
+United States: 331002647
 Valgrind reported memory errors
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
