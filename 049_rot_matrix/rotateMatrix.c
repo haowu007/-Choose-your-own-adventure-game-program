@@ -36,6 +36,10 @@ int main(int argc, char ** argv) {
       }
     }
   }
+  if ((cur = fgetc(input_matrix)) != EOF) {
+    fprintf(stderr, "too more elements!");
+    exit(EXIT_FAILURE);
+  }
 
   if (count != 110) {
     //perror("too few elements!");
