@@ -25,10 +25,10 @@ country_t parseLine(char * line) {
   char popul[40];
   int j = 0;
   while (*line != '\0') {
-    // if (*line < '0' || *line > '9') {  //error handling: non-valid-number found
-    //  fprintf(stderr, "Non-valid-number found!\n");
-    //  exit(EXIT_FAILURE);
-    // }
+    if (*line < '0' || *line > '9') {  //error handling: non-valid-number found
+      fprintf(stderr, "Non-valid-number found!\n");
+      exit(EXIT_FAILURE);
+    }
     popul[j] = *line;
     j++;
     line++;
