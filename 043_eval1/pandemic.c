@@ -28,8 +28,8 @@ country_t parseLine(char * line) {
     if (*line > '0' && *line < '9') {  // is 9092272aa013 ACCEPTABLE?
       popul[j] = *line;
       j++;
-      line++;
     }
+    line++;
   }
   popul[j] = '\0';  //append a \0 at the end of the char array to make it a valid string
   ans.population = atoi(popul);
