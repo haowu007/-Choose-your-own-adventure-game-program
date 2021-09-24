@@ -14,7 +14,10 @@ country_t parseLine(char * line) {
     i++;
     line++;
   }
+  ans.name[i] = '\0';   // add a mark to let program know this is the end of name
   if (*line == '\0') {  //error handling: reach the end without finding the population
+    fprintf(stderr, "Failed when trying to find the population data\n");
+    exit(EXIT_FAILURE);
   }
   else if (*line == ',') {
     line++;  //read pass the coma
@@ -22,8 +25,10 @@ country_t parseLine(char * line) {
   char popul[40];
   int j = 0;
   while (*line != '\0') {
-    if (*line < '0' || *line > '9') {  //error handling: non-valid-number found}
-    }
+    // if (*line < '0' || *line > '9') {  //error handling: non-valid-number found
+    //  fprintf(stderr, "Non-valid-number found!\n");
+    //  exit(EXIT_FAILURE);
+    // }
     popul[j] = *line;
     j++;
     line++;
