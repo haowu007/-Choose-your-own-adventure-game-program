@@ -1,10 +1,10 @@
 
 
 #error
-printcountries miss_comma_population.csv
-printcountries invalid_population.csv
-printcountries no_number_population.csv
+printCountries miss_comma_population.csv
+printCountries invalid_population.csv
+printCountries no_number_population.csv
 
 #success
-printcountries population.csv
+printCountries population.csv
 printRunningavg population.csv daily_cases.csv
