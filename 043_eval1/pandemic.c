@@ -9,13 +9,13 @@ country_t parseLine(char * line) {
   ans.name[0] = '\0';  //char name[64]
   ans.population = 0;  // uint64_t population
   int i = 0;           //i labels the position we are inserting into ans.name[]
-  while (*line != ',' && *line != '\n') {
+  while (*line != ',' && *line != '\0') {
     ans.name[i] = *line;
     i++;
     line++;
   }
   //ans.name[i] = '\0';   // add a mark to let program know this is the end of name
-  if (*line == '\n') {  //error handling: reach the end without finding the population
+  if (*line == '\0') {  //error handling: reach the end without finding the population
     fprintf(stderr, "Failed when trying to find the population data\n");
     exit(EXIT_FAILURE);
   }
@@ -24,14 +24,17 @@ country_t parseLine(char * line) {
   }
   char popul[40];
   int j = 0;
-  while (*line != '\n') {
+  while (*line != '\0') {
     // if (*line > '0' && *line < '9') { } // is 9092272aa013 ACCEPTABLE?
     popul[j] = *line;
     j++;
     line++;
   }
   popul[j] = '\0';  //append a \0 at the end of the char array to make it a valid string
-  ans.population = atoi(popul);
+  if (j !=
+      0) {  //at least some number found, it's not a "APPLE,"(missing population data)
+    ans.population = atoi(popul);
+  }
   return ans;
 }
 
