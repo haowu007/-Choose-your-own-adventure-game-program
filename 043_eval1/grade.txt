@@ -1,7 +1,8 @@
-Grading at 09/24/2021:19:28:29.384353
-For commit ID 3ea9f0d8ee7c84f4e27fcf53f8e9f55309fc772f
-Grading at Fri Sep 24 15:28:29 EDT 2021
+Grading at 09/24/2021:20:04:37.134810
+For commit ID 4c079efbc852e02a20886a7259b9e9734cca24f2
+Grading at Fri Sep 24 16:04:36 EDT 2021
 Running your test cases
-Cannot proceed without testcases.txt
+Program must be one of printCountries printRunningAvg printCumulative printDailyMax
+But found "printcountries"
 
 Overall Grade: NO GRADE YET
