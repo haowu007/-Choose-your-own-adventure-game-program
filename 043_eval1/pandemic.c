@@ -143,8 +143,7 @@ void printCountryWithMax(country_t * countries,
     }
   }
   if (winners > 1) {
-    fprintf(stderr, "There is a tie between at least two counties");
-    exit(EXIT_FAILURE);
+    printf("There is a tie between at least two countries");
   }
   else {
     printf("%s has the most daily cases with %u\n", ans_country, max_of_all);
