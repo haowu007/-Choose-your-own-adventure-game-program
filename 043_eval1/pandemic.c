@@ -135,10 +135,8 @@ void printCountryWithMax(country_t * countries,
   }
   //Traversing of the 2-D Matrix Finished
   ans_country = countries[cur_max_country_index].name;
+  printf("%s has the most daily cases with %u\n", ans_country, cur_max_cases);
   if (tie_flag == 1) {
     printf("There is a tie between at leat two countries\n");
-  }
-  else {
-    printf("%s has the most daily cases with %u\n", ans_country, cur_max_cases);
   }
 }

@@ -2,13 +2,6 @@
 
 
 #error
-
-printCountries miss_comma_population.csv
-printCountries no_number_population.csv
-printCountries only_comma_population.csv 
-printCountries nonsense_population.csv
-printCountries weird_population.c
-printCountries has_empty_line_population.csv
 printDailyMax population.csv daily_no_country.csv
 printDailyMax population.csv daily_no_cases.csv 
 
