@@ -1,7 +1,7 @@
 
 
 
-
+#error
 
 printCountries miss_comma_population.csv
 printCountries no_number_population.csv
@@ -10,7 +10,6 @@ printCountries nonsense_population.csv
 printCountries weird_population.c
 printCountries has_empty_line_population.csv
 
-#error
 
 
 #success
