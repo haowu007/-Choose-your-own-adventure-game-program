@@ -1,6 +1,6 @@
-Grading at 09/25/2021:15:48:09.752893
-For commit ID 4912593d0ba52665cca72fd37409883a73ab1ed1
-Grading at Sat Sep 25 11:48:01 EDT 2021
+Grading at 09/25/2021:16:29:05.799255
+For commit ID 9f42dd190e2bacb736c391d00e37898045a815da
+Grading at Sat Sep 25 12:28:54 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -24,6 +24,20 @@ Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries has_empty_line_population.csv
 Your program successfully indicated a failure case
+
+Compiling printDailyMax
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
++-----------------------------------------------------------------------+
+Test case printDailyMax population.csv daily_no_country.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printDailyMax population.csv daily_no_cases.csv
+Your program successfully indicated a failure case
+
+Compiling printCountries
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
 +-----------------------------------------------------------------------+
 Test case printCountries no_country_population.csv
 Your file matched the expected output
@@ -54,8 +68,12 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o prin
 +-----------------------------------------------------------------------+
 Test case printDailyMax population.csv daily_cases.csv
 Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printDailyMax population.csv daily_tie.csv
+Line_1_did_not_match
+Your file did not match the expected ouput
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
