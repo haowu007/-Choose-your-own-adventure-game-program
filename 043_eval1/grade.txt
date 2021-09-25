@@ -1,6 +1,6 @@
-Grading at 09/25/2021:01:45:56.359794
-For commit ID e86c606103bba33930bdfddb1a58c873dd383a22
-Grading at Fri Sep 24 21:45:51 EDT 2021
+Grading at 09/25/2021:01:49:37.915875
+For commit ID 9372b1b59bacbb82aa08418dd14244d97a8eb987
+Grading at Fri Sep 24 21:49:32 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -13,8 +13,14 @@ Your program successfully indicated a failure case
 Test case printCountries no_number_population.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
+Test case printCountries only_comma_population.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
 Test case printCountries no_country_population.csv
-Our printCountries does not consider this an error case
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printCountries nonsense_population.csv
 Your file matched the expected output
