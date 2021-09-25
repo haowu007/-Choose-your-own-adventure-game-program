@@ -1,6 +1,6 @@
-Grading at 09/25/2021:17:04:44.543312
-For commit ID 1751a105e100312e02aa06d96a9090ec2b422fb7
-Grading at Sat Sep 25 13:04:37 EDT 2021
+Grading at 09/25/2021:17:16:00.112754
+For commit ID 7528346337d731e9ee817fa3f69c56c54b74661c
+Grading at Sat Sep 25 13:15:52 EDT 2021
 Running your test cases
 
 Compiling printDailyMax
@@ -52,7 +52,6 @@ Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printDailyMax population.csv daily_tie.csv
 Line_1_did_not_match
-Line_2_did_not_match
 Your file did not match the expected ouput
 
 You have FAILED one or more of your test cases
