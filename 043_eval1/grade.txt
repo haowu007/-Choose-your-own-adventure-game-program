@@ -1,6 +1,6 @@
-Grading at 09/24/2021:20:48:33.517225
-For commit ID e86f0d0622ce76ba6dc3635f7abbfcb91a032aab
-Grading at Fri Sep 24 16:48:29 EDT 2021
+Grading at 09/25/2021:01:24:03.767619
+For commit ID a86c616dee4a59fde101ea81efca92721964fbef
+Grading at Fri Sep 24 21:24:00 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -11,7 +11,13 @@ Test case printCountries miss_comma_population.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries no_number_population.csv
-Your program successfully indicated a failure case
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Your file did not match the expected ouput
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
 Your file matched the expected output
@@ -26,7 +32,7 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o pr
 Test case printRunningAvg population.csv daily_cases.csv
 Your file matched the expected output
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
