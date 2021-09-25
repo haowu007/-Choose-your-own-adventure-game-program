@@ -1,6 +1,6 @@
-Grading at 09/25/2021:16:36:33.484591
-For commit ID 80af3393ecbcefefa2942a07aaa2a45c3aab971a
-Grading at Sat Sep 25 12:36:26 EDT 2021
+Grading at 09/25/2021:16:58:20.487610
+For commit ID c5b8b3d5cea67de6c338874942d86bb0fbf714ba
+Grading at Sat Sep 25 12:58:13 EDT 2021
 Running your test cases
 
 Compiling printDailyMax
@@ -48,9 +48,7 @@ Test case printDailyMax population.csv daily_cases.csv
 Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printDailyMax population.csv daily_tie.csv
-Line_1_did_not_match
-Line_2_did_not_match
-Your file did not match the expected ouput
+Valgrind reported memory errors
 
 You have FAILED one or more of your test cases
 Keep debugging
