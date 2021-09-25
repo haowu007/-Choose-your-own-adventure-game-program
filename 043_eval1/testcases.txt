@@ -3,9 +3,11 @@
 #error
 printCountries miss_comma_population.csv
 printCountries no_number_population.csv
-printCountries no_country_population.csv
 
-#success 
+
+#success
+printCountries only_comma_population.csv
+printCountries no_country_population.csv
 printCountries nonsense_population.csv
 printCountries population.csv
 printCountries weird_population.csv

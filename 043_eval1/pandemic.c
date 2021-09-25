@@ -9,11 +9,7 @@ country_t parseLine(char * line) {
   ans.name[0] = '\0';  //char name[64]
   ans.population = 0;  // uint64_t population
   int i = 0;           //i labels the position we are inserting into ans.name[]
-  if (*line == '\0' || *line == '\n' || *line == ',') {
-    perror("no country name!\n");
-    fprintf(stderr, "Cannot find country name.\n");
-    exit(EXIT_FAILURE);
-  }
+
   while (*line != ',' && *line != '\0') {
     ans.name[i] = *line;
     i++;
