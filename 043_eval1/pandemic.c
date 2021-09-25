@@ -98,4 +98,52 @@ void printCountryWithMax(country_t * countries,
                          unsigned ** data,
                          size_t n_days) {
   //WRITE ME
+  if (n_countries < 1) {
+    fprintf(stderr, "No enough countries!");
+    exit(EXIT_FAILURE);
+  }
+  if (n_days < 1) {
+    fprintf(stderr, "No enough days!");
+    exit(EXIT_FAILURE);
+  }
+  if (countries == NULL) {
+    fprintf(stderr, "No country found!");
+    exit(EXIT_FAILURE);
+  }
+  if (data == NULL) {
+    fprintf(stderr, "No data found!");
+    exit(EXIT_FAILURE);
+  }
+
+  size_t cur_max_country_index = 0;  //
+  unsigned cur_max_cases = 0;
+  int tie_flag =
+      0;  //If tie_flag = 1, there were at least two counties hava the same max cases
+  size_t i = 0;
+  size_t j = 0;
+  unsigned cur_cases = 0;
+  char * ans_country = NULL;
+  for (i = 0; i < n_countries; i++) {
+    for (j = 0; j < n_days; j++) {
+      cur_cases = data[i][j];
+      if (cur_cases > cur_max_cases) {
+        cur_max_cases = cur_cases;
+        cur_max_country_index = i;
+        tie_flag = 0;
+      }
+      else if (cur_cases == cur_max_cases) {
+        if (cur_max_country_index != i) {
+          tie_flag = 1;
+        }
+      }
+    }
+  }
+  //Traversing of the 2-D Matrix Finished
+  ans_country = countries[cur_max_country_index].name;
+  if (tie_flag == 1) {
+    printf("There is a tie between at leat two countries\n");
+  }
+  else {
+    printf("%s has the most daily cases with %u\n", ans_country, cur_max_cases);
+  }
 }
