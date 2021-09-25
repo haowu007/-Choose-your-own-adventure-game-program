@@ -1,6 +1,6 @@
-Grading at 09/25/2021:01:31:57.691859
-For commit ID 4a96c1c0f339b46eb4ecb1dfb194d9b15afd2981
-Grading at Fri Sep 24 21:31:53 EDT 2021
+Grading at 09/25/2021:01:44:26.987078
+For commit ID 0eebf0c4636a94e5f028efc115101934dbea54ed
+Grading at Fri Sep 24 21:44:25 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -12,21 +12,7 @@ Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries no_number_population.csv
 Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries population.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCountries weird_population.csv
-Your file matched the expected output
-
-Compiling printRunningAvg
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv daily_cases.csv
-Your file matched the expected output
-
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+Program must be one of printCountries printRunningAvg printCumulative printDailyMax
+But found "no_country_population.csv"
 
 Overall Grade: NO GRADE YET
