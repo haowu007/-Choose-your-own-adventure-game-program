@@ -26,13 +26,11 @@ country_t parseLine(char * line) {
   char popul[40];
   int j = 0;
   if (*line == '\0' || *line == '\n') {
-    perror("no population data!\n");
     fprintf(stderr, "No population data!");
     exit(EXIT_FAILURE);
   }
   while (*line != '\n' && *line != '\0') {
     if (*line < '0' || *line > '9') {
-      perror("invalid number!\n");
       fprintf(stderr, "invalid number!");
       exit(EXIT_FAILURE);
     }
@@ -48,17 +46,14 @@ country_t parseLine(char * line) {
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //WRITE ME
   if (data == NULL) {
-    perror("data not found!\n");
     fprintf(stderr, "filed when trying to find data.\n");
     exit(EXIT_FAILURE);
   }
   if (avg == NULL) {
-    perror("no where to store average!\n");
     fprintf(stderr, "failed when tring to find average array\n");
     exit(EXIT_FAILURE);
   }
   if (n_days < 7) {
-    perror("to few days!\n");
     fprintf(stderr, "No enough days to calculate!\n");
     exit(EXIT_FAILURE);
   }
@@ -81,12 +76,10 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
   //WRITE ME
   if (data == NULL) {
-    perror("data not found!\n");
     fprintf(stderr, "filed when trying to find data.\n");
     exit(EXIT_FAILURE);
   }
   if (cum == NULL) {
-    perror("cumulative file not found!\n");
     fprintf(stderr, "filed when trying to find cumulative array.\n");
     exit(EXIT_FAILURE);
   }
