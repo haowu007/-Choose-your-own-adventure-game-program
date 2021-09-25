@@ -8,6 +8,8 @@ printCountries nonsense_population.csv
 printCountries weird_population.c
 printCountries has_empty_line_population.csv
 
+printRunningavg population.csv too_few_days_cases.csv
+
 
 #success
 printCountries no_country_population.csv
