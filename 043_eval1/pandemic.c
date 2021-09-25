@@ -139,12 +139,13 @@ void printCountryWithMax(country_t * countries,
   for (i = 0; i < n_countries; i++) {
     if (max_within_one_country[i] == max_of_all) {
       ans_country = countries[i].name;
-      printf("%s has the most daily cases with %u\n", ans_country, max_of_all);
       winners++;
     }
   }
-
   if (winners > 1) {
-    printf("There is a tie between at least two countries\n");
+    printf("There is a tie between at least two counties");
+  }
+  else {
+    printf("%s has the most daily cases with %u\n", ans_country, max_of_all);
   }
 }
