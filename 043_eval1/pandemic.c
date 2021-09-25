@@ -31,6 +31,11 @@ country_t parseLine(char * line) {
     exit(EXIT_FAILURE);
   }
   while (*line != '\n' && *line != '\0') {
+    if (*line < '0' || *line > '9') {
+      perror("invalid number!\n");
+      fprintf(stderr, "invalid number!");
+      exit(EXIT_FAILURE);
+    }
     popul[j] = *line;
     j++;
     line++;
