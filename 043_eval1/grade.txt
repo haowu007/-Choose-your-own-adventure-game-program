@@ -1,6 +1,6 @@
-Grading at 09/25/2021:02:07:19.108063
-For commit ID 5538974271aa42ac5264d96783b9e747c0145097
-Grading at Fri Sep 24 22:07:13 EDT 2021
+Grading at 09/25/2021:02:08:45.047556
+For commit ID 7994bdadc0e747a90b961d82d343d663f87f9ab0
+Grading at Fri Sep 24 22:08:39 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -23,7 +23,8 @@ Test case printCountries weird_population.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries no_country_population.csv
-Your file matched the expected output
+Line_1_did_not_match
+Your file did not match the expected ouput
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
 Your file matched the expected output
@@ -35,7 +36,7 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o pr
 Test case printRunningAvg population.csv daily_cases.csv
 Your file matched the expected output
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
