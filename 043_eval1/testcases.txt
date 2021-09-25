@@ -9,7 +9,8 @@ printCountries only_comma_population.csv
 printCountries nonsense_population.csv
 printCountries weird_population.c
 printCountries has_empty_line_population.csv
-
+printDailyMax population.csv daily_no_country.csv
+printDailyMax population.csv daily_no_cases.csv 
 
 
 #success
@@ -19,3 +20,5 @@ printRunningAvg population.csv daily_cases.csv
 printRunningAvg population.csv too_few_days_cases.csv 
 printCumulative population.csv daily_small.csv
 printDailyMax population.csv daily_cases.csv
+printDailyMax population.csv daily_tie.csv
+

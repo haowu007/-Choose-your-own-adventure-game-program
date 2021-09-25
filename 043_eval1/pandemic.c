@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 country_t parseLine(char * line) {
-  //WRITE ME
   country_t ans;
   ans.name[0] = '\0';  //char name[64]
   ans.population = 0;  // uint64_t population
@@ -44,7 +43,6 @@ country_t parseLine(char * line) {
 }
 
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
-  //WRITE ME
   if (data == NULL) {
     fprintf(stderr, "filed when trying to find data.\n");
     exit(EXIT_FAILURE);
@@ -74,7 +72,6 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 }
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
-  //WRITE ME
   if (data == NULL) {
     fprintf(stderr, "filed when trying to find data.\n");
     exit(EXIT_FAILURE);
@@ -97,7 +94,6 @@ void printCountryWithMax(country_t * countries,
                          size_t n_countries,
                          unsigned ** data,
                          size_t n_days) {
-  //WRITE ME
   if (n_countries < 1) {
     fprintf(stderr, "No enough countries!");
     exit(EXIT_FAILURE);
@@ -114,7 +110,6 @@ void printCountryWithMax(country_t * countries,
     fprintf(stderr, "No data found!");
     exit(EXIT_FAILURE);
   }
-
   size_t cur_max_country_index = 0;  //
   unsigned cur_max_cases = 0;
   int tie_flag =
