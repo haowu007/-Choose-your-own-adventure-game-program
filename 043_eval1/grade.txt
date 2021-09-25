@@ -1,29 +1,7 @@
-Grading at 09/25/2021:16:29:05.799255
-For commit ID 9f42dd190e2bacb736c391d00e37898045a815da
-Grading at Sat Sep 25 12:28:54 EDT 2021
+Grading at 09/25/2021:16:36:33.484591
+For commit ID 80af3393ecbcefefa2942a07aaa2a45c3aab971a
+Grading at Sat Sep 25 12:36:26 EDT 2021
 Running your test cases
-
-Compiling printCountries
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
-+-----------------------------------------------------------------------+
-Test case printCountries miss_comma_population.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries no_number_population.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries only_comma_population.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries nonsense_population.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries weird_population.c
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries has_empty_line_population.csv
-Your program successfully indicated a failure case
 
 Compiling printDailyMax
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -71,6 +49,7 @@ Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printDailyMax population.csv daily_tie.csv
 Line_1_did_not_match
+Line_2_did_not_match
 Your file did not match the expected ouput
 
 You have FAILED one or more of your test cases
