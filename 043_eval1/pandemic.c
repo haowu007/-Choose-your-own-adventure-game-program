@@ -119,6 +119,10 @@ void printCountryWithMax(country_t * countries,
   char * ans_country = NULL;
   unsigned max_within_one_country[n_countries];
   for (i = 0; i < n_countries; i++) {
+    max_within_one_country[i] = 0;
+  }  //initialize the newly created arry to all zeors
+
+  for (i = 0; i < n_countries; i++) {
     cur_max_cases = 0;
     for (j = 0; j < n_days; j++) {
       cur_cases = data[i][j];
