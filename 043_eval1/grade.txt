@@ -1,6 +1,6 @@
-Grading at 09/25/2021:02:08:45.047556
-For commit ID 7994bdadc0e747a90b961d82d343d663f87f9ab0
-Grading at Fri Sep 24 22:08:39 EDT 2021
+Grading at 09/25/2021:02:17:45.397679
+For commit ID 876cf704dbef91525018df205635a2f123e0f984
+Grading at Fri Sep 24 22:17:39 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -19,12 +19,14 @@ Your program successfully indicated a failure case
 Test case printCountries nonsense_population.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
-Test case printCountries weird_population.csv
+Test case printCountries weird_population.c
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries has_empty_line_population.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries no_country_population.csv
-Line_1_did_not_match
-Your file did not match the expected ouput
+Our printCountries does not consider this an error case
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
 Your file matched the expected output
