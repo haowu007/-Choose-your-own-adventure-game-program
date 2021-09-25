@@ -80,6 +80,24 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
   //WRITE ME
+  if (data == NULL) {
+    perror("data not found!\n");
+    fprintf(stderr, "filed when trying to find data.\n");
+    exit(EXIT_FAILURE);
+  }
+  if (cum == NULL) {
+    perror("cumulative file not found!\n");
+    fprintf(stderr, "filed when trying to find cumulative array.\n");
+    exit(EXIT_FAILURE);
+  }
+  unsigned sum = 0;
+  uint64_t base = pop / 100000;
+  for (size_t i = 0; i < n_days; i++) {
+    sum += *data;
+    *cum = ((double)sum) / base;
+    data++;
+    cum++;
+  }
 }
 
 void printCountryWithMax(country_t * countries,
