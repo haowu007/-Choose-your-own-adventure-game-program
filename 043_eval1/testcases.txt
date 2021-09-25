@@ -2,10 +2,9 @@
 
 #error
 printCountries miss_comma_population.csv
-
+printCountries no_number_population.csv
 
 #success
-printCountries no_number_population.csv
 printCountries population.csv
 printCountries weird_population.csv
 printRunningAvg population.csv daily_cases.csv

@@ -24,17 +24,17 @@ country_t parseLine(char * line) {
   }
   char popul[40];
   int j = 0;
+  if (*line == '\0' || *line == '\n') {
+    perror("no population data!\n");
+    fprintf(stderr, "No population data!");
+    exit(EXIT_FAILURE);
+  }
   while (*line != '\n' && *line != '\0') {
     popul[j] = *line;
     j++;
     line++;
   }
   popul[j] = '\0';  //append a \0 at the end of the char array to make it a valid string
-  /* if (j <= 1) {     //no population number found after the comma
-    perror("no population data!\n");
-    fprintf(stderr, "No population data!");
-    exit(EXIT_FAILURE);
-    }*/
   ans.population = atoi(popul);
   return ans;
 }
