@@ -1,6 +1,6 @@
-Grading at 09/25/2021:01:49:37.915875
-For commit ID 9372b1b59bacbb82aa08418dd14244d97a8eb987
-Grading at Fri Sep 24 21:49:32 EDT 2021
+Grading at 09/25/2021:02:00:31.258938
+For commit ID e0baa4a3bfc23e1ff5087fd28bf44407746cdbc3
+Grading at Fri Sep 24 22:00:25 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -14,22 +14,27 @@ Test case printCountries no_number_population.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries only_comma_population.csv
-Line_1_did_not_match
-Line_2_did_not_match
-Line_3_did_not_match
-Your file did not match the expected ouput
+Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries no_country_population.csv
 Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printCountries nonsense_population.csv
-Your file matched the expected output
+Line_1_did_not_match
+Your file did not match the expected ouput
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
 Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printCountries weird_population.csv
-Your file matched the expected output
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Your file did not match the expected ouput
 
 Compiling printRunningAvg
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
