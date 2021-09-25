@@ -1,6 +1,6 @@
-Grading at 09/25/2021:02:28:26.149095
-For commit ID b71754b0abf70b8fb244bc4af237537e382def0d
-Grading at Fri Sep 24 22:28:19 EDT 2021
+Grading at 09/25/2021:02:47:12.817547
+For commit ID e8aad23eab3214f51fa2689a2d063b848421a790
+Grading at Fri Sep 24 22:47:04 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -8,22 +8,34 @@ rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
 +-----------------------------------------------------------------------+
 Test case printCountries miss_comma_population.csv
-Your program successfully indicated a failure case
+Line_1_did_not_match
+Your file did not match the expected ouput
 +-----------------------------------------------------------------------+
 Test case printCountries no_number_population.csv
-Your program successfully indicated a failure case
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Your file did not match the expected ouput
 +-----------------------------------------------------------------------+
 Test case printCountries only_comma_population.csv
-Your program successfully indicated a failure case
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Your file did not match the expected ouput
 +-----------------------------------------------------------------------+
 Test case printCountries nonsense_population.csv
-Your program successfully indicated a failure case
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Your file did not match the expected ouput
 +-----------------------------------------------------------------------+
 Test case printCountries weird_population.c
-Your program successfully indicated a failure case
+Line_1_did_not_match
+Your file did not match the expected ouput
 +-----------------------------------------------------------------------+
 Test case printCountries has_empty_line_population.csv
-Your program successfully indicated a failure case
+Line_1_did_not_match
+Your file did not match the expected ouput
 +-----------------------------------------------------------------------+
 Test case printCountries no_country_population.csv
 Your file matched the expected output
@@ -41,7 +53,14 @@ Your file matched the expected output
 Test case printRunningAvg population.csv too_few_days_cases.csv
 Your file matched the expected output
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+Compiling printCumulative
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
++-----------------------------------------------------------------------+
+Test case printCumulative population.csv daily_small.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
