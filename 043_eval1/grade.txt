@@ -1,6 +1,6 @@
-Grading at 09/26/2021:15:31:18.077458
-For commit ID 3525a949d576c3b412e69d68bb4f976cb3ad2fdb
-Grading at Sun Sep 26 11:31:11 EDT 2021
+Grading at 09/26/2021:23:57:07.400621
+For commit ID e72d11542450cd67b126051a0e41530fb8b4d12f
+Grading at Sun Sep 26 19:57:03 EDT 2021
 Running your test cases
 
 Compiling printDailyMax
@@ -17,27 +17,7 @@ Compiling printCountries
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
 +-----------------------------------------------------------------------+
-Test case printCountries no_country_population.csv
-Your file matched the expected output
-
-Compiling printRunningAvg
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv daily_cases.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv too_few_days_cases.csv
-Your file matched the expected output
-
-Compiling printCumulative
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv daily_cases.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv daily_small.csv
+Test case printCountries one_line_only_population.csv
 Your file matched the expected output
 
 Compiling printDailyMax
