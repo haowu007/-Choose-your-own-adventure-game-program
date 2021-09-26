@@ -81,10 +81,10 @@ void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) 
     exit(EXIT_FAILURE);
   }
   unsigned sum = 0;
-  uint64_t base = pop / 100000;
+  double base = ((double)pop) / 100000;
   for (size_t i = 0; i < n_days; i++) {
     sum += *data;
-    *cum = ((double)sum) / base;
+    *cum = (double)(sum / base);
     data++;
     cum++;
   }
