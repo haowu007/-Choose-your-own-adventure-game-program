@@ -4,7 +4,7 @@
 #error
 printDailyMax population.csv daily_no_country.csv
 printDailyMax population.csv daily_no_cases.csv 
-
+printCountries no_country_population.csv
 
 #success
 printRunningAvg population.csv daily_cases.csv
