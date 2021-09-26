@@ -117,9 +117,10 @@ void printCountryWithMax(country_t * countries,
   size_t j = 0;
   unsigned cur_cases = 0;
   char * ans_country = NULL;
-  unsigned max_within_one_country[n_countries];
+  unsigned
+      maxs[n_countries];  //maxs[i] stores the max cases that were of the countries[i]
   for (i = 0; i < n_countries; i++) {
-    max_within_one_country[i] = 0;
+    maxs[i] = 0;
   }  //initialize the newly created arry to all zeors
 
   for (i = 0; i < n_countries; i++) {
@@ -128,7 +129,7 @@ void printCountryWithMax(country_t * countries,
       cur_cases = data[i][j];
       if (cur_cases > cur_max_cases) {
         cur_max_cases = cur_cases;
-        max_within_one_country[i] = cur_max_cases;
+        maxs[i] = cur_max_cases;
       }
       if (cur_cases > max_of_all) {
         max_of_all = cur_cases;
@@ -137,7 +138,7 @@ void printCountryWithMax(country_t * countries,
   }
   //Now we have the max daily cases for each country. This is stored in max_within_one_country[]
   for (i = 0; i < n_countries; i++) {
-    if (max_within_one_country[i] == max_of_all) {
+    if (maxs[i] == max_of_all) {
       ans_country = countries[i].name;
       winners++;
     }

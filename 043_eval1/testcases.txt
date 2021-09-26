@@ -11,8 +11,7 @@ printCountries no_country_population.csv
 printCountries population.csv
 printRunningAvg population.csv daily_cases.csv
 printRunningAvg population.csv too_few_days_cases.csv 
-printCumulative population.csv daily_small.csv
+printCumulative population.csv daily_cases.csv
 printDailyMax population.csv daily_cases.csv
-printDailyMax population.csv daily_small.csv
 printDailyMax population.csv daily_tie.csv 
 
