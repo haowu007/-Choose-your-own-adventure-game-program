@@ -7,11 +7,7 @@ printDailyMax population.csv daily_no_cases.csv
 
 
 #success
-printCountries no_country_population.csv 
-printRunningAvg population.csv daily_cases.csv
-printRunningAvg population.csv too_few_days_cases.csv 
-printCumulative population.csv daily_cases.csv
-printCumulative population.csv daily_small.csv
+printCountries one_line_only_population.csv
 printDailyMax population.csv daily_cases.csv
 printDailyMax population.csv daily_tie.csv 
 
