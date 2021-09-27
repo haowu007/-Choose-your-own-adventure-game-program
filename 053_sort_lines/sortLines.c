@@ -35,7 +35,7 @@ void printFromstdin(void) {
   }
   free(lines);
 }
-
+/*
 void printFromInput(int argc, char ** argv) {
   char * curr = NULL;
   char ** lines = NULL;
@@ -73,15 +73,15 @@ void printFromInput(int argc, char ** argv) {
     i = 0;
   }
 }
-
+*/
 int main(int argc, char ** argv) {
   if (argc == 1) {  //read from stdin!
     printFromstdin();
   }
-
-  if (argc > 1) {
+  /*if (argc > 1) {
     //  printf("In main->agrv>1,argc is %d, argv is %s.\n", argc, argv[1]);
     printFromInput(argc, argv);
   }
+  */
   return EXIT_SUCCESS;
 }
