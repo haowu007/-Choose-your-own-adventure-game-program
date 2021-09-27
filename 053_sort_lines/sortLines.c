@@ -35,7 +35,7 @@ void printFromstdin(void) {
   }
   free(lines);
 }
-/*
+
 void printFromInput(int argc, char ** argv) {
   char * curr = NULL;
   char ** lines = NULL;
@@ -51,6 +51,10 @@ void printFromInput(int argc, char ** argv) {
     }
     while (getline(&curr, &linecap, f) >= 0) {
       lines = realloc(lines, (i + 1) * sizeof(*lines));
+      if (lines == NULL) {
+        fprintf(stderr, "realloc failed!\n");
+        exit(EXIT_FAILURE);
+      }
       lines[i] = curr;
       curr = NULL;
       i++;
@@ -63,6 +67,10 @@ void printFromInput(int argc, char ** argv) {
       exit(EXIT_SUCCESS);
     }
     f = NULL;
+    if (lines == NULL) {
+      fprintf(stderr, "no things to sort!\n");
+      exit(EXIT_FAILURE);
+    }
     sortData(lines, i);
     for (size_t j = 0; j < i; j++) {
       printf("%s", lines[j]);
@@ -73,15 +81,15 @@ void printFromInput(int argc, char ** argv) {
     i = 0;
   }
 }
-*/
+
 int main(int argc, char ** argv) {
   if (argc == 1) {  //read from stdin!
     printFromstdin();
   }
-  /*if (argc > 1) {
+  if (argc > 1) {
     //  printf("In main->agrv>1,argc is %d, argv is %s.\n", argc, argv[1]);
     printFromInput(argc, argv);
   }
-  */
+
   return EXIT_SUCCESS;
 }
