@@ -45,11 +45,8 @@ country_t parseLine(char * line) {
     exit(EXIT_FAILURE);
   }
   while (*line != '\n' && *line != '\0') {  //Keep reading in population information
-    if (*line < '0' ||
-        *line >
-            '9') {  //error handling: the string we found cannot represent a valid number
-      fprintf(stderr, "invalid number!");
-      exit(EXIT_FAILURE);
+    if (*line < '0' || *line > '9') {
+      break;
     }
     popul[j] = *line;
     j++;
@@ -123,13 +120,8 @@ void printCountryWithMax(country_t * countries,
       0;  //the case number for the currently processing day for a given country
   char * ans_country = NULL;   //the name for the country that had the max data
   unsigned maxs[n_countries];  //maxs[i] stores the max cases for the (i+1)th country
-  if (n_countries < 1) {       //error handling: no country
-    fprintf(stderr, "No enough countries!");
-    exit(EXIT_FAILURE);
-  }
-  if (n_days < 1) {  //error handling: no day
-    fprintf(stderr, "No enough days!");
-    exit(EXIT_FAILURE);
+  if (n_countries < 1 || n_days < 1) {
+    return;
   }
   if (countries == NULL) {  // error handling: NULL input
     fprintf(stderr, "No country found!");
