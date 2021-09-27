@@ -1,46 +1,22 @@
-Grading at 09/27/2021:22:03:10.397419
-For commit ID ce9c198d7aa7d72494d9f77f34d0e19905f00180
-Grading at Mon Sep 27 18:03:05 EDT 2021
+Grading at 09/27/2021:22:07:03.935573
+For commit ID 222586e2cde76f5af83f953b7cd972eec4951885
+Grading at Mon Sep 27 18:07:00 EDT 2021
 Running your test cases
 
 Compiling printCountries
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
 +-----------------------------------------------------------------------+
+Test case printCountries only_-_population.csv
+Your program did not indicate a failure case
++-----------------------------------------------------------------------+
 Test case printCountries population.csv
 Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printCountries nagetive_num_population.csv
-Line_1_did_not_match
-Line_2_did_not_match
-Line_3_did_not_match
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printCountries 123abc_population.csv
-Your file matched the expected output
-
-Compiling printRunningAvg
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv daily_cases.csv
-Your file matched the expected output
-
-Compiling printCumulative
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv daily_cases.csv
-Your file matched the expected output
-
-Compiling printDailyMax
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
-+-----------------------------------------------------------------------+
-Test case printDailyMax population.csv daily_cases.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printDailyMax population.csv daily_tie.csv
 Your file matched the expected output
 
 You have FAILED one or more of your test cases
