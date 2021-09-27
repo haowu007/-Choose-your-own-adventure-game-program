@@ -63,15 +63,15 @@ void printFromInput(int argc, char ** argv) {
       exit(EXIT_SUCCESS);
     }
     f = NULL;
+    sortData(lines, i);
+    for (size_t j = 0; j < i; j++) {
+      printf("%s", lines[j]);
+      free(lines[j]);
+    }
+    free(lines);
+    lines = NULL;
+    i = 0;
   }
-  sortData(lines, i);
-
-  for (size_t j = 0; j < i; j++) {
-    printf("%s", lines[j]);
-    free(lines[j]);
-  }
-
-  free(lines);
 }
 
 int main(int argc, char ** argv) {
