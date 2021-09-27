@@ -44,6 +44,11 @@ country_t parseLine(char * line) {
     fprintf(stderr, "No population data!");
     exit(EXIT_FAILURE);
   }
+  if (*line == '-') {  //nagative number!
+    popul[j] = *line;
+    j++;
+    line++;
+  }
   while (*line != '\n' && *line != '\0') {  //Keep reading in population information
     if (*line < '0' || *line > '9') {
       break;
