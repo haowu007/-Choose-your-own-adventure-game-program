@@ -1,9 +1,8 @@
 
-#error
-printCountries has_empty_line_population.csv
-printCountries miss_comma_population.csv
-printCountries no_number_population.csv
-printCountries nonsense_population.csv
+#success
+printCountries no_country_population.csv
+printCountries nagetive_num_population.csv
+printCountries population.csv
+printCountries 123abc_population.csv
+printCountries invalid_population.csv
 printCountries one_line_only_population.csv
-printCountries only_comma_population.csv
-printCountries weird_population.csv
