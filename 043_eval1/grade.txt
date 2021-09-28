@@ -1,22 +1,20 @@
-Grading at 09/27/2021:22:09:37.045551
-For commit ID 8b4e2d1b557540034979ff74812a20c254ea2a96
-Grading at Mon Sep 27 18:09:34 EDT 2021
+Grading at 09/28/2021:04:15:06.415160
+For commit ID f7e10c1c7d653730843e5145fea61f82c3fbbb04
+Grading at Tue Sep 28 00:15:04 EDT 2021
 Running your test cases
 
-Compiling printCountries
+Compiling printRunningAvg
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
 +-----------------------------------------------------------------------+
-Test case printCountries only_-_population.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries population.csv
+Test case printRunningAvg population.csv too_few_days_cases.csv
 Your file matched the expected output
+
+Compiling printCumulative
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
 +-----------------------------------------------------------------------+
-Test case printCountries nagetive_num_population.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCountries 123abc_population.csv
+Test case printCumulative population.csv too_few_days_cases.csv
 Your file matched the expected output
 
 You have PASSED all of your test cases
