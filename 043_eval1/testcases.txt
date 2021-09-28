@@ -1,10 +1,8 @@
 
 
 
-#error
-printCountries only_-_population.csv
+
 
 #success
-printCountries population.csv
-printCountries nagetive_num_population.csv
-printCountries 123abc_population.csv
+printRunningAvg population.csv too_few_days_cases.csv
+printCumulative population.csv too_few_days_cases.csv

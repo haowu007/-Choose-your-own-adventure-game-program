@@ -78,8 +78,7 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
     exit(EXIT_FAILURE);
   }
   if (n_days < 7) {  //error handling: too few day for a 7-day-average
-    fprintf(stderr, "No enough days to calculate!\n");
-    exit(EXIT_FAILURE);
+    return;
   }
   for (size_t i = 0; i < n_days - 6; i++) {
     cur_total = 0;  //for each 7-day-group, add up the cases number from zero
