@@ -1,20 +1,34 @@
-Grading at 09/28/2021:04:15:06.415160
-For commit ID f7e10c1c7d653730843e5145fea61f82c3fbbb04
-Grading at Tue Sep 28 00:15:04 EDT 2021
+Grading at 09/28/2021:17:46:34.108047
+For commit ID 9d1a18ad70fe0577decb17cb3d377318008d10a2
+Grading at Tue Sep 28 13:46:30 EDT 2021
 Running your test cases
+
+Compiling printCountries
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
++-----------------------------------------------------------------------+
+Test case printCountries population.csv
+Your file matched the expected output
 
 Compiling printRunningAvg
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
 +-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv too_few_days_cases.csv
+Test case printRunningAvg population.csv daily_cases.csv
 Your file matched the expected output
 
 Compiling printCumulative
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
 +-----------------------------------------------------------------------+
-Test case printCumulative population.csv too_few_days_cases.csv
+Test case printCumulative population.csv daily_cases.csv
+Your file matched the expected output
+
+Compiling printDailyMax
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
++-----------------------------------------------------------------------+
+Test case printDailyMax population.csv daily_cases.csv
 Your file matched the expected output
 
 You have PASSED all of your test cases
