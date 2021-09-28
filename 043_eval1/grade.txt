@@ -1,34 +1,31 @@
-Grading at 09/28/2021:18:18:43.216154
-For commit ID 9ba7911eb068c87f81af1d9623a53d30f7cd473b
-Grading at Tue Sep 28 14:18:39 EDT 2021
+Grading at 09/28/2021:18:22:23.641460
+For commit ID 3459fcc30a86e62500dcf572a5f6f01884d9aa60
+Grading at Tue Sep 28 14:22:19 EDT 2021
 Running your test cases
 
 Compiling printCountries
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
 +-----------------------------------------------------------------------+
-Test case printCountries has_empty_line_population.csv
-Your program successfully indicated a failure case
+Test case printCountries no_country_population.csv
+Your file matched the expected output
 +-----------------------------------------------------------------------+
-Test case printCountries miss_comma_population.csv
-Your program successfully indicated a failure case
+Test case printCountries nagetive_num_population.csv
+Your file matched the expected output
 +-----------------------------------------------------------------------+
-Test case printCountries no_number_population.csv
-Your program successfully indicated a failure case
+Test case printCountries population.csv
+Your file matched the expected output
 +-----------------------------------------------------------------------+
-Test case printCountries nonsense_population.csv
-Your program successfully indicated a failure case
+Test case printCountries 123abc_population.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries invalid_population.csv
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printCountries one_line_only_population.csv
-Our printCountries does not consider this an error case
-+-----------------------------------------------------------------------+
-Test case printCountries only_comma_population.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries weird_population.csv
-Your program successfully indicated a failure case
+Your file matched the expected output
 
-You have FAILED one or more of your test cases
-Keep debugging
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
