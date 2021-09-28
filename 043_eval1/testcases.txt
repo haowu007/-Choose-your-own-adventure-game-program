@@ -1,8 +1,5 @@
 
-#error
-printRunningAvg population.csv daily_no_country.csv
-printRunningAvg population.csv daily_no_cases.csv
-
-
 #success
-printRunningAvg population.csv daily_4_days.csv
+
+printCumulative population.csv daily_4_days.csv
+printDailyMax population.csv daily_4_days.csv
