@@ -1,7 +1,7 @@
 
 #error
 printRunningAvg population.csv daily_no_country.csv
-printRunningavg population.csv daily_no_cases.csv
+printRunningAvg population.csv daily_no_cases.csv
 
 
 #success
