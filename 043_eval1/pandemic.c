@@ -40,11 +40,11 @@ country_t parseLine(char * line) {
   else if (*line == ',') {
     line++;  //read pass the comma
   }
-  if (*line == '\0' || *line == '\n') {  //error handling: no population number found
-    fprintf(stderr, "No population data!");
-    exit(EXIT_FAILURE);
-  }
-  if (*line == '-') {  //nagative number!
+  while (*line == ' ') {
+    line++;
+  }  // Apple,    2222 is Ok.
+  if (*line ==
+      '-') {  //nagetive number sign found, wait to see if we can find a number follow it
     popul[j] = *line;
     j++;
     line++;
@@ -53,10 +53,7 @@ country_t parseLine(char * line) {
     fprintf(stderr, "No numbers!\n");
     exit(EXIT_FAILURE);
   }
-  while (*line != '\n' && *line != '\0') {  //Keep reading in population information
-    if (*line < '0' || *line > '9') {
-      break;
-    }
+  while (*line > '0' && *line < '9') {  //Keep reading in population information
     popul[j] = *line;
     j++;
     line++;
