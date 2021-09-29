@@ -1,6 +1,6 @@
-Grading at 09/29/2021:20:05:46.544436
-For commit ID 42c731ee0059962bd634d40e8228a66ab8bde52b
-Grading at Wed Sep 29 16:05:43 EDT 2021
+Grading at 09/29/2021:20:09:32.627430
+For commit ID 803c872640af06052f397229fbcefa8bb2e42ee7
+Grading at Wed Sep 29 16:09:29 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -8,15 +8,7 @@ rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
-Line_1_did_not_match
-Line_2_did_not_match
-Line_3_did_not_match
-Line_4_did_not_match
-Line_5_did_not_match
-Line_7_did_not_match
-Line_8_did_not_match
-Line_9_did_not_match
-Your file did not match the expected output
+Your file matched the expected output
 
 Compiling printRunningAvg
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -30,15 +22,7 @@ rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
 +-----------------------------------------------------------------------+
 Test case printCumulative population.csv daily_cases.csv
-Line_2_did_not_match
-Line_4_did_not_match
-Line_6_did_not_match
-Line_8_did_not_match
-Line_10_did_not_match
-Line_14_did_not_match
-Line_16_did_not_match
-Line_18_did_not_match
-Your file did not match the expected output
+Your file matched the expected output
 
 Compiling printDailyMax
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -47,7 +31,7 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o prin
 Test case printDailyMax population.csv daily_cases.csv
 Your file matched the expected output
 
-You have FAILED one or more of your test cases
-Keep debugging
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
