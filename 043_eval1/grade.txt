@@ -1,28 +1,13 @@
-Grading at 09/29/2021:20:24:23.750051
-For commit ID 238715ccf770ecbf14e8414baf894776380e4e71
-Grading at Wed Sep 29 16:24:16 EDT 2021
+Grading at 09/29/2021:20:30:32.287969
+For commit ID 607861be4729ba4d54b0ce2da17fa5688c93bbd2
+Grading at Wed Sep 29 16:30:28 EDT 2021
 Running your test cases
 
 Compiling printCountries
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
 +-----------------------------------------------------------------------+
-Test case printCountries no_number_population.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries nonsense_population.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries only_comma_population.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries weird_population.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries space_before_country_population.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCountries one_line_only_population.csv
+Test case printCountries population.csv
 Your file matched the expected output
 
 Compiling printRunningAvg
