@@ -1,12 +1,6 @@
-#error
-printCountries no_number_population.csv
-printCountries nonsense_population.csv
-printCountries only_comma_population.csv
-printCountries weird_population.csv
 
 #success
-printCountries space_before_country_population.csv
-printCountries one_line_only_population.csv
+printCountries population.csv
 printRunningAvg population.csv daily_cases.csv
 printCumulative population.csv daily_cases.csv
 printDailyMax population.csv daily_cases.csv
