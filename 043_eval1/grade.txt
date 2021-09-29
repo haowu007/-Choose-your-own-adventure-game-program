@@ -1,34 +1,34 @@
-Grading at 09/29/2021:20:09:32.627430
-For commit ID 803c872640af06052f397229fbcefa8bb2e42ee7
-Grading at Wed Sep 29 16:09:29 EDT 2021
+Grading at 09/29/2021:20:15:58.910139
+For commit ID 41031aebad3c0524a3eef94ba3377092daff54e4
+Grading at Wed Sep 29 16:15:53 EDT 2021
 Running your test cases
 
 Compiling printCountries
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
 +-----------------------------------------------------------------------+
+Test case printCountries has_empty_line_population.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries miss_comma_population.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries invalid_population.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
 Test case printCountries population.csv
 Your file matched the expected output
-
-Compiling printRunningAvg
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
 +-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv daily_cases.csv
+Test case printCountries 123abc_population.csv
 Your file matched the expected output
-
-Compiling printCumulative
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
 +-----------------------------------------------------------------------+
-Test case printCumulative population.csv daily_cases.csv
+Test case printCountries nagetive_num_population.csv
 Your file matched the expected output
-
-Compiling printDailyMax
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
 +-----------------------------------------------------------------------+
-Test case printDailyMax population.csv daily_cases.csv
+Test case printCountries no_country_population.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries space_before_population.csv
 Your file matched the expected output
 
 You have PASSED all of your test cases
