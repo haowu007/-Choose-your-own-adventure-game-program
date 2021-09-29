@@ -1,6 +1,11 @@
+#error
+printCountries has_empty_line_population.csv
+printCountries miss_comma_population.csv
 
 #success
+printCountries invalid_population.csv
 printCountries population.csv
-printRunningAvg population.csv daily_cases.csv
-printCumulative population.csv daily_cases.csv
-printDailyMax population.csv daily_cases.csv
+printCountries 123abc_population.csv
+printCountries nagetive_num_population.csv
+printCountries no_country_population.csv
+printCountries space_before_population.csv
