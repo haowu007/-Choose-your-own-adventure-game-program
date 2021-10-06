@@ -1,6 +1,3 @@
-apple=red
-banana=yellow
 orange=orange
 grapes=purple
 carrot=orange
-eggplant=purple

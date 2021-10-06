@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int readaKey(FILE * f, kvarray_t * a) {
+int readaKey(FILE * f, kvarray_t * a, int i) {
   int c = 0;
   char cur = '0';
   int j = 0;
@@ -12,48 +12,48 @@ int readaKey(FILE * f, kvarray_t * a) {
     cur = (char)c;
     if (cur == '\n') {
       fprintf(stderr, "found new line character when loading KEY!!\n");
-      return 1;
+      return -1;
     }
-    a->kvarray[a->length].key =
-        realloc(a->kvarray[a->length].key, (j + 1) * sizeof(char));
+    a->kvarray[i].key =
+        realloc(a->kvarray[i].key, (j + 1) * sizeof(*(a->kvarray[i].key)));
     if (a->kvarray[a->length].key == NULL) {
       fprintf(stderr, "falied reallocating space for key!\n");
       return 0;
     }
     if (cur == '=') {
-      a->kvarray[a->length].key[j] = '\0';
-
+      a->kvarray[i].key[j] = '\0';
       return 0;
     }
     else {
-      a->kvarray[a->length].key[j] = cur;
+      a->kvarray[i].key[j] = cur;
       j++;
     }
   }
   return (j == 0) ? 1 : -1;  // end of file found!
 }
 
-void readaValue(FILE * f, kvarray_t * a) {
+void readaValue(FILE * f, kvarray_t * a, int i) {
   int c = 0;
   char cur = '0';
   int j = 0;
   while ((c = fgetc(f)) != EOF) {
     cur = (char)c;
-    a->kvarray[a->length].value =
-        realloc(a->kvarray[a->length].value, (j + 1) * sizeof(char));
-    if (a->kvarray[a->length].value == NULL) {
+    a->kvarray[i].value =
+        realloc(a->kvarray[i].value, (j + 1) * sizeof(*(a->kvarray[i].value)));
+    if (a->kvarray[i].value == NULL) {
       fprintf(stderr, "Falied realloc space for value!\n");
       return;
     }
     if (cur == '\n') {
-      a->kvarray[a->length].value[j] = '\0';
+      a->kvarray[i].value[j] = '\0';
       return;
     }
     else {
-      a->kvarray[a->length].value[j] = cur;
+      a->kvarray[i].value[j] = cur;
       j++;
     }
   }
+
   return;
 }
 
@@ -68,35 +68,29 @@ kvarray_t * readKVs(const char * fname) {
   if (ans == NULL) {
     return NULL;
   }
-  ans->kvarray = malloc(sizeof(*ans));
-  if (ans->kvarray == NULL) {
-    return NULL;
-  }
+  ans->kvarray = NULL;
   ans->length = 0;
-  if (ans == NULL) {
-    fprintf(stderr, "Failed when mallocing space for the kvarray_t pointer!\n");
-    return NULL;
-  }
   int endflag = 0;
   int i = 0;
   while (1) {
-    ans->kvarray = realloc(ans->kvarray, (i + 1) * sizeof(*ans));
-    ans->kvarray[i].key = NULL;
-    ans->kvarray[i].value = NULL;
+    ans->kvarray = realloc(ans->kvarray, (i + 1) * sizeof(*ans->kvarray));
     if (ans->kvarray == NULL) {
       return NULL;
     }
-    i++;
-    ans->length = i;
-    endflag = readaKey(f, ans);
+    ans->kvarray[i].key = NULL;
+    ans->kvarray[i].value = NULL;
+    endflag = readaKey(f, ans, i);
     if (endflag == 1) {
+      free(ans->kvarray[i].key);
       break;
     }
     if (endflag == -1) {
       fprintf(stderr, "Reach end of file when loeading some KEY!!\n");
       return NULL;
     }
-    readaValue(f, ans);
+    readaValue(f, ans, i);
+    i++;
+    ans->length = i;
   }
   if (fclose(f) != 0) {
     fprintf(stderr, "Failed when closing the file!");
@@ -104,21 +98,18 @@ kvarray_t * readKVs(const char * fname) {
   }
   return ans;
 }
-//WRITE ME
 
 void freeKVs(kvarray_t * pairs) {
-  //WRITE ME
   int n = pairs->length;
   for (int i = 0; i < n; i++) {
-    free(pairs->kvarray[n].key);
-    free(pairs->kvarray[n].value);
+    free(pairs->kvarray[i].key);
+    free(pairs->kvarray[i].value);
   }
   free(pairs->kvarray);
   free(pairs);
 }
 
 void printKVs(kvarray_t * pairs) {
-  //WRITE ME
   for (int i = 0; i < pairs->length; i++) {
     printf("key = '%s' value = '%s'\n", pairs->kvarray[i].key, pairs->kvarray[i].value);
   }
@@ -126,7 +117,6 @@ void printKVs(kvarray_t * pairs) {
 }
 
 char * lookupValue(kvarray_t * pairs, const char * key) {
-  //WRITE ME
   for (int i = 0; i < pairs->length; i++) {
     if (strcmp(key, pairs->kvarray[i].key) == 0) {
       return pairs->kvarray[i].value;
