@@ -118,6 +118,10 @@ void printKVs(kvarray_t * pairs) {
 
 char * lookupValue(kvarray_t * pairs, const char * key) {
   for (int i = 0; i < pairs->length; i++) {
+    //    printf("comparing %s with %s,the result was %d !!!\n",
+    //           key,
+    //     pairs->kvarray[i].key,
+    //     strcmp(key, pairs->kvarray[i].key));
     if (strcmp(key, pairs->kvarray[i].key) == 0) {
       return pairs->kvarray[i].value;
     }
