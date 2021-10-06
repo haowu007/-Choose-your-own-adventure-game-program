@@ -86,6 +86,8 @@ kvarray_t * readKVs(const char * fname) {
     if (ans->kvarray == NULL) {
       return NULL;
     }
+    i++;
+    ans->length = i;
     endflag = readaKey(f, ans);
     if (endflag == 1) {
       break;
@@ -95,8 +97,6 @@ kvarray_t * readKVs(const char * fname) {
       return NULL;
     }
     readaValue(f, ans);
-    i++;
-    ans->length = i;
   }
   if (fclose(f) != 0) {
     fprintf(stderr, "Failed when closing the file!");
