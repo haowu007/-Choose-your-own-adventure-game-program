@@ -25,6 +25,8 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
     line = NULL;
     sz = 0;
   }
+  free(
+      line);  // the last time we read yet read in length 0, there was also memory allocated!!!
 
   if (fclose(f) != 0) {
     fprintf(stderr, "falied when closing %s\n!", filename);
