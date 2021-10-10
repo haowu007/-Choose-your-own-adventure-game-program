@@ -2,7 +2,6 @@
 #include <cstdlib>
 
 #include "vector.hpp"
-
 int main(void) {
   Vector2D v1;
   Vector2D v2;
