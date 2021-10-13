@@ -73,6 +73,8 @@ void printFromInput(int argc, char ** argv) {
     }
     sortData(lines, i);
     for (size_t j = 0; j < i; j++) {
+      printf("It's already in %lu!\n", j);
+
       printf("%s", lines[j]);
       free(lines[j]);
     }

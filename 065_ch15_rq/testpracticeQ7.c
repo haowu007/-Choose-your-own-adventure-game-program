@@ -20,6 +20,8 @@ int contains(one_line * s, size_t m, char * c, int n) {
 }
 void freespaces(one_line * l, size_t i) {
   for (size_t j = 0; j < i; j++) {
+    printf("%lu succeeded!!!!!\n", j);
+
     free(l[j].c);
   }
   free(l);
