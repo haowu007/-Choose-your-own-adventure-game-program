@@ -1,0 +1,11 @@
+Grading at 10/14/2021:02:19:46.969735
+For commit ID 82329538519c812381b4a8ae405cce98f0db40e6
+Grading at Wed Oct 13 22:19:46 EDT 2021
+Attempting to compile:
+rm -f  point.o  main.o circles *~
+g++  -Wall -Werror -std=gnu++98 -pedantic -ggdb3  -c -o point.o point.cpp
+g++  -Wall -Werror -std=gnu++98 -pedantic -ggdb3  -c -o main.o main.cpp
+<builtin>: recipe for target 'main.o' failed
+The code did not compile!
+
+Overall Grade: FAILED
