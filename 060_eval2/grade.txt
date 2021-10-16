@@ -1,6 +1,6 @@
-Grading at 10/16/2021:18:32:25.027536
-For commit ID 6e122648832dcd2ee2ff934f16754157304f2c59
-Grading at Sat Oct 16 14:32:23 EDT 2021
+Grading at 10/16/2021:18:33:58.516958
+For commit ID ff8159702b732611e6adbc3796ed3156c9a03ba4
+Grading at Sat Oct 16 14:33:55 EDT 2021
 Running your test cases
 
 Compiling story-step1
@@ -16,7 +16,17 @@ Your program successfully indicated a failure case
 Test case story-step1 only_3_blanks.txt
 Hi!everyone,
 Your program successfully indicated a failure case
-Program must be one of story-step1 story-step2 story-step3 story-step4
-But found "story_step1"
++-----------------------------------------------------------------------+
+Test case story-step1 no_blank.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case story-step1 story.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case story-step1 story2.txt
+Your file matched the expected output
+
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
