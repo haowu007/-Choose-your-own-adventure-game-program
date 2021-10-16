@@ -1,0 +1,9 @@
+
+#error
+story-step1 only_1_blank.txt
+story-step1 only_3_blanks.txt
+
+#success
+story_step1 no_blank.txt
+story step1 story.txt
+story_step1 story2.txt

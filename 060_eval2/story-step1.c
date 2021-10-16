@@ -11,10 +11,9 @@ void ChangeandPrint(char * c) {
   char * category = NULL;
   char * changed_string = NULL;
   size_t len = 0;
-  int foundsth = 0;
+
   const char * changed_word = NULL;
   while ((blank_found = strchr(c, '_')) != NULL) {
-    foundsth = 1;
     blank_pre = blank_found;  //ready to find the corresponding post_blank
     *blank_pre = '\0';
     if ((blank_found = strchr(blank_pre + 1, '_')) ==
@@ -39,9 +38,8 @@ void ChangeandPrint(char * c) {
     snprintf(c, len, "%s%s", changed_string, blank_post + 1);
     free(changed_string);
   }
-  if (foundsth == 1) {
-    printf("%s", c);
-  }
+
+  printf("%s", c);
 
   return;
 }
