@@ -2,6 +2,7 @@
 #error
 story-step1 only_1_blank.txt
 story-step1 only_3_blanks.txt
+story-step1 story.txt story2.txt
 
 #success
 story-step1 no_blank.txt

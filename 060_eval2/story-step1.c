@@ -46,9 +46,13 @@ void ChangeandPrint(char * c) {
 
 int main(int argc, char ** argv) {
   if (argc != 2) {  //error handilng
+    fprintf(stderr, "Please type one input file!\n");
+    exit(EXIT_FAILURE);
   }
   FILE * f = fopen(argv[1], "r");
   if (f == NULL) {  //error handling
+    fprintf(stderr, "fopen failed!\n");
+    exit(EXIT_FAILURE);
   }
   char * curr = NULL;
   int endflag = 0;
