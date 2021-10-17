@@ -1,6 +1,6 @@
-Grading at 10/17/2021:17:15:40.770392
-For commit ID d9c3f1cac184344a745e2bbe52f5bbfb26b85453
-Grading at Sun Oct 17 13:15:36 EDT 2021
+Grading at 10/17/2021:17:23:46.946039
+For commit ID f0a17dac077c42855c10d47d294cdc77825e7a30
+Grading at Sun Oct 17 13:23:40 EDT 2021
 Running your test cases
 
 Compiling story-step2
@@ -41,6 +41,21 @@ Your file matched the expected output
 
 Compiling story-step4
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
-The code did not compile!
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step4.c
+gcc -o story-step4 story-step4.o rand_story.o provided.o
+rm story-step4.o
++-----------------------------------------------------------------------+
+Test case story-step4 -n words.txt story2.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case story-step4 -n words.txt story3.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case story-step4 words.txt story2.txt
+Your file matched the expected output
+
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
