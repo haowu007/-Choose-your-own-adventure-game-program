@@ -1,4 +1,5 @@
-
+#error
+story-step3 words.txt invaid_num_story.txt
 
 
 #success
