@@ -32,7 +32,10 @@ const char * findused(category_t * used_words, long index) {
   return NULL;
 }
 
-void ChangeandPrint(char * c, catarray_t * cats, category_t * used_words) {
+void ChangeandPrint(char * c,
+                    catarray_t * cats,
+                    category_t * used_words,
+                    int reuse_enable) {
   char * blank_found = NULL;
   char * blank_pre = NULL;
   char * blank_post = NULL;
@@ -94,11 +97,38 @@ void ChangeandPrint(char * c, catarray_t * cats, category_t * used_words) {
         }
       }
       //Now we need to record this selected changed_word choice
-
       used_words->words =
           realloc(used_words->words, (1 + used_words->n_words) * sizeof(char *));
       used_words->words[used_words->n_words] = changed_word;
       used_words->n_words++;
+      //Now we need to remove a word from the data structure if its's still in our caterogies table and resuing words is banned
+      if (reuse_enable == 0) {
+        if (contains(cats, category) ==
+            1) {  // We just used a category-determined changing instead of integer-based changing
+          for (size_t j = 0; j < cats->n; j++) {
+            if (strcmp(cats->arr[j].name, category) == 0) {
+              const char ** temp_words =
+                  malloc((cats->arr[j].n_words - 1) * sizeof(char *));
+              size_t k = 0;
+              if (temp_words == NULL) {  //error handling
+                fprintf(stderr, "Malloc failed!\n");
+                exit(EXIT_FAILURE);
+              }
+              for (size_t i = 0; i < cats->arr[j].n_words; i++) {
+                if (strcmp(changed_word, cats->arr[j].words[i]) != 0) {
+                  temp_words[k] = cats->arr[j].words[i];
+                  k++;
+                  cats->arr[j].words[i] = NULL;
+                }
+              }
+              free(cats->arr[j].words);
+              cats->arr[j].words = temp_words;
+              cats->arr[j].n_words = k;
+              break;
+            }
+          }
+        }
+      }
     }
     len = strlen(c) + strlen(changed_word) + 10;  //this should be enough!
     changed_string = malloc(len * sizeof(char));
@@ -162,7 +192,7 @@ void freelinesandcats(linesandcats_t * LandC) {
   free(LandC);
 }
 
-void parseStoryandchange(char * argv, linesandcats_t * LandC) {
+void parseStoryandchange(char * argv, linesandcats_t * LandC, int reuse_enable) {
   FILE * f = fopen(argv, "r");
   if (f == NULL) {
     fprintf(stderr, "fopen failed!");
@@ -180,8 +210,8 @@ void parseStoryandchange(char * argv, linesandcats_t * LandC) {
     ChangeandPrint(
         curr,
         LandC->cats,
-        LandC
-            ->used_words);  //change words for all the 'blanks' in this one line and print the result of these changes
+        LandC->used_words,
+        reuse_enable);  //change words for all the 'blanks' in this one line and print the result of these changes
     // free(curr);  //After print, this line is of no use now, so we free the space
   }
   if (fclose(f) != 0) {

@@ -18,7 +18,8 @@ int main(int argc, char ** argv) {
   LandC->cats = NULL;
   LandC->used_words = NULL;
   LandC->n = 0;
-  parseStoryandchange(argv[1], LandC);
+  int reuse_enable = 1;
+  parseStoryandchange(argv[1], LandC, reuse_enable);
   freelinesandcats(LandC);
   return EXIT_SUCCESS;
 }

@@ -19,9 +19,12 @@ typedef struct linesandcats linesandcats_t;
 
 char * getoneline(FILE * f);
 int contains(catarray_t * cats, char * category);
-void ChangeandPrint(char * c, catarray_t * cats, category_t * used_words);
+void ChangeandPrint(char * c,
+                    catarray_t * cats,
+                    category_t * used_words,
+                    int reuse_enable);
 void addword(char * name, char * word, catarray_t * cats);
-void parseStoryandchange(char * argv, linesandcats_t * LandC);
+void parseStoryandchange(char * argv, linesandcats_t * LandC, int reuse_enable);
 void freelinesandcats(linesandcats_t * Landc);
 linesandcats_t * ParseCategory(char * argv, int printflag);
 
