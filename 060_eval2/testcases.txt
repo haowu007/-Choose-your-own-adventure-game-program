@@ -2,10 +2,11 @@
 #error
 story-step2 no_colon_word.txt
 story-step2 empty_line_word.txt
-
+story-step1 only-3-blanks.txt
 
 
 #success
 story-step2 words.txt
 story-step2 only_colon_word.txt
 story-step2 weird_word.txt
+story-step1 story.txt
