@@ -32,6 +32,33 @@ const char * findused(category_t * used_words, long index) {
   return NULL;
 }
 
+void throw_a_word(catarray_t * cats, char * category, const char * changed_word) {
+  if (contains(cats, category) ==
+      1) {  // We just used a category-determined changing instead of integer-based changing
+    for (size_t j = 0; j < cats->n; j++) {
+      if (strcmp(cats->arr[j].name, category) == 0) {
+        const char ** temp_words = malloc((cats->arr[j].n_words - 1) * sizeof(char *));
+        size_t k = 0;
+        if (temp_words == NULL) {  //error handling
+          fprintf(stderr, "Malloc failed!\n");
+          exit(EXIT_FAILURE);
+        }
+        for (size_t i = 0; i < cats->arr[j].n_words; i++) {
+          if (strcmp(changed_word, cats->arr[j].words[i]) != 0) {
+            temp_words[k] = cats->arr[j].words[i];
+            k++;
+            cats->arr[j].words[i] = NULL;
+          }
+        }
+        free(cats->arr[j].words);
+        cats->arr[j].words = temp_words;
+        cats->arr[j].n_words = k;
+        break;
+      }
+    }
+  }
+}
+
 void ChangeandPrint(char * c,
                     catarray_t * cats,
                     category_t * used_words,
@@ -103,31 +130,7 @@ void ChangeandPrint(char * c,
       used_words->n_words++;
       //Now we need to remove a word from the data structure if its's still in our caterogies table and resuing words is banned
       if (reuse_enable == 0) {
-        if (contains(cats, category) ==
-            1) {  // We just used a category-determined changing instead of integer-based changing
-          for (size_t j = 0; j < cats->n; j++) {
-            if (strcmp(cats->arr[j].name, category) == 0) {
-              const char ** temp_words =
-                  malloc((cats->arr[j].n_words - 1) * sizeof(char *));
-              size_t k = 0;
-              if (temp_words == NULL) {  //error handling
-                fprintf(stderr, "Malloc failed!\n");
-                exit(EXIT_FAILURE);
-              }
-              for (size_t i = 0; i < cats->arr[j].n_words; i++) {
-                if (strcmp(changed_word, cats->arr[j].words[i]) != 0) {
-                  temp_words[k] = cats->arr[j].words[i];
-                  k++;
-                  cats->arr[j].words[i] = NULL;
-                }
-              }
-              free(cats->arr[j].words);
-              cats->arr[j].words = temp_words;
-              cats->arr[j].n_words = k;
-              break;
-            }
-          }
-        }
+        throw_a_word(cats, category, changed_word);
       }
     }
     len = strlen(c) + strlen(changed_word) + 10;  //this should be enough!

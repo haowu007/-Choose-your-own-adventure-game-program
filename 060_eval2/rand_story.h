@@ -19,6 +19,7 @@ typedef struct linesandcats linesandcats_t;
 
 char * getoneline(FILE * f);
 int contains(catarray_t * cats, char * category);
+void throw_a_word(catarray_t * cats, char * category, const char * changed_word);
 void ChangeandPrint(char * c,
                     catarray_t * cats,
                     category_t * used_words,
