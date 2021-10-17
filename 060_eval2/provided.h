@@ -5,7 +5,7 @@
 
 struct category_tag {
   char * name;
-  char ** words;
+  const char ** words;
   size_t n_words;
 };
 typedef struct category_tag category_t;

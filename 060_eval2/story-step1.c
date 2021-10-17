@@ -8,11 +8,6 @@ int main(int argc, char ** argv) {
     fprintf(stderr, "Please type one input file!\n");
     exit(EXIT_FAILURE);
   }
-  FILE * f = fopen(argv[1], "r");
-  if (f == NULL) {  //error handling
-    fprintf(stderr, "fopen failed!\n");
-    exit(EXIT_FAILURE);
-  }
 
   linesandcats_t * LandC = malloc(sizeof(*LandC));
   if (LandC == NULL) {
@@ -21,8 +16,9 @@ int main(int argc, char ** argv) {
   }
   LandC->lines = NULL;
   LandC->cats = NULL;
+  LandC->used_words = NULL;
   LandC->n = 0;
-  parseStoryandchange(f, LandC);
+  parseStoryandchange(argv[1], LandC);
   freelinesandcats(LandC);
   return EXIT_SUCCESS;
 }

@@ -13,16 +13,43 @@ char * getoneline(FILE * f) {
   }
 }
 
-void ChangeandPrint(char * c, catarray_t * cats) {
+int contains(catarray_t * cats, char * category) {
+  for (size_t i = 0; i < cats->n; i++) {
+    if (strcmp(category, cats->arr[i].name) == 0) {
+      return 1;
+    }
+  }
+
+  return 0;
+}
+
+const char * findused(category_t * used_words, long index) {
+  size_t i = (size_t)index;
+
+  if (i >= 1 && i <= used_words->n_words) {
+    return used_words->words[used_words->n_words - i];
+  }
+  return NULL;
+}
+
+void ChangeandPrint(char * c, catarray_t * cats, category_t * used_words) {
   char * blank_found = NULL;
   char * blank_pre = NULL;
   char * blank_post = NULL;
   char * category = NULL;
   char * changed_string = NULL;
   size_t len = 0;
+  int validnum_flag = 1;
+  long used_num_index = 0;
+  char buffer[10];
+  char * newc = NULL;
 
   const char * changed_word = NULL;
   while ((blank_found = strchr(c, '_')) != NULL) {
+    validnum_flag = 1;
+    for (size_t i = 0; i < 10; i++) {
+      buffer[i] = 0;
+    }
     blank_pre = blank_found;  //ready to find the corresponding post_blank
     *blank_pre = '\0';
     if ((blank_found = strchr(blank_pre + 1, '_')) ==
@@ -32,24 +59,66 @@ void ChangeandPrint(char * c, catarray_t * cats) {
     }
     blank_post = blank_found;
     *blank_post = '\0';
-    category = blank_pre++;
-    changed_word = chooseWord((category), cats);
+    category = blank_pre + 1;
+    if (cats == NULL) {
+      changed_word = chooseWord(category, NULL);
+    }
+    else {
+      len = strlen(category);
+      if ((len >= 1 && category[0] != '0') ||
+          len == 1) {  //And number that is not 0 can not start by 0
+        for (size_t i = 0; i < len; i++) {
+          if (category[i] < '0' || category[i] > '9') {
+            validnum_flag = 0;  // as long as one bit was not number, the flag will be 0
+            break;
+          }
+        }
+      }
+      else {
+        validnum_flag = 0;  // "012321312..." is not a valid nunber!
+      }
+      if (validnum_flag == 1) {
+        for (size_t i = 0; i < len; i++) {
+          buffer[i] = category[i];
+        }
+        used_num_index = strtol(buffer, NULL, 10);
+        changed_word = findused(used_words, used_num_index);
+      }
+      else {  // the category is not a valid number
+        if (contains(cats, category) == 1) {
+          changed_word = chooseWord(category, cats);
+        }
+        else {  //error handling: category is not a valid integer nor a valid category name
+          fprintf(stderr, "Category Name invalid!\n");
+          exit(EXIT_FAILURE);
+        }
+      }
+      //Now we need to record this selected changed_word choice
 
-    len = strlen(c) + strlen(changed_word) + 5;  //this should be enough!
+      used_words->words =
+          realloc(used_words->words, (1 + used_words->n_words) * sizeof(char *));
+      used_words->words[used_words->n_words] = changed_word;
+      used_words->n_words++;
+    }
+    len = strlen(c) + strlen(changed_word) + 10;  //this should be enough!
     changed_string = malloc(len * sizeof(char));
     if (changed_string == NULL) {
       fprintf(stderr, "malloc failed!\n");
       exit(EXIT_FAILURE);
     }
-    snprintf(changed_string, len, "%s%s", c, changed_word);
-
-    len = strlen(changed_string) + strlen(blank_post + 1) + 5;
-    snprintf(c, len, "%s%s", changed_string, blank_post + 1);
+    sprintf(changed_string, "%s%s", c, changed_word);
+    len = strlen(changed_string) + strlen(blank_post + 1) + 1;
+    //   printf("preffix:%s", changed_string);
+    //  printf("suffix:%s", blank_post + 1);
+    newc = malloc(len * sizeof(*newc));
+    sprintf(newc, "%s%s", changed_string, blank_post + 1);
+    //    printf("%s", newc);
     free(changed_string);
+    free(c);
+    c = newc;
   }
-
   printf("%s", c);
-
+  free(c);
   return;
 }
 
@@ -78,6 +147,10 @@ void freelinesandcats(linesandcats_t * LandC) {
     free(LandC->lines[i]);
   }
   free(LandC->lines);
+  if (LandC->used_words != NULL) {
+    free(LandC->used_words->words);
+  }
+  free(LandC->used_words);
   if (LandC->cats !=
       NULL) {  //We need special handles for story-step1!(in which case cats is NULL)
     for (size_t i = 0; i < LandC->cats->n; i++) {
@@ -89,7 +162,12 @@ void freelinesandcats(linesandcats_t * LandC) {
   free(LandC);
 }
 
-void parseStoryandchange(FILE * f, linesandcats_t * LandC) {
+void parseStoryandchange(char * argv, linesandcats_t * LandC) {
+  FILE * f = fopen(argv, "r");
+  if (f == NULL) {
+    fprintf(stderr, "fopen failed!");
+    exit(EXIT_FAILURE);
+  }
   char * curr = NULL;
   int endflag = 0;
   while (endflag == 0) {
@@ -101,9 +179,10 @@ void parseStoryandchange(FILE * f, linesandcats_t * LandC) {
     //now we have read in one line of input
     ChangeandPrint(
         curr,
+        LandC->cats,
         LandC
-            ->cats);  //change words for all the 'blanks' in this one line and print the result of these changes
-    free(curr);  //After print, this line is of no use now, so we free the space
+            ->used_words);  //change words for all the 'blanks' in this one line and print the result of these changes
+    // free(curr);  //After print, this line is of no use now, so we free the space
   }
   if (fclose(f) != 0) {
     fprintf(stderr, "fclose failed!\n");
@@ -111,9 +190,18 @@ void parseStoryandchange(FILE * f, linesandcats_t * LandC) {
   }
 }
 
-linesandcats_t * ParseCategory(FILE * f, int printflag) {
+linesandcats_t * ParseCategory(char * argv, int printflag) {
+  FILE * f = fopen(argv, "r");
+  if (f == NULL) {
+    fprintf(stderr, "fopen failed!\n");
+    exit(EXIT_FAILURE);
+  }
   linesandcats_t * linesandcat = malloc(sizeof(*linesandcat));
   catarray_t * cats = malloc(sizeof(*cats));
+  category_t * used_words = malloc(sizeof(*used_words));
+  used_words->n_words = 0;
+  used_words->name = "used";
+  used_words->words = NULL;
   cats->n = 0;
   cats->arr = NULL;
   char ** lines = NULL;
@@ -145,6 +233,7 @@ linesandcats_t * ParseCategory(FILE * f, int printflag) {
   }
 
   linesandcat->cats = cats;
+  linesandcat->used_words = used_words;
   linesandcat->lines = lines;
   linesandcat->n = n_lines;
   return linesandcat;

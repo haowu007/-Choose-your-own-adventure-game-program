@@ -5,17 +5,8 @@ int main(int argc, char ** argv) {
     fprintf(stderr, "Usage: please type in category/word file and story template file\n");
     exit(EXIT_FAILURE);
   }
-  FILE * f = fopen(argv[1], "r");
-  if (f == NULL) {
-    fprintf(stderr, "fopen failed!");
-    exit(EXIT_FAILURE);
-  }
-  linesandcats_t * LandC = ParseCategory(f, 0);
-  if (fclose(f) != 0) {  //error handling
-    fprintf(stderr, "fclose failed!\n");
-    exit(EXIT_FAILURE);
-  }
-
+  linesandcats_t * LandC = ParseCategory(argv[1], 0);
+  parseStoryandchange(argv[2], LandC);
   freelinesandcats(LandC);
   return EXIT_SUCCESS;
 }

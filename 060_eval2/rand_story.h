@@ -1,3 +1,4 @@
+
 #ifndef __RAND_STORY_H__
 #define __RAND_STORY_H__
 
@@ -11,15 +12,17 @@
 struct linesandcats {
   char ** lines;
   catarray_t * cats;
+  category_t * used_words;
   size_t n;
 };
 typedef struct linesandcats linesandcats_t;
 
 char * getoneline(FILE * f);
-void ChangeandPrint(char * c, catarray_t * cats);
+int contains(catarray_t * cats, char * category);
+void ChangeandPrint(char * c, catarray_t * cats, category_t * used_words);
 void addword(char * name, char * word, catarray_t * cats);
-void parseStoryandchange(FILE * f, linesandcats_t * LandC);
+void parseStoryandchange(char * argv, linesandcats_t * LandC);
 void freelinesandcats(linesandcats_t * Landc);
-linesandcats_t * ParseCategory(FILE * f, int printflag);
+linesandcats_t * ParseCategory(char * argv, int printflag);
 
 #endif
