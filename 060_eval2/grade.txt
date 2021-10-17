@@ -1,30 +1,7 @@
-Grading at 10/17/2021:00:59:21.423277
-For commit ID 2975363692eb85fb54a563547ae8a9d1f533fab8
-Grading at Sat Oct 16 20:59:16 EDT 2021
+Grading at 10/17/2021:06:03:11.970721
+For commit ID 3c8a7d786774f0d80c0fdeed71c2bc6daa404a43
+Grading at Sun Oct 17 02:03:08 EDT 2021
 Running your test cases
-
-Compiling story-step2
-rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
-gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
-gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step2.c
-gcc -o story-step2 story-step2.o rand_story.o provided.o
-rm story-step2.o
-+-----------------------------------------------------------------------+
-Test case story-step2 no_colon_word.txt
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case story-step2 empty_line_word.txt
-Your program successfully indicated a failure case
-
-Compiling story-step1
-rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
-gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
-gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step1.c
-gcc -o story-step1 story-step1.o rand_story.o provided.o
-rm story-step1.o
-+-----------------------------------------------------------------------+
-Test case story-step1 only-3-blanks.txt
-Your program successfully indicated a failure case
 
 Compiling story-step2
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
@@ -35,11 +12,18 @@ rm story-step2.o
 +-----------------------------------------------------------------------+
 Test case story-step2 words.txt
 Your file matched the expected output
+
+Compiling story-step3
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step3.c
+gcc -o story-step3 story-step3.o rand_story.o provided.o
+rm story-step3.o
 +-----------------------------------------------------------------------+
-Test case story-step2 only_colon_word.txt
+Test case story-step3 words.txt story2.txt
 Your file matched the expected output
 +-----------------------------------------------------------------------+
-Test case story-step2 weird_word.txt
+Test case story-step3 words.txt story.txt
 Your file matched the expected output
 
 Compiling story-step1
@@ -48,6 +32,9 @@ gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step1.c
 gcc -o story-step1 story-step1.o rand_story.o provided.o
 rm story-step1.o
++-----------------------------------------------------------------------+
+Test case story-step1 story2.txt
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case story-step1 story.txt
 Your file matched the expected output
