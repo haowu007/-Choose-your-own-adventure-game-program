@@ -4,7 +4,7 @@
 #include <ostream>
 
 class IntArray {
- private:
+ public:
   int * data;
   int numElements;
 

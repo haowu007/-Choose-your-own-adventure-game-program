@@ -1,14 +1,17 @@
 #ifndef __INT_MATRIX_H___
 #define __INT_MATRIX_H___
 
-#include "IntArray.h"
 #include <assert.h>
+
 #include <iostream>
+
+#include "IntArray.h"
 class IntMatrix {
  private:
   int numRows;
   int numColumns;
   IntArray ** rows;
+
  public:
   IntMatrix();
   IntMatrix(int r, int c);
@@ -21,10 +24,8 @@ class IntMatrix {
   IntArray & operator[](int index);
   bool operator==(const IntMatrix & rhs) const;
   IntMatrix operator+(const IntMatrix & rhs) const;
-
-
+  friend std::ostream & operator<<(std::ostream & s, const IntMatrix & rhs);
 };
-
 
 std::ostream & operator<<(std::ostream & s, const IntMatrix & rhs);
 #endif
