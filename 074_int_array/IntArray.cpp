@@ -76,7 +76,9 @@ std::ostream & operator<<(std::ostream & s, const IntArray & rhs) {
       s << " ";
     }
     s << rhs.data[u];
-    s << ",";
+    if (u < rhs.numElements - 1) {
+      s << ",";
+    }
   }
   s << "}";
   return s;
