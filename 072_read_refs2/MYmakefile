@@ -1,0 +1,8 @@
+CFLAGS= -Werror -Wall -std=gnu++03 -pedantic -ggdb3
+
+test:ref.cpp
+	g++ $(CFLAGS) -o test ref.cpp
+
+.PHONY:clean
+clean:
+	rm -f test *.~
