@@ -2,6 +2,7 @@
 
 #include "rand_story.h"
 
+//This .cpp file is the interface for step2
 int main(int argc, char ** argv) {
   if (argc != 2) {  //error handling
     fprintf(stderr, "Please input only one argument!");

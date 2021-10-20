@@ -1,5 +1,22 @@
 #include "rand_story.h"
 
+/*************************DOCUMENT********************************************
+Written by: Hao Wu    NetID:hw269
+This .cpp file contains 9 functions that might be re-used by more than one steps
+They are:
+---1---getoneline---Read one single line from input file using 'getline'
+---2---contains---Find out if the given category-words table contains the given category
+---3---findused---Return a used word indicated by 'index'
+---4---throw_a_word---Only used if '-n' was entered;
+                   ---Delete a word from the category-words table after it was used
+---5---ChangeandPrint---select words from the given categories, and print the result line 
+---6---addword---Add a word under the given category
+---7---freelinesandcats---Free the malloced spaces for lines and category-words table
+---8---ParseStoryandchange---Change the blanks based on the categories they specify
+---9---ParseCategory---Form the category-words table
+*/
+
+//This function read in one line and free spaces properly
 char * getoneline(FILE * f) {
   ssize_t len = 0;
   size_t sz = 0;
@@ -13,6 +30,7 @@ char * getoneline(FILE * f) {
   }
 }
 
+//This function returns 1 if 'cats' has the given category; returns 0 otherwise
 int contains(catarray_t * cats, char * category) {
   for (size_t i = 0; i < cats->n; i++) {
     if (strcmp(category, cats->arr[i].name) == 0) {
@@ -23,15 +41,16 @@ int contains(catarray_t * cats, char * category) {
   return 0;
 }
 
+//This function return a used word from used words array based on 'index'
 const char * findused(category_t * used_words, long index) {
   size_t i = (size_t)index;
-
   if (i >= 1 && i <= used_words->n_words) {
     return used_words->words[used_words->n_words - i];
   }
   return NULL;
 }
 
+//This function abandon a word that has just been used
 void throw_a_word(catarray_t * cats, char * category, const char * changed_word) {
   if (contains(cats, category) ==
       1) {  // We just used a category-determined changing instead of integer-based changing
@@ -43,14 +62,14 @@ void throw_a_word(catarray_t * cats, char * category, const char * changed_word)
           fprintf(stderr, "Malloc failed!\n");
           exit(EXIT_FAILURE);
         }
-        for (size_t i = 0; i < cats->arr[j].n_words; i++) {
+        for (size_t i = 0; i < cats->arr[j].n_words; i++) {  //Save the not-used words
           if (strcmp(changed_word, cats->arr[j].words[i]) != 0) {
             temp_words[k] = cats->arr[j].words[i];
             k++;
             cats->arr[j].words[i] = NULL;
           }
         }
-        free(cats->arr[j].words);
+        free(cats->arr[j].words);  //free it here in case of memory leak
         cats->arr[j].words = temp_words;
         cats->arr[j].n_words = k;
         break;
@@ -59,6 +78,7 @@ void throw_a_word(catarray_t * cats, char * category, const char * changed_word)
   }
 }
 
+//This function change all the blanks in one line properly and print the result
 void ChangeandPrint(char * c,
                     catarray_t * cats,
                     category_t * used_words,
@@ -77,7 +97,7 @@ void ChangeandPrint(char * c,
   const char * changed_word = NULL;
   while ((blank_found = strchr(c, '_')) != NULL) {
     validnum_flag = 1;
-    for (size_t i = 0; i < 10; i++) {
+    for (size_t i = 0; i < 10; i++) {  //initialize the buffer
       buffer[i] = 0;
     }
     blank_pre = blank_found;  //ready to find the corresponding post_blank
@@ -89,8 +109,8 @@ void ChangeandPrint(char * c,
     }
     blank_post = blank_found;
     *blank_post = '\0';
-    category = blank_pre + 1;
-    if (cats == NULL) {
+    category = blank_pre + 1;  //this gives us a C-string of the category
+    if (cats == NULL) {        //Only used in step1
       changed_word = chooseWord(category, NULL);
     }
     else {
@@ -139,25 +159,25 @@ void ChangeandPrint(char * c,
       fprintf(stderr, "malloc failed!\n");
       exit(EXIT_FAILURE);
     }
-    sprintf(changed_string, "%s%s", c, changed_word);
+    sprintf(
+        changed_string, "%s%s", c, changed_word);  //append the changed_word to the front
     len = strlen(changed_string) + strlen(blank_post + 1) + 1;
-    //   printf("preffix:%s", changed_string);
-    //  printf("suffix:%s", blank_post + 1);
     newc = malloc(len * sizeof(*newc));
-    sprintf(newc, "%s%s", changed_string, blank_post + 1);
-    //    printf("%s", newc);
+    sprintf(newc, "%s%s", changed_string, blank_post + 1);  //append the back portion
     free(changed_string);
     free(c);
-    c = newc;
+    c = newc;  //Now we've done with one blank, we go to deal with other blanks in this line
   }
   printf("%s", c);
   free(c);
   return;
 }
 
+//This function adds a new word to its category in the given category-words table
 void addword(char * name, char * word, catarray_t * cats) {
   for (size_t i = 0; i < cats->n; i++) {
-    if (strcmp(name, cats->arr[i].name) == 0) {
+    if (strcmp(name, cats->arr[i].name) ==
+        0) {  //The category was already in the cats-table
       cats->arr[i].words =
           realloc(cats->arr[i].words, (cats->arr[i].n_words + 1) * sizeof(char *));
       cats->arr[i].words[cats->arr[i].n_words] = word;
@@ -175,6 +195,7 @@ void addword(char * name, char * word, catarray_t * cats) {
   return;
 }
 
+//This function free the malloced spaces for categories table and lines we read from file
 void freelinesandcats(linesandcats_t * LandC) {
   for (size_t i = 0; i < LandC->n; i++) {
     free(LandC->lines[i]);
@@ -195,6 +216,7 @@ void freelinesandcats(linesandcats_t * LandC) {
   free(LandC);
 }
 
+//This function is a interface for parsing->change word->print
 void parseStoryandchange(char * argv, linesandcats_t * LandC, int reuse_enable) {
   FILE * f = fopen(argv, "r");
   if (f == NULL) {
@@ -202,7 +224,7 @@ void parseStoryandchange(char * argv, linesandcats_t * LandC, int reuse_enable) 
     exit(EXIT_FAILURE);
   }
   char * curr = NULL;
-  int endflag = 0;
+  int endflag = 0;  //labels the end of file
   while (endflag == 0) {
     curr = getoneline(f);
     if (curr == NULL) {
@@ -215,7 +237,6 @@ void parseStoryandchange(char * argv, linesandcats_t * LandC, int reuse_enable) 
         LandC->cats,
         LandC->used_words,
         reuse_enable);  //change words for all the 'blanks' in this one line and print the result of these changes
-    // free(curr);  //After print, this line is of no use now, so we free the space
   }
   if (fclose(f) != 0) {
     fprintf(stderr, "fclose failed!\n");
@@ -223,6 +244,7 @@ void parseStoryandchange(char * argv, linesandcats_t * LandC, int reuse_enable) 
   }
 }
 
+//This function forms a category table based on the input file
 linesandcats_t * ParseCategory(char * argv, int printflag) {
   FILE * f = fopen(argv, "r");
   if (f == NULL) {
@@ -261,7 +283,7 @@ linesandcats_t * ParseCategory(char * argv, int printflag) {
     fprintf(stderr, "fclose failed!");
     exit(EXIT_FAILURE);
   }
-  if (printflag == 1) {
+  if (printflag == 1) {  //Only step1 needs this
     printWords(cats);
   }
 
@@ -269,5 +291,5 @@ linesandcats_t * ParseCategory(char * argv, int printflag) {
   linesandcat->used_words = used_words;
   linesandcat->lines = lines;
   linesandcat->n = n_lines;
-  return linesandcat;
+  return linesandcat;  //return the category table and the lines we read in
 }

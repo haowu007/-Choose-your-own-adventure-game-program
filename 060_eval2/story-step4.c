@@ -1,5 +1,6 @@
 #include "rand_story.h"
 
+//This .cpp file is the interface for step4
 int main(int argc, char ** argv) {
   if (argc != 3 && argc != 4) {  //error handling
     fprintf(stderr, "Usage: please type in category/word file and story template file\n");
@@ -18,7 +19,7 @@ int main(int argc, char ** argv) {
       exit(EXIT_FAILURE);
     }
   }
-  else {
+  else {  // no '-n' typed in, we do exactly the same work as in step3
     LandC = ParseCategory(argv[1], 0);
     reuse_enable = 1;
     parseStoryandchange(argv[2], LandC, reuse_enable);

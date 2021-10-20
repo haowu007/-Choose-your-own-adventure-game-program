@@ -3,6 +3,7 @@
 
 #include "rand_story.h"
 
+//This .cpp file is the interface for step1
 int main(int argc, char ** argv) {
   if (argc != 2) {  //error handilng
     fprintf(stderr, "Please type one input file!\n");
@@ -18,7 +19,7 @@ int main(int argc, char ** argv) {
   LandC->cats = NULL;
   LandC->used_words = NULL;
   LandC->n = 0;
-  int reuse_enable = 1;
+  int reuse_enable = 1;  //Allow reusing words
   parseStoryandchange(argv[1], LandC, reuse_enable);
   freelinesandcats(LandC);
   return EXIT_SUCCESS;
