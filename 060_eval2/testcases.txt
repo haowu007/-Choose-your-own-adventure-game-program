@@ -1,10 +1,10 @@
+#error
+story-step1 only_1_blank.txt
+story-step1 only_3_blanks.txt
+story-step2 empty_line_word.txt
+story-step4 -n words.txt invalid_num_story.txt
 
 #success
-story-step1 story2.txt
-story-step1 story.txt
-story-step2 words.txt
-story-step3 words.txt story2.txt
-story-step3 words.txt story.txt
-story-step4 -n words.txt story2.txt
-story-step4 -n words.txt story3.txt
-story-step4 words.txt story2.txt
+story-step4 words.txt no_blank.txt
+story-step2 only_colon_word.txt
+story-step2 weird_word.txt
