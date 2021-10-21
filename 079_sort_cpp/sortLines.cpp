@@ -16,13 +16,17 @@ void readFromstdin(void) {
   std::sort(it1, it2);
   while (it1 != it2) {
     std::cout << *it1 << std::endl;
-    it1++;
+    ++it1;
   }
 }
 
 void readFromfile(char * filename) {
   std::ifstream Mystream;
   Mystream.open(filename);
+  if (!Mystream) {
+    std::cerr << "open failed!" << std::endl;
+    exit(EXIT_FAILURE);
+  }
   std::vector<std::string> Myvector;
 
   while (!Mystream.eof()) {
@@ -30,12 +34,13 @@ void readFromfile(char * filename) {
     Mystream >> s;
     Myvector.push_back(s);
   }
+  Mystream.close();
   std::vector<std::string>::iterator it1 = Myvector.begin();
   std::vector<std::string>::iterator it2 = Myvector.end();
   std::sort(it1, it2);
   while (it1 != it2) {
     std::cout << *it1 << std::endl;
-    it1++;
+    ++it1;
   }
 }
 
