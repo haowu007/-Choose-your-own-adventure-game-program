@@ -5,15 +5,17 @@
 #include <vector>
 void readFromstdin(void) {
   std::vector<std::string> Myvector;
-
-  while (!std::cin.eof()) {
-    std::string s;
-    std::cin >> s;
+  std::string s;
+  while (getline(std::cin, s)) {
     Myvector.push_back(s);
+  }
+  if (!std::cin.eof() && !std::cin) {
+    std::cerr << "read failed!" << std::endl;
+    exit(EXIT_FAILURE);
   }
   std::vector<std::string>::iterator it1 = Myvector.begin();
   std::vector<std::string>::iterator it2 = Myvector.end();
-  std::sort(it1, it2);
+  std::sort(Myvector.begin(), Myvector.end());
   while (it1 != it2) {
     std::cout << *it1 << std::endl;
     ++it1;
@@ -28,20 +30,18 @@ void readFromfile(char * filename) {
     exit(EXIT_FAILURE);
   }
   std::vector<std::string> Myvector;
-
-  while (!Mystream.eof()) {
-    std::string s;
-    Mystream >> s;
+  std::string s;
+  while (getline(Mystream, s)) {
     Myvector.push_back(s);
   }
-  Mystream.close();
   std::vector<std::string>::iterator it1 = Myvector.begin();
   std::vector<std::string>::iterator it2 = Myvector.end();
-  std::sort(it1, it2);
+  std::sort(Myvector.begin(), Myvector.end());
   while (it1 != it2) {
     std::cout << *it1 << std::endl;
     ++it1;
   }
+  Mystream.close();
 }
 
 int main(int argc, char ** argv) {
