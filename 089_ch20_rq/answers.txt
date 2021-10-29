@@ -4,9 +4,9 @@ A
 B
 C
 C
+F
+G
 E
-B
-C
 B
 D
 A
