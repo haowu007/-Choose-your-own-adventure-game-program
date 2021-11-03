@@ -5,6 +5,7 @@
 
 #include <cstdlib>
 #include <exception>
+#include <iostream>
 
 //YOUR CODE GOES HERE
 
@@ -87,16 +88,22 @@ class LinkedList {
   }
 
   const T & operator[](int index) const {
-    if (index + 1 > size) {
-      throw invalid_index();
-    }
-    else {
-      Node * current = head;
-      while (index > 0) {
-        --index;
-        current = current->next;
+    try {
+      if (index + 1 > size) {
+        throw invalid_index();
       }
-      return current->data;
+
+      else {
+        Node * current = head;
+        while (index > 0) {
+          --index;
+          current = current->next;
+        }
+        return current->data;
+      }
+    }
+    catch (invalid_index & e) {
+      std::cout << "invalid index!" << std::endl;
     }
   }
 

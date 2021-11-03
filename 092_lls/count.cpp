@@ -34,6 +34,7 @@ void sort(LinkedList<T> & ll) {
   bool sorted = false;
   int sz = ll.getSize();
   std::cout << "The size is :" << sz << std::endl;
+
   while (!sorted) {
     sorted = true;
     for (int i = 0; i < sz - 1; i++) {
