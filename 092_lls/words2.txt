@@ -1,4 +1,2 @@
-meta
-cheese
-kelly
-apple
+my
+bubu

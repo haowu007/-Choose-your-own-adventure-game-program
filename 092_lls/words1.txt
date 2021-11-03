@@ -1,7 +1,1 @@
-apple
-banana
-ape
-cheese
-zibra
-meta
-boyfriend
+My boyfriend ate my apple!
