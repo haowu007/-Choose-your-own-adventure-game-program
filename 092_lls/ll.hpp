@@ -3,6 +3,7 @@
 
 #include <assert.h>
 
+#include <algorithm>
 #include <cstdlib>
 #include <exception>
 #include <iostream>
@@ -119,43 +120,17 @@ class LinkedList {
 
   LinkedList() : head(NULL), tail(NULL), size(0) {}
 
-  LinkedList(const LinkedList & rhs) : head(NULL), tail(NULL), size(rhs.size) {
-    Node ** current = &head;
-    Node * source = rhs.head;
-    Node * pre_Node = NULL;
-    while (source != NULL) {
-      *current = new Node(source->data);
-      (*current)->prev = pre_Node;
-      pre_Node = *current;
-      current = &(*current)->next;
-
-      source = source->next;
+  LinkedList(const LinkedList & rhs) : head(NULL), tail(NULL), size(0) {
+    Node * current = rhs.head;
+    while (current != NULL) {
+      addBack(current->data);
+      current = current->next;
     }
-    tail = pre_Node;
   }
 
   LinkedList & operator=(const LinkedList & rhs) {
     if (this != &rhs) {
-      Node * temp_head = NULL;
-      Node ** current = &temp_head;
-
-      Node * temp_tail = NULL;
-      Node * pre_Node = NULL;
-      Node * source = rhs.head;
-      int head_flag = 1;
-      while (source != NULL) {
-        if (head_flag == 1) {
-          temp_head = source;
-          head_flag = 0;
-        }
-        *current = new Node(source->data);
-        (*current)->prev = pre_Node;
-        pre_Node = *current;
-        current = &(*current)->next;
-
-        source = source->next;
-      }
-      temp_tail = pre_Node;
+      LinkedList temp(rhs);
 
       Node * deleting;
       while (tail != NULL) {
@@ -164,8 +139,9 @@ class LinkedList {
         delete deleting;
       }
       // Now we have properly deallocted the space before the copy happens
-      head = temp_head;
-      tail = temp_tail;
+      std::swap(head, temp.head);
+      std::swap(tail, temp.tail);
+      std::swap(size, temp.size);
     }
 
     return *this;
