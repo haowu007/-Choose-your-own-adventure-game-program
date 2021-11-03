@@ -1,35 +1,23 @@
-Grading at 11/03/2021:04:32:08.838520
-For commit ID 0568e38be253745afd25c5376f587b27eeef49e7
-Grading at Wed Nov  3 00:32:08 EDT 2021
+Grading at 11/03/2021:19:08:04.009887
+For commit ID 065a7cf2a7bb5641ad0175ba818bf01df2e468dd
+Grading at Wed Nov  3 15:08:00 EDT 2021
 -----------------------------------------------
 testcase 1 : Testing with LinkedList<int>
 ...compiling...
-In file included from tester.cpp:5:0:
-ll.hpp: In member function ‘const T& LinkedList<T>::operator[](int) const [with T = int]’:
-ll.hpp:108:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
 -----------------------------------------------
 testcase 2 : Testing with LinkedList<std::string>
 ...compiling...
-In file included from tester.cpp:5:0:
-ll.hpp: In member function ‘const T& LinkedList<T>::operator[](int) const [with T = std::__cxx11::basic_string<char>]’:
-ll.hpp:108:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
 -----------------------------------------------
 testcase 3 : Testing with LinkedList<(a custom class we wrote)>
 ...compiling...
-In file included from tester.cpp:5:0:
-ll.hpp: In member function ‘const T& LinkedList<T>::operator[](int) const [with T = Tester]’:
-ll.hpp:108:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
 
 Overall Grade: F
