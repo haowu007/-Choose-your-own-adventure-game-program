@@ -88,22 +88,17 @@ class LinkedList {
   }
 
   const T & operator[](int index) const {
-    try {
-      if (index + 1 > size) {
-        throw invalid_index();
-      }
-
-      else {
-        Node * current = head;
-        while (index > 0) {
-          --index;
-          current = current->next;
-        }
-        return current->data;
-      }
+    if (index + 1 > size) {
+      throw invalid_index();
     }
-    catch (invalid_index & e) {
-      std::cout << "invalid index!" << std::endl;
+
+    else {
+      Node * current = head;
+      while (index > 0) {
+        --index;
+        current = current->next;
+      }
+      return current->data;
     }
   }
 
