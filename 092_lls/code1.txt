@@ -1,0 +1,10 @@
+CurrentcyData(1.1)
+Euro()
+CurrentcyData(0.15)
+Yuan()
+10 Euro = 11 Dollars
+~Euro()
+~CurrencyData()
+100 Yuan = 15 Dollars
+~Yuan()
+~CurrencyData()
