@@ -1,0 +1,46 @@
+Grading at 11/08/2021:02:37:18.320668
+For commit ID f68b625a1d86ddb9ae35e3cf33ec275f9d5d447f
+Grading at Sun Nov  7 21:37:14 EST 2021
+**Testing broken implementation 1 **
+-------------------------------------
+
+
+**Testing broken implementation 2 **
+-------------------------------------
+
+The answer of Binary search is incorrect for Test case 4
+
+**Testing broken implementation 3 **
+-------------------------------------
+
+
+**Testing broken implementation 4 **
+-------------------------------------
+
+
+**Testing broken implementation 5 **
+-------------------------------------
+
+The answer of Binary search is incorrect for Test case 4
+
+**Testing broken implementation 6 **
+-------------------------------------
+
+The answer of Binary search is incorrect for Test case 2
+
+**Testing broken implementation 7 **
+-------------------------------------
+
+
+**Testing broken implementation 8 **
+-------------------------------------
+
+The answer of Binary search is incorrect for Test case 1
+
+**Testing correct implementation **
+-------------------------------------
+
+
+Your tests identified the problems with all broken programs
+
+Overall Grade: PASSED
