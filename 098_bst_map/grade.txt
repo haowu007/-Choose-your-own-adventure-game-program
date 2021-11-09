@@ -1,50 +1,37 @@
-Grading at 11/09/2021:03:59:31.021359
-For commit ID f131aae88cfcdd18344c2b2bf833436152bc9b59
-Grading at Mon Nov  8 22:59:29 EST 2021
+Grading at 11/09/2021:04:08:36.887056
+For commit ID cfaf0b029e94d0934392a003816c448893d8ca4f
+Grading at Mon Nov  8 23:08:31 EST 2021
 -----------------------------------------------
 testcase 1 : Testing with BstMap<int,int>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = int; V = int]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:106:11: error: no matching function for call to ‘BstMap<int, int>::copy(BstMap<int, int>::Node*&, BstMap<int, int>::Node* const&)’
-       copy(temp, rhs.root);
-       ~~~~^~~~~~~~~~~~~~~~
-bstmap.h:92:8: note: candidate: void BstMap<K, V>::copy(BstMap<K, V>::Node*) [with K = int; V = int]
-   void copy(Node * rhs_root) {
-        ^~~~
-bstmap.h:92:8: note:   candidate expects 1 argument, 2 provided
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Line_78_did_not_match
+Line_91_did_not_match
+Line_106_did_not_match
+Line_119_did_not_match
+Line_134_did_not_match
+Your file did not match the expected output
+Testcase failed 
 -----------------------------------------------
 testcase 2 : Testing with BstMap<int,std::string>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = int; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:106:11: error: no matching function for call to ‘BstMap<int, std::__cxx11::basic_string<char> >::copy(BstMap<int, std::__cxx11::basic_string<char> >::Node*&, BstMap<int, std::__cxx11::basic_string<char> >::Node* const&)’
-       copy(temp, rhs.root);
-       ~~~~^~~~~~~~~~~~~~~~
-bstmap.h:92:8: note: candidate: void BstMap<K, V>::copy(BstMap<K, V>::Node*) [with K = int; V = std::__cxx11::basic_string<char>]
-   void copy(Node * rhs_root) {
-        ^~~~
-bstmap.h:92:8: note:   candidate expects 1 argument, 2 provided
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Line_78_did_not_match
+Line_91_did_not_match
+Line_106_did_not_match
+Line_119_did_not_match
+Line_134_did_not_match
+Your file did not match the expected output
+Testcase failed 
 -----------------------------------------------
 testcase 3 : Testing with BstMap<int,(a custom class we wrote)>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = int; V = Tester]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:106:11: error: no matching function for call to ‘BstMap<int, Tester>::copy(BstMap<int, Tester>::Node*&, BstMap<int, Tester>::Node* const&)’
-       copy(temp, rhs.root);
-       ~~~~^~~~~~~~~~~~~~~~
-bstmap.h:92:8: note: candidate: void BstMap<K, V>::copy(BstMap<K, V>::Node*) [with K = int; V = Tester]
-   void copy(Node * rhs_root) {
-        ^~~~
-bstmap.h:92:8: note:   candidate expects 1 argument, 2 provided
 bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = int; V = Tester]’:
 89-tester.cpp:197:1:   required from here
-bstmap.h:78:25: error: no match for ‘operator=’ (operand types are ‘Tester’ and ‘int’)
+bstmap.h:79:25: error: no match for ‘operator=’ (operand types are ‘Tester’ and ‘int’)
            (*cur)->value = (*replace)->key;
            ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
 89-tester.cpp:6:7: note: candidate: Tester& Tester::operator=(const Tester&)
@@ -56,51 +43,31 @@ The code did not compile.  This test failed.
 testcase 4 : Testing with BstMap<std::string,int>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = int]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:106:11: error: no matching function for call to ‘BstMap<std::__cxx11::basic_string<char>, int>::copy(BstMap<std::__cxx11::basic_string<char>, int>::Node*&, BstMap<std::__cxx11::basic_string<char>, int>::Node* const&)’
-       copy(temp, rhs.root);
-       ~~~~^~~~~~~~~~~~~~~~
-bstmap.h:92:8: note: candidate: void BstMap<K, V>::copy(BstMap<K, V>::Node*) [with K = std::__cxx11::basic_string<char>; V = int]
-   void copy(Node * rhs_root) {
-        ^~~~
-bstmap.h:92:8: note:   candidate expects 1 argument, 2 provided
 bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = int]’:
 89-tester.cpp:197:1:   required from here
-bstmap.h:78:25: error: cannot convert ‘std::__cxx11::basic_string<char>’ to ‘int’ in assignment
+bstmap.h:79:25: error: cannot convert ‘std::__cxx11::basic_string<char>’ to ‘int’ in assignment
            (*cur)->value = (*replace)->key;
            ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 5 : Testing with BstMap<std::string,std::string>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:106:11: error: no matching function for call to ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::copy(BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node*&, BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* const&)’
-       copy(temp, rhs.root);
-       ~~~~^~~~~~~~~~~~~~~~
-bstmap.h:92:8: note: candidate: void BstMap<K, V>::copy(BstMap<K, V>::Node*) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]
-   void copy(Node * rhs_root) {
-        ^~~~
-bstmap.h:92:8: note:   candidate expects 1 argument, 2 provided
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Line_126_did_not_match
+Line_127_did_not_match
+Line_130_did_not_match
+Line_131_did_not_match
+Line_134_did_not_match
+Your file did not match the expected output
+Testcase failed 
 -----------------------------------------------
 testcase 6 : Testing with BstMap<std::string,(a custom class we wrote)>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:106:11: error: no matching function for call to ‘BstMap<std::__cxx11::basic_string<char>, Tester>::copy(BstMap<std::__cxx11::basic_string<char>, Tester>::Node*&, BstMap<std::__cxx11::basic_string<char>, Tester>::Node* const&)’
-       copy(temp, rhs.root);
-       ~~~~^~~~~~~~~~~~~~~~
-bstmap.h:92:8: note: candidate: void BstMap<K, V>::copy(BstMap<K, V>::Node*) [with K = std::__cxx11::basic_string<char>; V = Tester]
-   void copy(Node * rhs_root) {
-        ^~~~
-bstmap.h:92:8: note:   candidate expects 1 argument, 2 provided
 bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
 89-tester.cpp:197:1:   required from here
-bstmap.h:78:25: error: no match for ‘operator=’ (operand types are ‘Tester’ and ‘std::__cxx11::basic_string<char>’)
+bstmap.h:79:25: error: no match for ‘operator=’ (operand types are ‘Tester’ and ‘std::__cxx11::basic_string<char>’)
            (*cur)->value = (*replace)->key;
            ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
 89-tester.cpp:6:7: note: candidate: Tester& Tester::operator=(const Tester&)
@@ -112,18 +79,9 @@ The code did not compile.  This test failed.
 testcase 7 : Testing with BstMap<(a custom class we wrote),int>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = Tester; V = int]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:106:11: error: no matching function for call to ‘BstMap<Tester, int>::copy(BstMap<Tester, int>::Node*&, BstMap<Tester, int>::Node* const&)’
-       copy(temp, rhs.root);
-       ~~~~^~~~~~~~~~~~~~~~
-bstmap.h:92:8: note: candidate: void BstMap<K, V>::copy(BstMap<K, V>::Node*) [with K = Tester; V = int]
-   void copy(Node * rhs_root) {
-        ^~~~
-bstmap.h:92:8: note:   candidate expects 1 argument, 2 provided
 bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = int]’:
 89-tester.cpp:197:1:   required from here
-bstmap.h:78:25: error: cannot convert ‘Tester’ to ‘int’ in assignment
+bstmap.h:79:25: error: cannot convert ‘Tester’ to ‘int’ in assignment
            (*cur)->value = (*replace)->key;
            ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
 The code did not compile.  This test failed.
@@ -131,18 +89,9 @@ The code did not compile.  This test failed.
 testcase 8 : Testing with BstMap<(a custom class we wrote),std::string>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:106:11: error: no matching function for call to ‘BstMap<Tester, std::__cxx11::basic_string<char> >::copy(BstMap<Tester, std::__cxx11::basic_string<char> >::Node*&, BstMap<Tester, std::__cxx11::basic_string<char> >::Node* const&)’
-       copy(temp, rhs.root);
-       ~~~~^~~~~~~~~~~~~~~~
-bstmap.h:92:8: note: candidate: void BstMap<K, V>::copy(BstMap<K, V>::Node*) [with K = Tester; V = std::__cxx11::basic_string<char>]
-   void copy(Node * rhs_root) {
-        ^~~~
-bstmap.h:92:8: note:   candidate expects 1 argument, 2 provided
 bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
 89-tester.cpp:197:1:   required from here
-bstmap.h:78:25: error: no match for ‘operator=’ (operand types are ‘std::__cxx11::basic_string<char>’ and ‘Tester’)
+bstmap.h:79:25: error: no match for ‘operator=’ (operand types are ‘std::__cxx11::basic_string<char>’ and ‘Tester’)
            (*cur)->value = (*replace)->key;
            ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
 In file included from /usr/include/c++/7/string:52:0,
@@ -151,7 +100,7 @@ In file included from /usr/include/c++/7/string:52:0,
                  from /usr/include/c++/7/ios:42,
                  from /usr/include/c++/7/ostream:38,
                  from /usr/include/c++/7/iostream:39,
-                 from bstmap.h:2,
+                 from bstmap.h:3,
                  from 89-tester.cpp:1:
 /usr/include/c++/7/bits/basic_string.h:654:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>& std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
        operator=(const basic_string& __str)
@@ -169,16 +118,14 @@ The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 9 : Testing with BstMap<(a custom class we wrote),(a custom class we wrote)>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = Tester; V = Tester]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:106:11: error: no matching function for call to ‘BstMap<Tester, Tester>::copy(BstMap<Tester, Tester>::Node*&, BstMap<Tester, Tester>::Node* const&)’
-       copy(temp, rhs.root);
-       ~~~~^~~~~~~~~~~~~~~~
-bstmap.h:92:8: note: candidate: void BstMap<K, V>::copy(BstMap<K, V>::Node*) [with K = Tester; V = Tester]
-   void copy(Node * rhs_root) {
-        ^~~~
-bstmap.h:92:8: note:   candidate expects 1 argument, 2 provided
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Line_78_did_not_match
+Line_91_did_not_match
+Line_106_did_not_match
+Line_119_did_not_match
+Line_134_did_not_match
+Your file did not match the expected output
+Testcase failed 
 
 Overall Grade: F
