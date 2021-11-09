@@ -89,16 +89,16 @@ class BstMap : public Map<K, V> {
       }
     }
   }
-  void copy(Node * root, Node * rhs_root) {
+  void copy(Node * rhs_root) {
     if (rhs_root == NULL) {
       return;
     }
-    root = new Node(rhs_root->key, rhs_root->value);
-    copy(root->left, rhs_root->left);
-    copy(root->right, rhs_root->right);
+    add(rhs_root->key, rhs_root->value);
+    copy(rhs_root->left);
+    copy(rhs_root->right);
   }
 
-  BstMap<K, V>(const BstMap<K, V> & rhs) : root(NULL) { copy(root, rhs.root); }
+  BstMap<K, V>(const BstMap<K, V> & rhs) : root(NULL) { copy(rhs.root); }
 
   BstMap<K, V> & operator=(const BstMap<K, V> & rhs) {
     if (this != &rhs) {
