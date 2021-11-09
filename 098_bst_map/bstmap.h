@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <cstdlib>
 #include <iostream>
 
@@ -102,10 +103,8 @@ class BstMap : public Map<K, V> {
 
   BstMap<K, V> & operator=(const BstMap<K, V> & rhs) {
     if (this != &rhs) {
-      Node * temp = NULL;
-      copy(temp, rhs.root);
-      clean(root);
-      root = temp;
+      BstMap<K, V> temp(rhs);
+      std::swap(temp.root, root);
     }
     return *this;
   }

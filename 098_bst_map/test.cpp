@@ -27,6 +27,10 @@ int main(void) {
   test->remove(-1);
   std::cout << "\n";
   test->inorderprint(test->root);
+
+  BstMap<int, int> Apple;
+  Apple = *test;
+
   delete test;
   return EXIT_SUCCESS;
 }
