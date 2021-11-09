@@ -94,8 +94,8 @@ class BstMap : public Map<K, V> {
       return;
     }
     root = new Node(rhs_root->key, rhs_root->value);
-    root->left = copy(root->left, rhs_root->left);
-    root->right = copy(root->right, rhs_root->right);
+    copy(root->left, rhs_root->left);
+    copy(root->right, rhs_root->right);
   }
 
   BstMap<K, V>(const BstMap<K, V> & rhs) : root(NULL) { copy(root, rhs.root); }
