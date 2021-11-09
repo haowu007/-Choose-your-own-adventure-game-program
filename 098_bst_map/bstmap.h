@@ -76,7 +76,7 @@ class BstMap : public Map<K, V> {
           }
           //Now found the replacing Node!
           (*cur)->key = (*replace)->key;
-          (*cur)->value = (*replace)->key;
+          (*cur)->value = (*replace)->value;
           Node * need_delete = *replace;
           *replace =
               (*replace)
