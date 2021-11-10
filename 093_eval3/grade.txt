@@ -1,6 +1,6 @@
-Grading at 11/10/2021:05:21:49.179639
-For commit ID 7c0a310cd28a174b90eb91c1f230015d01961490
-Grading at Wed Nov 10 00:21:36 EST 2021
+Grading at 11/10/2021:05:23:51.794608
+For commit ID 41def18a282ecabf2d721c22a32d2998876a862a
+Grading at Wed Nov 10 00:23:39 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -62,10 +62,8 @@ make: 'cyoa-step1' is up to date.
 Test case 1 (success): cyoa-step1 testPage_win.txt
 We considered this an error case and gave the following message:
 Expected file name pageX.txt, but found testPage_win.txt
-1,3d0
-< You see a dragon sleeping in the cave
-< 
-< Congratulations! You have won. Hooray!
+1d0
+< Open file failed!
 Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case 2 (success): cyoa-step1 story1/page1.txt
