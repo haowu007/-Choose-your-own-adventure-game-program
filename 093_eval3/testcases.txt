@@ -1,0 +1,4 @@
+#success
+cyoa-step1 testPage_win.txt
+cyoa-step1 story1/page1.txt
+cyoa-step1 story1/page2.txt

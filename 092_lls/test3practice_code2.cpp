@@ -24,19 +24,19 @@ void f(X myX) {
 }
 
 int main(void) {
-  try {
-    X ans(0);
-    for (int i = 0; i < 4; i++) {
+  X ans(0);
+  for (int i = 0; i < 4; i++) {
+    try {
       ans.x++;
       f(ans);
     }
-  }
-  catch (special_exception & e) {
-    std::cout << e.what();
-  }
-  catch (std::exception & e) {
-    std::cout << "standard exception\n";
-  }
 
+    catch (special_exception & e) {
+      std::cout << e.what();
+    }
+    catch (std::exception & e) {
+      std::cout << "standard exception\n";
+    }
+  }
   return EXIT_SUCCESS;
 }
