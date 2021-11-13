@@ -30,7 +30,7 @@ uint64_t * readFrequencies(const char * fname) {
   }
   char c;
   while (Myfile.get(c)) {
-    size_t i = (size_t)c;
+    unsigned char i = (unsigned char)c;
     ans[i]++;
   }
   ans[256] = 1;
