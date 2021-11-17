@@ -41,6 +41,9 @@ void writeCompressedOutput(const char * inFile,
   std::map<unsigned, BitString>::const_iterator it;
   while (Myfile.get(c)) {
     it = theMap.find((unsigned char)c);
+    if (it == theMap.end())
+      std::cout << "didn't find the key-value pair for key = " << (unsigned char)c
+                << std::endl;
     bfw.writeBitString(it->second);
   }
   unsigned end = 256;
