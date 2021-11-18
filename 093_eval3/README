@@ -218,7 +218,7 @@ Make sure your Makefile produces cyoa-step2 (and that cyoa-step1 still
 builds and runs correctly). Test your program well, and submit before
 moving on to the next step. 
 
-As before, we recommend that you write very little code in main, instead
+As befor, we recommend that you write very little code in main, instead
 making use of functions and classes you wrote elsewhere.
 
 Step 3

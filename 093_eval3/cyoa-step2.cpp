@@ -11,7 +11,7 @@ int main(int argc, char ** argv) {
   std::string page1_name = prefix += "/page1.txt";
   std::set<size_t> pages_set;
   Page page;
-  std::cout << "current page name:" << page1_name.c_str() << std::endl;
+  //  std::cout << "current page name:" << page1_name.c_str() << std::endl;
   int contain_win = 0;
   int contain_lose = 0;
   int flag_valid_page = ParsePage(page, page1_name.c_str(), pages_set);
@@ -46,7 +46,7 @@ int main(int argc, char ** argv) {
   }
   std::set<size_t>::const_iterator it;
   for (it = pages_set.begin(); it != pages_set.end(); ++it) {
-    std::cout << "we have page" << *it << "in our pages set!" << std::endl;
+    //   std::cout << "we have page" << *it << "in our pages set!" << std::endl;
   }
   std::set<size_t>::reverse_iterator rever_it = pages_set.rbegin();
   if (*rever_it >= num_page) {  //error handling
@@ -60,7 +60,7 @@ int main(int argc, char ** argv) {
     }
   }
   else {  //page 1 is not in our set
-    std::cout << "The set size is :" << pages_set.size() << std::endl;
+    //   std::cout << "The set size is :" << pages_set.size() << std::endl;
     if (pages_set.size() != num_page - 3) {
       std::cerr << "At least one page is unreachable!\n";
       exit(EXIT_FAILURE);
