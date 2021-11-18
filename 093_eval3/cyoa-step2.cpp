@@ -86,25 +86,28 @@ int main(int argc, char ** argv) {
       return EXIT_SUCCESS;
     }
     else {
-      std::cin >> users_choice;
-      if (!isPositiveNum(users_choice) ||
-          (size_t)atoi(users_choice.c_str()) > num_page - 2) {
-        std::cout << "That is not a valid choice, please try again" << std::endl;
-      }
-      else {  //if the choice is in current page's permitted choice?
-        std::vector<std::string>::iterator it;
-        int validflag = 0;
-        for (it = page.navi_PageNum_vec.begin(); it != page.navi_PageNum_vec.end();
-             it++) {
-          if (*it == users_choice) {
-            validflag = 1;
-          }
-        }
-        if (validflag == 0) {
+      int validflag = 0;
+      while (validflag == 0) {
+        std::cin >> users_choice;
+        if (!isPositiveNum(users_choice) ||
+            (size_t)atoi(users_choice.c_str()) > num_page - 2) {
           std::cout << "That is not a valid choice, please try again" << std::endl;
+        }
+        else {  //if the choice is in current page's permitted choice?
+          std::vector<std::string>::iterator it;
+          for (it = page.navi_PageNum_vec.begin(); it != page.navi_PageNum_vec.end();
+               it++) {
+            if (*it == users_choice) {
+              validflag = 1;
+            }
+          }
+          if (validflag == 0) {
+            std::cout << "That is not a valid choice, please try again" << std::endl;
+          }
         }
       }
     }
+
     nextpage = users_choice;
   }
 
