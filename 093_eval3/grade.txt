@@ -1,6 +1,6 @@
-Grading at 11/18/2021:05:06:25.023758
-For commit ID 09cfdfa3c9e467cad9705c7ab7da1bd757bf5484
-Grading at Thu Nov 18 00:05:52 EST 2021
+Grading at 11/18/2021:05:12:32.621853
+For commit ID 48665119d79c6afe552a4749a90c69829abde8c6
+Grading at Thu Nov 18 00:12:00 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -72,29 +72,7 @@ Input to story is
 
 +-----------------------------------------------------------------------+
 Test case 14 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
-1,69d0
-< current page name:/usr/local/ece551/cyoa/story2/page1.txt
-< we have page2in our pages set!
-< we have page3in our pages set!
-< we have page4in our pages set!
-< we have page5in our pages set!
-< we have page6in our pages set!
-< we have page7in our pages set!
-< we have page8in our pages set!
-< we have page9in our pages set!
-< we have page10in our pages set!
-< we have page11in our pages set!
-< we have page12in our pages set!
-< The set size is :11
-< One bright weekend afternoon, you decide to adventure, putting on your Ring
-< of the Niebelungen and traveler's cloak and strapping the famed sword Ice
-< to your back.
-< 
-< Half-way up the mountain Matterhorn, you see a cave opening with steam
-< coming out. You enter the cave and tiptoe inside, straining your eyes in
-< the gloomy mist.
-< 
-< You encounter a dragon.
+10,65d9
 < As you tiptoe past the sleeping dragon, steam rising from her nostrils, you
 < see a gleaming treasure hoard, just beyond the scaly tail.
 < 
@@ -142,7 +120,16 @@ Test case 14 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_inp
 < dragon vision team.
 < You wrap the Scythian ruby in the cloak, and sneak back to where the dragon
 < slumbers. 
-85,112d15
+< One bright weekend afternoon, you decide to adventure, putting on your Ring
+< of the Niebelungen and traveler's cloak and strapping the famed sword Ice
+< to your back.
+< 
+< Half-way up the mountain Matterhorn, you see a cave opening with steam
+< coming out. You enter the cave and tiptoe inside, straining your eyes in
+< the gloomy mist.
+< 
+< You encounter a dragon.
+72,99d15
 <  4. Pick up the ruby
 <  5. Pass the ruby to explore the rest of the hoard
 <  6. Put on the cloak
@@ -171,7 +158,7 @@ Test case 14 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_inp
 < An enormous, rare Scythian ruby gleams atop a pedestal, beckoning you.
 < You enjoy a quiet evening at home with a mug of herbal tea and your cats,
 < who only think they are tiny dragons.
-115,164d17
+102,151d17
 < The ruby is slippery, as though wet, and it glides through your fingers,
 < crashing hard into a golden plate, which clatters and crashes like a
 < cymbal.
@@ -222,7 +209,7 @@ Test case 14 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_inp
 < You encounter a dragon.
 < You enjoy a quiet evening at home with a mug of herbal tea and your cats,
 < who only think they are tiny dragons.
-166c19
+153c19
 < Congratulations! You have won. Hooray!
 ---
 > Sorry, you have lost. Better luck next time!
