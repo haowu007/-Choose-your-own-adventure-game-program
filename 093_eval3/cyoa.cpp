@@ -3,9 +3,10 @@
 #include <cstdlib>
 #include <fstream>   //for open/close the input files
 #include <iostream>  //for std::cout
+#include <set>       //for std::set
+#include <sstream>   //for std::stringstream
 #include <string>    //for std::string
 #include <vector>    //for std::vector
-
 class Page {
  public:
   std::vector<std::string>
@@ -30,7 +31,7 @@ bool isPositiveNum(std::string & s) {
   return true;
 }
 
-bool parseOneChoice(Page & page, std::string & cur) {
+bool parseOneChoice(Page & page, std::string & cur, std::set<size_t> & pages_set) {
   size_t colon_pos = cur.find(":");
   if (colon_pos == std::string::npos) {  //error handling
     std::cerr << "No colon found in this choice!\n";
@@ -44,15 +45,16 @@ bool parseOneChoice(Page & page, std::string & cur) {
   }
   page.navi_PageNum_vec.push_back(page_num_str);
   page.navi_choice_vec.push_back(choice_str);
+  pages_set.insert(atoi(page_num_str.c_str()));
   return true;
 }
 
-void ParsePage(Page & page, char * filename) {
+int ParsePage(Page & page, const char * filename, std::set<size_t> & pages_set) {
   std::fstream Myfile;
   Myfile.open(filename, std::ifstream::in);
   if (Myfile.fail() == true) {  //Error handling
-    std::cerr << "Open file failed!\n";
-    exit(EXIT_FAILURE);
+    //  std::cerr << "Open file failed!\n";
+    return -1;  //This file does not exist;
   }
   int found_textlabel_flag = 0;  //If 1, we have seen the "#" line
   std::string cur;               //the line we are currently reading in
@@ -65,7 +67,7 @@ void ParsePage(Page & page, char * filename) {
   }
   else {
     page.result_flag = 3;  //The User shall continue reading
-    if (parseOneChoice(page, cur) == false) {
+    if (parseOneChoice(page, cur, pages_set) == false) {
       std::cerr << "No first choice found!!\n";
       exit(EXIT_FAILURE);
     }
@@ -75,7 +77,7 @@ void ParsePage(Page & page, char * filename) {
         found_textlabel_flag = 1;
         break;  //Ready to parse next section
       }
-      if (parseOneChoice(page, cur) == false) {  //ERROR HANDLING
+      if (parseOneChoice(page, cur, pages_set) == false) {  //ERROR HANDLING
         std::cerr << "Invalid choice in Navigation Section!\n";
         exit(EXIT_FAILURE);
       }
@@ -94,6 +96,12 @@ void ParsePage(Page & page, char * filename) {
     page.actual_text_vec.push_back(cur);
   }
   //remember to close!!
+  if (page.result_flag == 3) {  //Not win or lose page
+    return 1;
+  }
+  else {
+    return (page.result_flag == 1) ? 2 : 3;  //if win, return 2; if lose, return 3
+  }
 }
 
 void print_page(Page & page) {
