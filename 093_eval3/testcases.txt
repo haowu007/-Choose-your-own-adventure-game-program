@@ -1,2 +1,2 @@
 #success
-cyoa-step2 story1
+cyoa-step2 story1 < choice1.txt
