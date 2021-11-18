@@ -1,6 +1,6 @@
-Grading at 11/18/2021:05:53:38.894121
-For commit ID 3f64d42dd0964763a223c2388ab1c5e0cc19f42e
-Grading at Thu Nov 18 00:53:23 EST 2021
+Grading at 11/18/2021:05:56:04.939732
+For commit ID 4e18e2ec1589ec386459a66fa5da6529a334eba0
+Grading at Thu Nov 18 00:55:49 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -90,10 +90,19 @@ Compiling cyoa-step2
 rm -f cyoa-step1 cyoa-step2  *.~ *.cpp~ *.txt~ 
 g++ -std=gnu++03  -pedantic -ggdb3 -Werror -Wall -o cyoa-step2 cyoa-step2.cpp
 +-----------------------------------------------------------------------+
-Test case 1 (success): cyoa-step2 story1
+Test case 1 (success): cyoa-step2 story1 < choice1.txt
 We considered this an error case and gave the following message:
 Cannot read from stdin
-Valgrind reported memory errors
+53,60d52
+< After thinking about it for a bit, you decide to go alone. You head off
+< into the hills by yourself in search of the dragon. Unfortunately, while
+< you are walking and trying to think up a plan, the dragon swoops down
+< behind you and devours you. 
+< 
+< You have been eaten by a dragon.
+< 
+< Sorry, you have lost. Better luck next time!
+Your file did not match the expected output
 
 You have FAILED one or more of your test cases
 Keep debugging
