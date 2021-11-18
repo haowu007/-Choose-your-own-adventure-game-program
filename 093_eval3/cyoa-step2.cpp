@@ -28,6 +28,7 @@ int main(int argc, char ** argv) {
   size_t num_page = 2;
 
   while (flag_valid_page != -1) {
+    Page page;
     std::string prefix = directory_name;
     std::string cur_page_name = prefix += "/page";  //"story1/page"
     std::stringstream cur_pagenum;
@@ -73,15 +74,19 @@ int main(int argc, char ** argv) {
   //////NOW we begin the story
 
   std::string nextpage;
+  std::string users_choice;
   nextpage = "1";
+  size_t users_num = 0;
+  //int cur_page=1;
   while (1) {
+    Page page;
     std::string prefix = directory_name;
     std::string cur_page_name = prefix += "/page";  //"story1/page"
-    std::string users_choice;
-    cur_page_name += nextpage;  //"storyt1/page3"
-    cur_page_name += ".txt";    //"story1/page3.txt"
+    cur_page_name += nextpage;                      //"storyt1/page3"
+    cur_page_name += ".txt";                        //"story1/page3.txt"
     flag_valid_page = ParsePage(page, cur_page_name.c_str(), pages_set);
     print_page(page);
+    //   std::cout << "********************************" << std::endl;
     if (flag_valid_page == 2 || flag_valid_page == 3) {
       return EXIT_SUCCESS;
     }
@@ -89,17 +94,14 @@ int main(int argc, char ** argv) {
       int validflag = 0;
       while (validflag == 0) {
         std::cin >> users_choice;
-        if (!isPositiveNum(users_choice) ||
-            (size_t)atoi(users_choice.c_str()) > num_page - 2) {
+        users_num = (size_t)atoi(users_choice.c_str());
+        if (!isPositiveNum(users_choice) || users_num > num_page - 2) {
           std::cout << "That is not a valid choice, please try again" << std::endl;
         }
         else {  //if the choice is in current page's permitted choice?
-          std::vector<std::string>::iterator it;
-          for (it = page.navi_PageNum_vec.begin(); it != page.navi_PageNum_vec.end();
-               it++) {
-            if (*it == users_choice) {
-              validflag = 1;
-            }
+          size_t valid_size = page.navi_PageNum_vec.size();
+          if (users_num <= valid_size) {
+            validflag = 1;
           }
           if (validflag == 0) {
             std::cout << "That is not a valid choice, please try again" << std::endl;
@@ -107,8 +109,7 @@ int main(int argc, char ** argv) {
         }
       }
     }
-
-    nextpage = users_choice;
+    nextpage = page.navi_PageNum_vec[users_num - 1];
   }
 
   return EXIT_SUCCESS;
