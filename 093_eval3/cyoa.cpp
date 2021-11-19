@@ -194,3 +194,43 @@ int examine_whole_story(char * directory) {
   }
   return num_page;
 }
+void ReadaStory(char * directory_name, size_t num_page) {
+  std::string nextpage = "1";  //We start reading from page1.
+  std::string users_choice;
+  size_t users_num = 0;
+  int flag_valid_page = 0;
+  std::set<size_t> pages_set;
+  while (1) {
+    Page page;
+    std::string prefix = directory_name;
+    std::string cur_page_name = prefix += "/page";  //"story1/page"
+    cur_page_name += nextpage;                      //"storyt1/page3"
+    cur_page_name += ".txt";                        //"story1/page3.txt"
+    flag_valid_page = ParsePage(page, cur_page_name.c_str(), pages_set);
+    print_page(page);
+    //   std::cout << "********************************" << std::endl;
+    if (flag_valid_page == 2 || flag_valid_page == 3) {
+      return;  //we have finished the story!
+    }
+    else {
+      int validflag = 0;
+      while (validflag == 0) {
+        std::cin >> users_choice;
+        users_num = (size_t)atoi(users_choice.c_str());
+        if (!isPositiveNum(users_choice) || users_num > num_page - 2) {
+          std::cout << "That is not a valid choice, please try again" << std::endl;
+        }
+        else {  //if the choice is in current page's permitted choice?
+          size_t valid_size = page.navi_PageNum_vec.size();
+          if (users_num <= valid_size) {
+            validflag = 1;
+          }
+          if (validflag == 0) {
+            std::cout << "That is not a valid choice, please try again" << std::endl;
+          }
+        }
+      }
+    }
+    nextpage = page.navi_PageNum_vec[users_num - 1];
+  }
+}
