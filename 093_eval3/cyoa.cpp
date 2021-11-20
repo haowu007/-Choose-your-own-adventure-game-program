@@ -1,5 +1,7 @@
 //This is the source file for the whole assignment
 //Most functions are implemented here
+#include "cyoa.hpp"  //for class Page
+
 #include <cstdlib>
 #include <fstream>   //for open/close the input files
 #include <iostream>  //for std::cout
@@ -7,6 +9,7 @@
 #include <sstream>   //for std::stringstream
 #include <string>    //for std::string
 #include <vector>    //for std::vector
+/*
 class Page {
  public:
   std::vector<std::string>
@@ -16,8 +19,9 @@ class Page {
   std::vector<std::string> actual_text_vec;  //The text of this given page
   int result_flag;                           //1 for Win, 2 for lose, 3 for continue
 
-  void printThepage() {}
+  void print_page() {}
 };
+*/
 bool isPositiveNum(std::string & s) {
   size_t len = s.length();
   for (size_t i = 0; i < len; ++i) {
@@ -104,28 +108,6 @@ int ParsePage(Page & page, const char * filename, std::set<size_t> & pages_set) 
   }
 }
 
-void print_page(Page & page) {
-  std::vector<std::string>::const_iterator it;
-  for (it = page.actual_text_vec.begin(); it != page.actual_text_vec.end(); ++it) {
-    std::cout << *it << std::endl;
-  }
-  std::cout << std::endl;       //print a blank line
-  if (page.result_flag == 1) {  //The output corresponding to "Win"
-    std::cout << "Congratulations! You have won. Hooray!" << std::endl;
-  }
-  else if (page.result_flag == 2) {  //The output corresponding to "Lose"
-    std::cout << "Sorry, you have lost. Better luck next time!" << std::endl;
-  }
-  else {  //The output corresponding to "Continue reading"
-    std::cout << "What would you like to do?" << std::endl;
-    std::cout << std::endl;  //print another blank line
-    int i = 1;
-    for (it = page.navi_choice_vec.begin(); it != page.navi_choice_vec.end(); ++it) {
-      std::cout << " " << i++ << ". " << *it << std::endl;
-    }
-  }
-}
-
 int examine_whole_story(char * directory) {
   std::string directory_name(directory);
   std::string prefix = directory_name;
@@ -207,7 +189,7 @@ void ReadaStory(char * directory_name, size_t num_page) {
     cur_page_name += nextpage;                      //"storyt1/page3"
     cur_page_name += ".txt";                        //"story1/page3.txt"
     flag_valid_page = ParsePage(page, cur_page_name.c_str(), pages_set);
-    print_page(page);
+    page.print_page();
     //   std::cout << "********************************" << std::endl;
     if (flag_valid_page == 2 || flag_valid_page == 3) {
       return;  //we have finished the story!

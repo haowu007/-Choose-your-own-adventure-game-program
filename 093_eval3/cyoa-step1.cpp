@@ -13,6 +13,6 @@ int main(int argc, char ** argv) {
     std::cerr << "Invalid file name!\n";
     exit(EXIT_FAILURE);
   }
-  print_page(page);
+  page.print_page();
   return EXIT_SUCCESS;
 }
