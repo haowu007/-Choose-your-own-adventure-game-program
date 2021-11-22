@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <fstream>   //for open/close the input files
 #include <iostream>  //for std::cout
-#include <set>       //for std::set
+#include <map>       //for std::map
 #include <sstream>   //for std::stringstream
 #include <string>    //for std::string
 #include <vector>    //for std::vector
@@ -45,7 +45,10 @@ bool isPositiveNum(std::string & s) {
   return true;
 }
 
-bool parseOneChoice(Page & page, std::string & cur, std::set<size_t> & pages_set) {
+bool parseOneChoice(Page & page,
+                    std::string & cur,
+                    std::map<size_t, std::vector<size_t> > & adj_map,
+                    size_t page_num) {
   size_t colon_pos = cur.find(":");
   if (colon_pos == std::string::npos) {  //error handling
     std::cerr << "No colon found in this choice!\n";
@@ -59,11 +62,15 @@ bool parseOneChoice(Page & page, std::string & cur, std::set<size_t> & pages_set
   }
   page.navi_PageNum_vec.push_back(page_num_str);
   page.navi_choice_vec.push_back(choice_str);
-  pages_set.insert(atoi(page_num_str.c_str()));
+  // pages_set.insert(atoi(page_num_str.c_str()));
+  adj_map[page_num].push_back(atoi(page_num_str.c_str()));
   return true;
 }
 
-int ParsePage(Page & page, const char * filename, std::set<size_t> & pages_set) {
+int ParsePage(Page & page,
+              const char * filename,
+              std::map<size_t, std::vector<size_t> > & adj_map,
+              size_t page_num) {
   std::fstream Myfile;
   Myfile.open(filename, std::ifstream::in);
   if (Myfile.fail() == true) {  //Error handling
@@ -75,13 +82,17 @@ int ParsePage(Page & page, const char * filename, std::set<size_t> & pages_set) 
   std::getline(Myfile, cur);     //FIRST PART: Navigation Section-->first line
   if (cur == "WIN") {
     page.result_flag = 1;  //The User wins
+    std::vector<size_t> vec;
+    adj_map[page_num] = vec;
   }
   else if (cur == "LOSE") {
     page.result_flag = 2;  //The User loses
+    std::vector<size_t> vec;
+    adj_map[page_num] = vec;
   }
   else {
     page.result_flag = 3;  //The User shall continue reading
-    if (parseOneChoice(page, cur, pages_set) == false) {
+    if (parseOneChoice(page, cur, adj_map, page_num) == false) {
       std::cerr << "No first choice found!!\n";
       exit(EXIT_FAILURE);
     }
@@ -91,7 +102,7 @@ int ParsePage(Page & page, const char * filename, std::set<size_t> & pages_set) 
         found_textlabel_flag = 1;
         break;  //Ready to parse next section
       }
-      if (parseOneChoice(page, cur, pages_set) == false) {  //ERROR HANDLING
+      if (parseOneChoice(page, cur, adj_map, page_num) == false) {  //ERROR HANDLING
         std::cerr << "Invalid choice in Navigation Section!\n";
         exit(EXIT_FAILURE);
       }
@@ -118,16 +129,17 @@ int ParsePage(Page & page, const char * filename, std::set<size_t> & pages_set) 
   }
 }
 
-int examine_whole_story(char * directory) {
+int examine_whole_story(char * directory,
+                        std::map<size_t, std::vector<size_t> > & adj_map) {
   std::string directory_name(directory);
   std::string prefix = directory_name;
   std::string page1_name = prefix += "/page1.txt";
-  std::set<size_t> pages_set;
+  //std::set<size_t> pages_set;
   Page page;
   //  std::cout << "current page name:" << page1_name.c_str() << std::endl;
   int contain_win = 0;
   int contain_lose = 0;
-  int flag_valid_page = ParsePage(page, page1_name.c_str(), pages_set);
+  int flag_valid_page = ParsePage(page, page1_name.c_str(), adj_map, 1);
   if (flag_valid_page == 2) {
     contain_win++;
   }
@@ -149,7 +161,7 @@ int examine_whole_story(char * directory) {
     cur_page_name += cur_pagenum.str();  //"storyt1/page3"
     cur_page_name += ".txt";             //"story1/page3.txt"
 
-    flag_valid_page = ParsePage(page, cur_page_name.c_str(), pages_set);
+    flag_valid_page = ParsePage(page, cur_page_name.c_str(), adj_map, num_page);
     if (flag_valid_page == 2) {
       contain_win++;
     }
@@ -158,25 +170,32 @@ int examine_whole_story(char * directory) {
     }
     num_page++;
   }
-  std::set<size_t>::const_iterator it;
-  for (it = pages_set.begin(); it != pages_set.end(); ++it) {
-    //   std::cout << "we have page" << *it << "in our pages set!" << std::endl;
-  }
-  std::set<size_t>::reverse_iterator rever_it = pages_set.rbegin();
-  if (*rever_it >= num_page) {  //error handling
+
+  std::map<size_t, std::vector<size_t> >::reverse_iterator rever_it = adj_map.rbegin();
+  if (rever_it->first >= num_page) {  //error handling
     std::cerr << "Page choice went out of valid range!!\n";
     exit(EXIT_FAILURE);
   }
-  if (pages_set.count(1) > 0) {  //set contains page number "1"
-    if (pages_set.size() != num_page - 2) {
+  //output all the choices in map
+  /*  for (std::map<size_t, std::vector<size_t> >::iterator it = adj_map.begin();
+       it != adj_map.end();
+       it++) {
+    std::cout << it->first << std::endl;
+  }
+  */
+  if (adj_map.count(1) > 0) {  //map contains page number "1"
+    if (adj_map.size() != num_page - 2) {
       std::cerr << "At least one page is unreachable!\n";
+      std::cout << "MAP SIZE:" << adj_map.size() << std::endl;
+      std::cout << "wanted size:" << num_page - 3 << std::endl;
       exit(EXIT_FAILURE);
     }
   }
-  else {  //page 1 is not in our set
-    //   std::cout << "The set size is :" << pages_set.size() << std::endl;
-    if (pages_set.size() != num_page - 3) {
+  else {  //page 1 is not in our map
+
+    if (adj_map.size() != num_page - 3) {
       std::cerr << "At least one page is unreachable!\n";
+
       exit(EXIT_FAILURE);
     }
   }
@@ -191,14 +210,14 @@ void ReadaStory(char * directory_name, size_t num_page) {
   std::string users_choice;
   size_t users_num = 0;
   int flag_valid_page = 0;
-  std::set<size_t> pages_set;
+  std::map<size_t, std::vector<size_t> > pages_MAP;
   while (1) {
     Page page;
     std::string prefix = directory_name;
     std::string cur_page_name = prefix += "/page";  //"story1/page"
     cur_page_name += nextpage;                      //"storyt1/page3"
     cur_page_name += ".txt";                        //"story1/page3.txt"
-    flag_valid_page = ParsePage(page, cur_page_name.c_str(), pages_set);
+    flag_valid_page = ParsePage(page, cur_page_name.c_str(), pages_MAP, 0);
     page.print_page();
     //   std::cout << "********************************" << std::endl;
     if (flag_valid_page == 2 || flag_valid_page == 3) {
