@@ -1,6 +1,6 @@
-Grading at 11/22/2021:20:44:18.857745
-For commit ID 368e73cee02da61bf595589464f81fdd3530e606
-Grading at Mon Nov 22 15:43:57 EST 2021
+Grading at 11/22/2021:20:49:20.048907
+For commit ID e8f68d01e7b1dbf58a06684c507e57fb2a6578ec
+Grading at Mon Nov 22 15:48:59 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -106,10 +106,27 @@ Compiling cyoa-step3
 rm -f cyoa-step1 cyoa-step2  *.~ *.cpp~ *.hpp~ *.txt~ 
 make: 'cyoa-step3' is up to date.
 +-----------------------------------------------------------------------+
-Test case 3 (success): cyoa-step3 story2
-Your file matched the expected output
+Test case 3 (success): cyoa-step3 story1
+We considered this an error case and gave the following message:
+Page 2 found but not referenced in story by any other page
+1,14d0
+< Page 1:0
+< Page 2 is not reachable
+< Page 3:1
+< Page 4:1
+< Page 5 is not reachable
+< Page 6 is not reachable
+< Page 7:2
+< Page 8:2
+< Page 9:2
+< Page 10 is not reachable
+< Page 11:2
+< Page 12:2
+< Page 13 is not reachable
+< Page 14 is not reachable
+Your file did not match the expected output
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
