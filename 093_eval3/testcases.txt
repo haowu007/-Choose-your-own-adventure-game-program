@@ -1,3 +1,4 @@
 #success
 cyoa-step2 story2 < choice1.txt
 cyoa-step2 story2 < choice2.txt
+cyoa-step3 story2

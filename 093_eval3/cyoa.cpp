@@ -7,6 +7,7 @@
 #include <iostream>  //for std::cout
 #include <map>       //for std::map
 #include <sstream>   //for std::stringstream
+#include <stack>     //for std::stack
 #include <string>    //for std::string
 #include <vector>    //for std::vector
 
