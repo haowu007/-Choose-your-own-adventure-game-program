@@ -1,4 +1,3 @@
-2:Choose the magic whistle.
 3:Choose the magic shoes.
 4:Choose the magic toaster.
 #
