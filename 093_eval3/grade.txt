@@ -1,6 +1,6 @@
-Grading at 11/20/2021:23:13:41.027281
-For commit ID f4ac2fc5b966c25925f4a66c9eb2815c7f15cc7c
-Grading at Sat Nov 20 18:13:24 EST 2021
+Grading at 11/22/2021:05:28:53.544236
+For commit ID 52184b8296b69adc4ea35d0ba788627cbc082d1f
+Grading at Mon Nov 22 00:28:36 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -77,6 +77,8 @@ Step 2: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step3
 rm -f cyoa-step1 cyoa-step2  *.~ *.cpp~ *.hpp~ *.txt~ 
+g++  g++ -std=gnu++03  -pedantic -ggdb3 -Werror -Wall   cyoa-step3.cpp   -o cyoa-step3
+<builtin>: recipe for target 'cyoa-step3' failed
 The code did not compile!
 Did not compile for step 3
 
@@ -91,6 +93,9 @@ rm -f cyoa-step1 cyoa-step2  *.~ *.cpp~ *.hpp~ *.txt~
 g++ -std=gnu++03  -pedantic -ggdb3 -Werror -Wall -o cyoa-step2 cyoa-step2.cpp
 +-----------------------------------------------------------------------+
 Test case 1 (success): cyoa-step2 story2 < choice1.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 2 (success): cyoa-step2 story2 < choice2.txt
 Your file matched the expected output
 
 You have PASSED all of your test cases
