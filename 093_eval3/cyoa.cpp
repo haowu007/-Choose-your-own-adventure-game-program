@@ -186,8 +186,8 @@ int examine_whole_story(char * directory,
   }
 
   if (max_choice_page > num_page - 2) {  //error handling
-    std::cerr << "Page " << max_choice_page << " given as choice but not found in story"
-              << std::endl;
+    std::cerr << "Page " << max_choice_page << " given as choice but not found in story";
+    //          << std::endl;
 
     exit(EXIT_FAILURE);
   }
@@ -208,7 +208,7 @@ int examine_whole_story(char * directory,
   }
 
   if (contain_win == 0) {
-    std::cout << "Story must have at least one WIN page\n";
+    std::cerr << "Story must have at least one WIN page\n";
     exit(EXIT_SUCCESS);
   }
   if (contain_lose == 0) {
