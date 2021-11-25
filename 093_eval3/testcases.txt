@@ -1,4 +1,10 @@
+
 #error
-cyoa-step3 invalid_choice
-cyoa-step4 unreferenced_story1
-cyoa-step4 no_win_story1 
+cyoa-step4 broken1
+cyoa-step4 broken2
+
+
+#success
+cyoa-step4 cycle
+cyoa-step4 no_win
+cyoa-step4 story-diamond-win
