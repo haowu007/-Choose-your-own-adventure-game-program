@@ -1,5 +1,4 @@
 11:Go to Denevieve for help.
-12:Go to Grew for help.
 7:Go alone.
 3:wowo.
 #toaster

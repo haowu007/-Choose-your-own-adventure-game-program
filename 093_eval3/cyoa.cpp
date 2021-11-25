@@ -50,7 +50,8 @@ bool isPositiveNum(std::string & s) {
 bool parseOneChoice(Page & page,
                     std::string & cur,
                     std::map<size_t, std::vector<size_t> > & adj_map,
-                    size_t page_num) {
+                    size_t page_num,
+                    size_t & max_choice_page) {
   size_t colon_pos = cur.find(":");
   if (colon_pos == std::string::npos) {  //error handling
     std::cerr << "No colon found in this choice!\n";
@@ -64,19 +65,24 @@ bool parseOneChoice(Page & page,
   }
   page.navi_PageNum_vec.push_back(page_num_str);
   page.navi_choice_vec.push_back(choice_str);
-  // pages_set.insert(atoi(page_num_str.c_str()));
-  adj_map[page_num].push_back(atoi(page_num_str.c_str()));
+  size_t choice_page = (size_t)atoi(page_num_str.c_str());
+  adj_map[page_num].push_back(choice_page);
+
+  if (choice_page > max_choice_page) {
+    max_choice_page = choice_page;
+  }
   return true;
 }
 
 int ParsePage(Page & page,
               const char * filename,
               std::map<size_t, std::vector<size_t> > & adj_map,
-              size_t page_num) {
+              size_t page_num,
+              size_t & max_choice_page) {
   std::fstream Myfile;
   Myfile.open(filename, std::ifstream::in);
   if (Myfile.fail() == true) {  //Error handling
-    //  std::cerr << "Open file failed!\n";
+
     return -1;  //This file does not exist;
   }
   int found_textlabel_flag = 0;  //If 1, we have seen the "#" line
@@ -94,7 +100,7 @@ int ParsePage(Page & page,
   }
   else {
     page.result_flag = 3;  //The User shall continue reading
-    if (parseOneChoice(page, cur, adj_map, page_num) == false) {
+    if (parseOneChoice(page, cur, adj_map, page_num, max_choice_page) == false) {
       std::cerr << "No first choice found!!\n";
       exit(EXIT_FAILURE);
     }
@@ -104,7 +110,8 @@ int ParsePage(Page & page,
         found_textlabel_flag = 1;
         break;  //Ready to parse next section
       }
-      if (parseOneChoice(page, cur, adj_map, page_num) == false) {  //ERROR HANDLING
+      if (parseOneChoice(page, cur, adj_map, page_num, max_choice_page) ==
+          false) {  //ERROR HANDLING
         std::cerr << "Invalid choice in Navigation Section!\n";
         exit(EXIT_FAILURE);
       }
@@ -142,7 +149,8 @@ int examine_whole_story(char * directory,
   //  std::cout << "current page name:" << page1_name.c_str() << std::endl;
   int contain_win = 0;
   int contain_lose = 0;
-  int flag_valid_page = ParsePage(page, page1_name.c_str(), adj_map, 1);
+  size_t max_choice_page = 0;
+  int flag_valid_page = ParsePage(page, page1_name.c_str(), adj_map, 1, max_choice_page);
   if (flag_valid_page == 2) {
     contain_win++;
     win_pages_set.insert(1);  //we are just looking at the first page
@@ -165,7 +173,8 @@ int examine_whole_story(char * directory,
     cur_page_name += cur_pagenum.str();  //"storyt1/page3"
     cur_page_name += ".txt";             //"story1/page3.txt"
 
-    flag_valid_page = ParsePage(page, cur_page_name.c_str(), adj_map, num_page);
+    flag_valid_page =
+        ParsePage(page, cur_page_name.c_str(), adj_map, num_page, max_choice_page);
     if (flag_valid_page == 2) {
       contain_win++;
       win_pages_set.insert(num_page);
@@ -176,34 +185,30 @@ int examine_whole_story(char * directory,
     num_page++;
   }
 
-  std::map<size_t, std::vector<size_t> >::reverse_iterator rever_it = adj_map.rbegin();
-  if (rever_it->first >= num_page) {  //error handling
-    std::cerr << "Page choice went out of valid range!!\n";
+  if (max_choice_page > num_page - 2) {  //error handling
+    std::cerr
+        << "Page choice went out of valid range!!\n";  //we just need to look at the largest page number
+    std::cout << "Max page choice was:" << max_choice_page << "\n";
+    std::cout << "Yet valid max page was:" << num_page - 2 << "\n";
+
     exit(EXIT_FAILURE);
   }
-  //output all the choices in map
-  /*  for (std::map<size_t, std::vector<size_t> >::iterator it = adj_map.begin();
-       it != adj_map.end();
-       it++) {
-    std::cout << it->first << std::endl;
+  //now we are sure that all the choices in our map are valid
+  //but we are not sure if all those pages have been referenced by at least one other page!
+  std::set<size_t> choices_set;
+  for (size_t i = 0; i < adj_map.size(); i++) {
+    for (size_t j = 0; j < adj_map[i].size(); j++) {
+      choices_set.insert(adj_map[i][j]);
+    }
   }
-  */
-  if (adj_map.count(1) > 0) {  //map contains page number "1"
-    if (adj_map.size() != num_page - 2) {
-      std::cerr << "At least one page is unreachable!\n";
-      std::cout << "MAP SIZE:" << adj_map.size() << std::endl;
-      std::cout << "wanted size:" << num_page - 3 << std::endl;
+  for (size_t k = 2; k <= num_page - 2; k++) {
+    if (choices_set.count(k) == 0) {
+      std::cerr << "At least one page was never referenced!\n";
+      std::cout << "Missing reference to page:" << k << std::endl;
       exit(EXIT_FAILURE);
     }
   }
-  else {  //page 1 is not in our map
 
-    if (adj_map.size() != num_page - 3) {
-      std::cerr << "At least one page is unreachable!\n";
-
-      exit(EXIT_FAILURE);
-    }
-  }
   if (contain_win == 0 || contain_lose == 0) {
     std::cerr << "Missing win or lose page!\n";
     exit(EXIT_SUCCESS);
@@ -216,13 +221,15 @@ void ReadaStory(char * directory_name, size_t num_page) {
   size_t users_num = 0;
   int flag_valid_page = 0;
   std::map<size_t, std::vector<size_t> > pages_MAP;
+  size_t max_choice_page = 0;
   while (1) {
     Page page;
     std::string prefix = directory_name;
     std::string cur_page_name = prefix += "/page";  //"story1/page"
     cur_page_name += nextpage;                      //"storyt1/page3"
     cur_page_name += ".txt";                        //"story1/page3.txt"
-    flag_valid_page = ParsePage(page, cur_page_name.c_str(), pages_MAP, 0);
+    flag_valid_page =
+        ParsePage(page, cur_page_name.c_str(), pages_MAP, 0, max_choice_page);
     page.print_page();
     //   std::cout << "********************************" << std::endl;
     if (flag_valid_page == 2 || flag_valid_page == 3) {
