@@ -1,6 +1,6 @@
-Grading at 11/25/2021:04:50:48.658478
-For commit ID 69cae46c58762548bfca8aa2f86f9dd8394848f5
-Grading at Wed Nov 24 23:50:22 EST 2021
+Grading at 11/25/2021:04:59:29.429115
+For commit ID 595725c9e50f2c5782ed504e241ced1bbc5325d7
+Grading at Wed Nov 24 23:59:03 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -111,11 +111,9 @@ Test case 4 (success): cyoa-step4 no_win
 Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 5 (success): cyoa-step4 story-diamond-win
-0a1
-> 1(1),2(1),4(1),6(win)
-Your file did not match the expected output
+Your file matched the expected output
 
-You have FAILED one or more of your test cases
-Keep debugging
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
