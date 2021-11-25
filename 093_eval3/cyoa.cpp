@@ -209,11 +209,11 @@ int examine_whole_story(char * directory,
 
   if (contain_win == 0) {
     std::cerr << "Story must have at least one WIN page\n";
-    exit(EXIT_SUCCESS);
+    exit(EXIT_FAILURE);
   }
   if (contain_lose == 0) {
     std::cerr << "Story must have at least one LOSE page\n";
-    exit(EXIT_SUCCESS);
+    exit(EXIT_FAILURE);
   }
   return num_page;
 }
