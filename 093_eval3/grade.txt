@@ -1,6 +1,6 @@
-Grading at 11/25/2021:01:48:28.423149
-For commit ID 9bb6f515fb777bc72ecd438ed9c39bb00d1bc4d5
-Grading at Wed Nov 24 20:48:05 EST 2021
+Grading at 11/25/2021:04:25:07.965601
+For commit ID 094bd6091a6fd5b1ebf694e0a57f916e96a96071
+Grading at Wed Nov 24 23:24:43 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -105,21 +105,26 @@ g++ -std=gnu++03  -pedantic -ggdb3 -Werror -Wall -o cyoa-step3 cyoa-step3.cpp
 Test case 1 (success): cyoa-step3 invalid_choice
 We considered this an error case and gave the following message:
 Page 15 given as choice but not found in story
-1,3d0
-< Page choice went out of valid range!!
-< Max page choice was:15
-< Yet valid max page was:14
+1d0
+< Page 15 given as choice but not found in story
 Your file did not match the expected output
 
 Compiling cyoa-step4
 rm -f cyoa-step1 cyoa-step2 cyoa-step3  *.~ *.cpp~ *.hpp~ *.txt~ 
 make: 'cyoa-step4' is up to date.
 +-----------------------------------------------------------------------+
-Test case 2 (success): cyoa-step4 no_win_story1
+Test case 2 (success): cyoa-step4 unreferenced_story1
 We considered this an error case and gave the following message:
 Page 12 found but not referenced in story by any other page
 1d0
 < Page 12 found but not referenced in story by any other page
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case 3 (success): cyoa-step4 no_win_story1
+We considered this an error case and gave the following message:
+Story must have at least one WIN page
+1d0
+< Missing win or lose page!
 Your file did not match the expected output
 
 You have FAILED one or more of your test cases
