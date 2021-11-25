@@ -203,8 +203,8 @@ int examine_whole_story(char * directory,
   }
   for (size_t k = 2; k <= num_page - 2; k++) {
     if (choices_set.count(k) == 0) {
-      std::cerr << "At least one page was never referenced!\n";
-      std::cout << "Missing reference to page:" << k << std::endl;
+      std::cout << "Page " << k << " found but not referenced in story by any other page"
+                << std::endl;
       exit(EXIT_FAILURE);
     }
   }
