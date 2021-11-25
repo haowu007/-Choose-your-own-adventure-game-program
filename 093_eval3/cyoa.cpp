@@ -3,14 +3,6 @@
 #include "cyoa.hpp"  //for class Page
 
 #include <cstdlib>
-#include <fstream>   //for open/close the input files
-#include <iostream>  //for std::cout
-#include <map>       //for std::map
-#include <set>       //for std::set
-#include <sstream>   //for std::stringstream
-#include <stack>     //for std::stack
-#include <string>    //for std::string
-#include <vector>    //for std::vector
 
 void Page::print_page() {
   std::vector<std::string>::const_iterator it;
@@ -260,7 +252,10 @@ void ReadaStory(char * directory_name, size_t num_page) {
   }
 }
 
-void printStoryDepth(size_t num_page, std::map<size_t, std::vector<size_t> > & adj_map) {
+void printStoryDepth(char * directory) {
+  std::map<size_t, std::vector<size_t> > adj_map;
+  std::set<size_t> win_pages_set;
+  size_t num_page = examine_whole_story(directory, adj_map, win_pages_set);
   std::vector<size_t> depth_vector(
       num_page - 1, 0);  //because the returned num_page is 2+the real pages number
   std::vector<size_t> visited_vector(num_page - 1, 0);

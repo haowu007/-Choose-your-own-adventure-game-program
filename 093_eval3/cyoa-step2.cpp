@@ -5,7 +5,6 @@ int main(int argc, char ** argv) {
     std::cerr << "Usage: please enter one directory name!\n";
     exit(EXIT_FAILURE);
   }
-  // std::string directory_name(argv[1]);
   std::map<size_t, std::vector<size_t> > adj_MAP;
   std::set<size_t> win_pages_set;
   size_t num_page = examine_whole_story(
