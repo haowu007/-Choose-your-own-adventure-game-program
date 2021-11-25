@@ -30,6 +30,11 @@ int main(int argc, char ** argv) {
       cur_path_vec.push_back(std::pair<size_t, size_t>(cur_page, 0));
       printPath(cur_path_vec);
       flag_has_win = 1;
+      for (std::vector<std::pair<size_t, size_t> >::iterator it = cur_path_vec.begin();
+           it != cur_path_vec.end();
+           it++) {
+        visited_vector[it->first] = 0;
+      }
     }
     else {  //it is not a win page
       std::vector<size_t> cur_neighbour = adj_map[cur_page];
