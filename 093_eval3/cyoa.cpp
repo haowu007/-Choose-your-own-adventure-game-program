@@ -207,8 +207,12 @@ int examine_whole_story(char * directory,
     }
   }
 
-  if (contain_win == 0 || contain_lose == 0) {
-    std::cerr << "Missing win or lose page!\n";
+  if (contain_win == 0) {
+    std::cout << "Story must have at least one WIN page\n";
+    exit(EXIT_SUCCESS);
+  }
+  if (contain_lose == 0) {
+    std::cerr << "Story must have at least one LOSE page\n";
     exit(EXIT_SUCCESS);
   }
   return num_page;
