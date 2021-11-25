@@ -1,6 +1,6 @@
-Grading at 11/25/2021:01:08:28.398181
-For commit ID 10c4c2c0de6808149a5e99534dd14fb5216d1915
-Grading at Wed Nov 24 20:08:03 EST 2021
+Grading at 11/25/2021:01:41:14.947525
+For commit ID eeb6252a4e2704e4946234abb8045a19fdbe5d43
+Grading at Wed Nov 24 20:40:52 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -103,23 +103,26 @@ rm -f cyoa-step1 cyoa-step2 cyoa-step3  *.~ *.cpp~ *.hpp~ *.txt~
 g++ -std=gnu++03  -pedantic -ggdb3 -Werror -Wall -o cyoa-step2 cyoa-step2.cpp
 +-----------------------------------------------------------------------+
 Test case 1 (success): cyoa-step2 no_win_story1 < choice3.txt
-Your file matched the expected output
-
-Compiling cyoa-step3
-rm -f cyoa-step1 cyoa-step2 cyoa-step3  *.~ *.cpp~ *.hpp~ *.txt~ 
-g++ -std=gnu++03  -pedantic -ggdb3 -Werror -Wall -o cyoa-step3 cyoa-step3.cpp
-+-----------------------------------------------------------------------+
-Test case 2 (success): cyoa-step3 no_win_story1
-Your file matched the expected output
+We considered this an error case and gave the following message:
+Page 12 found but not referenced in story by any other page
+1,2d0
+< At least one page was never referenced!
+< Missing reference to page:12
+Your file did not match the expected output
 
 Compiling cyoa-step4
 rm -f cyoa-step1 cyoa-step2 cyoa-step3  *.~ *.cpp~ *.hpp~ *.txt~ 
 make: 'cyoa-step4' is up to date.
 +-----------------------------------------------------------------------+
-Test case 3 (success): cyoa-step4 no_win_story1
-Your file matched the expected output
+Test case 2 (success): cyoa-step4 no_win_story1
+We considered this an error case and gave the following message:
+Page 12 found but not referenced in story by any other page
+1,2d0
+< At least one page was never referenced!
+< Missing reference to page:12
+Your file did not match the expected output
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
