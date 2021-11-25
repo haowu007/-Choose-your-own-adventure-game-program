@@ -6,7 +6,8 @@ int main(int argc, char ** argv) {
     exit(EXIT_FAILURE);
   }
   std::map<size_t, std::vector<size_t> > adj_map;
-  size_t num_page = examine_whole_story(argv[1], adj_map);
+  std::set<size_t> win_pages_set;
+  size_t num_page = examine_whole_story(argv[1], adj_map, win_pages_set);
   printStoryDepth(num_page, adj_map);
   return EXIT_SUCCESS;
 }

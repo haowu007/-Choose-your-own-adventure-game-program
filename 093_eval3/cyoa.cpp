@@ -6,6 +6,7 @@
 #include <fstream>   //for open/close the input files
 #include <iostream>  //for std::cout
 #include <map>       //for std::map
+#include <set>       //for std::set
 #include <sstream>   //for std::stringstream
 #include <stack>     //for std::stack
 #include <string>    //for std::string
@@ -131,7 +132,8 @@ int ParsePage(Page & page,
 }
 
 int examine_whole_story(char * directory,
-                        std::map<size_t, std::vector<size_t> > & adj_map) {
+                        std::map<size_t, std::vector<size_t> > & adj_map,
+                        std::set<size_t> & win_pages_set) {
   std::string directory_name(directory);
   std::string prefix = directory_name;
   std::string page1_name = prefix += "/page1.txt";
@@ -143,6 +145,7 @@ int examine_whole_story(char * directory,
   int flag_valid_page = ParsePage(page, page1_name.c_str(), adj_map, 1);
   if (flag_valid_page == 2) {
     contain_win++;
+    win_pages_set.insert(1);  //we are just looking at the first page
   }
   if (flag_valid_page == 3) {
     contain_lose++;
@@ -165,6 +168,7 @@ int examine_whole_story(char * directory,
     flag_valid_page = ParsePage(page, cur_page_name.c_str(), adj_map, num_page);
     if (flag_valid_page == 2) {
       contain_win++;
+      win_pages_set.insert(num_page);
     }
     if (flag_valid_page == 3) {
       contain_lose++;
@@ -281,6 +285,18 @@ void printStoryDepth(size_t num_page, std::map<size_t, std::vector<size_t> > & a
     }
     else {
       std::cout << ":" << depth_vector[i] << std::endl;
+    }
+  }
+}
+
+void printPath(std::vector<std::pair<size_t, size_t> > & vec) {
+  std::vector<std::pair<size_t, size_t> >::iterator it;
+  for (it = vec.begin(); it != vec.end(); it++) {
+    if (it->second == 0) {  //This is a WIN page!!!
+      std::cout << it->first << "(win)" << std::endl;
+    }
+    else {
+      std::cout << it->first << "(" << it->second << "),";
     }
   }
 }
