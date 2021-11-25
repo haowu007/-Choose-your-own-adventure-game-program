@@ -1,3 +1,4 @@
 #success
 cyoa-step3 invalid_choice
+cyoa-step4 unreferenced_story1
 cyoa-step4 no_win_story1 

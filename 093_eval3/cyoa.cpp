@@ -186,10 +186,8 @@ int examine_whole_story(char * directory,
   }
 
   if (max_choice_page > num_page - 2) {  //error handling
-    std::cerr
-        << "Page choice went out of valid range!!\n";  //we just need to look at the largest page number
-    std::cout << "Max page choice was:" << max_choice_page << "\n";
-    std::cout << "Yet valid max page was:" << num_page - 2 << "\n";
+    std::cerr << "Page " << max_choice_page << " given as choice but not found in story"
+              << std::endl;
 
     exit(EXIT_FAILURE);
   }
@@ -203,7 +201,7 @@ int examine_whole_story(char * directory,
   }
   for (size_t k = 2; k <= num_page - 2; k++) {
     if (choices_set.count(k) == 0) {
-      std::cout << "Page " << k << " found but not referenced in story by any other page"
+      std::cerr << "Page " << k << " found but not referenced in story by any other page"
                 << std::endl;
       exit(EXIT_FAILURE);
     }
