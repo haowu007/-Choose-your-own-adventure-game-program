@@ -1,10 +1,10 @@
-Grading at 11/25/2021:04:37:56.240229
-For commit ID 7dc3b0623fcee5ee57eb1d79ed22986a186ff4a5
-Grading at Wed Nov 24 23:37:32 EST 2021
+Grading at 11/25/2021:04:43:19.587084
+For commit ID fb2e9f73bf6d324c5ca926e3b05e33fd52bcf886
+Grading at Wed Nov 24 23:42:53 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
-rm -f cyoa-step1 cyoa-step2 cyoa-step3  *.~ *.cpp~ *.hpp~ *.txt~ 
+rm -f cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4  *.~ *.cpp~ *.hpp~ *.txt~ 
 g++ -std=gnu++03  -pedantic -ggdb3 -Werror -Wall -o cyoa-step1 cyoa-step1.cpp
 Compiled for step 1
 +-----------------------------------------------------------------------+
@@ -40,7 +40,7 @@ Your file matched the expected output
 Step 1: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step2
-rm -f cyoa-step1 cyoa-step2 cyoa-step3  *.~ *.cpp~ *.hpp~ *.txt~ 
+rm -f cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4  *.~ *.cpp~ *.hpp~ *.txt~ 
 g++ -std=gnu++03  -pedantic -ggdb3 -Werror -Wall -o cyoa-step2 cyoa-step2.cpp
 Compiled for step 2
 Input to story is
@@ -76,7 +76,7 @@ Your file matched the expected output
 Step 2: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step3
-rm -f cyoa-step1 cyoa-step2 cyoa-step3  *.~ *.cpp~ *.hpp~ *.txt~ 
+rm -f cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4  *.~ *.cpp~ *.hpp~ *.txt~ 
 g++ -std=gnu++03  -pedantic -ggdb3 -Werror -Wall -o cyoa-step3 cyoa-step3.cpp
 +-----------------------------------------------------------------------+
 Test case 15 (success): cyoa-step3 /usr/local/ece551/cyoa/story1
@@ -87,8 +87,8 @@ Your file matched the expected output
 Step 3: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step4
-rm -f cyoa-step1 cyoa-step2 cyoa-step3  *.~ *.cpp~ *.hpp~ *.txt~ 
-make: 'cyoa-step4' is up to date.
+rm -f cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4  *.~ *.cpp~ *.hpp~ *.txt~ 
+g++ -std=gnu++03  -pedantic -ggdb3 -Werror -Wall -o cyoa-step4 cyoa-step4.cpp
 +-----------------------------------------------------------------------+
 Test case 17 (success): cyoa-step4 /usr/local/ece551/cyoa/story1
 Your file matched the expected output
@@ -99,24 +99,23 @@ Step 4: PASSED Pre-Grader Test Cases
 Running your test cases
 
 Compiling cyoa-step3
-rm -f cyoa-step1 cyoa-step2 cyoa-step3  *.~ *.cpp~ *.hpp~ *.txt~ 
+rm -f cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4  *.~ *.cpp~ *.hpp~ *.txt~ 
 g++ -std=gnu++03  -pedantic -ggdb3 -Werror -Wall -o cyoa-step3 cyoa-step3.cpp
 +-----------------------------------------------------------------------+
 Test case 1 (error): cyoa-step3 invalid_choice
 Your program successfully indicated a failure case
 
 Compiling cyoa-step4
-rm -f cyoa-step1 cyoa-step2 cyoa-step3  *.~ *.cpp~ *.hpp~ *.txt~ 
-make: 'cyoa-step4' is up to date.
+rm -f cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4  *.~ *.cpp~ *.hpp~ *.txt~ 
+g++ -std=gnu++03  -pedantic -ggdb3 -Werror -Wall -o cyoa-step4 cyoa-step4.cpp
 +-----------------------------------------------------------------------+
 Test case 2 (error): cyoa-step4 unreferenced_story1
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case 3 (error): cyoa-step4 no_win_story1
-You listed this in #errors, and we agree that it is an error case.
-However, your program did not indicate a failure case (exit status was EXIT_SUCCESS)
+Your program successfully indicated a failure case
 
-You have FAILED one or more of your test cases
-Keep debugging
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
