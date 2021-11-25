@@ -1,4 +1,4 @@
 #success
-cyoa-step2 story2 < choice1.txt
-cyoa-step2 story2 < choice2.txt
-cyoa-step3 story1
+cyoa-step2 no_win_story1 < choice3.txt
+cyoa-step3 no_win_story1
+cyoa-step4 no_win_story1 
