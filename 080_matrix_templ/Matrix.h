@@ -63,10 +63,32 @@ class Matrix {
     return ans;
   }
 
-  template<typename U>
-  friend std::ostream & operator<<(std::ostream & s, const Matrix<U> & rhs);
+  // template<typename U>
+  friend std::ostream & operator<<(std::ostream & s, const Matrix<T> & rhs) {
+    s << "[ ";
+    for (int i = 0; i < rhs.numRows; i++) {
+      for (int j = 0; j < rhs.numColumns; j++) {
+        if (j == 0) {
+          s << "{";
+        }
+        s << rhs.rows[i][j];
+        if (j < rhs.numColumns - 1) {
+          s << ", ";
+        }
+        if (j == rhs.numColumns - 1) {
+          s << "}";
+        }
+      }
+      if (i < rhs.numRows - 1) {
+        s << "," << std::endl;
+      }
+    }
+    s << " ]";
+    return s;
+  }
 };
 
+/*
 template<typename U>
 std::ostream & operator<<(std::ostream & s, const Matrix<U> & rhs) {
   s << "[ ";
@@ -90,4 +112,5 @@ std::ostream & operator<<(std::ostream & s, const Matrix<U> & rhs) {
   s << " ]";
   return s;
 }
+*/
 #endif
