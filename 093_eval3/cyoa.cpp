@@ -39,11 +39,7 @@ bool isPositiveNum(std::string & s) {
   return true;
 }
 
-bool parseOneChoice(Page & page,
-                    std::string & cur,
-                    std::map<size_t, std::vector<size_t> > & adj_map,
-                    size_t page_num,
-                    size_t & max_choice_page) {
+bool parseOneChoice(Page & page, std::string & cur, Useful_infor & UI) {
   size_t colon_pos = cur.find(":");
   if (colon_pos == std::string::npos) {  //error handling
     std::cerr << "No colon found in this choice!\n";
@@ -58,19 +54,14 @@ bool parseOneChoice(Page & page,
   page.navi_PageNum_vec.push_back(page_num_str);
   page.navi_choice_vec.push_back(choice_str);
   size_t choice_page = (size_t)atoi(page_num_str.c_str());
-  adj_map[page_num].push_back(choice_page);
+  UI.adj_map[UI.page_num].push_back(choice_page);
 
-  if (choice_page > max_choice_page) {
-    max_choice_page = choice_page;
+  if (choice_page > UI.max_choice_page) {
+    UI.max_choice_page = choice_page;
   }
   return true;
 }
-
-int ParsePage(Page & page,
-              const char * filename,
-              std::map<size_t, std::vector<size_t> > & adj_map,
-              size_t page_num,
-              size_t & max_choice_page) {
+int ParsePage(Page & page, const char * filename, Useful_infor & UI) {
   std::fstream Myfile;
   Myfile.open(filename, std::ifstream::in);
   if (Myfile.fail() == true) {  //Error handling
@@ -83,16 +74,16 @@ int ParsePage(Page & page,
   if (cur == "WIN") {
     page.result_flag = 1;  //The User wins
     std::vector<size_t> vec;
-    adj_map[page_num] = vec;
+    UI.adj_map[UI.page_num] = vec;
   }
   else if (cur == "LOSE") {
     page.result_flag = 2;  //The User loses
     std::vector<size_t> vec;
-    adj_map[page_num] = vec;
+    UI.adj_map[UI.page_num] = vec;
   }
   else {
     page.result_flag = 3;  //The User shall continue reading
-    if (parseOneChoice(page, cur, adj_map, page_num, max_choice_page) == false) {
+    if (parseOneChoice(page, cur, UI) == false) {
       std::cerr << "No first choice found!!\n";
       exit(EXIT_FAILURE);
     }
@@ -102,8 +93,7 @@ int ParsePage(Page & page,
         found_textlabel_flag = 1;
         break;  //Ready to parse next section
       }
-      if (parseOneChoice(page, cur, adj_map, page_num, max_choice_page) ==
-          false) {  //ERROR HANDLING
+      if (parseOneChoice(page, cur, UI) == false) {  //ERROR HANDLING
         std::cerr << "Invalid choice in Navigation Section!\n";
         exit(EXIT_FAILURE);
       }
@@ -130,22 +120,20 @@ int ParsePage(Page & page,
   }
 }
 
-int examine_whole_story(char * directory,
-                        std::map<size_t, std::vector<size_t> > & adj_map,
-                        std::set<size_t> & win_pages_set) {
+int examine_whole_story(char * directory, Useful_infor & UI) {
   std::string directory_name(directory);
   std::string prefix = directory_name;
   std::string page1_name = prefix += "/page1.txt";
-  //std::set<size_t> pages_set;
+
   Page page;
-  //  std::cout << "current page name:" << page1_name.c_str() << std::endl;
+
   int contain_win = 0;
   int contain_lose = 0;
-  size_t max_choice_page = 0;
-  int flag_valid_page = ParsePage(page, page1_name.c_str(), adj_map, 1, max_choice_page);
+  UI.page_num = 1;
+  int flag_valid_page = ParsePage(page, page1_name.c_str(), UI);
   if (flag_valid_page == 2) {
     contain_win++;
-    win_pages_set.insert(1);  //we are just looking at the first page
+    UI.win_pages_set.insert(1);  //we are just looking at the first page
   }
   if (flag_valid_page == 3) {
     contain_lose++;
@@ -154,31 +142,31 @@ int examine_whole_story(char * directory,
     std::cerr << "Page1 not found!!\n";
     exit(EXIT_FAILURE);
   }
-  size_t num_page = 2;
-
+  // size_t num_page = 2;
+  UI.page_num = 2;
   while (flag_valid_page != -1) {
     Page page;
     std::string prefix = directory_name;
     std::string cur_page_name = prefix += "/page";  //"story1/page"
     std::stringstream cur_pagenum;
-    cur_pagenum << num_page;
+    cur_pagenum << UI.page_num;
     cur_page_name += cur_pagenum.str();  //"storyt1/page3"
     cur_page_name += ".txt";             //"story1/page3.txt"
 
-    flag_valid_page =
-        ParsePage(page, cur_page_name.c_str(), adj_map, num_page, max_choice_page);
+    flag_valid_page = ParsePage(page, cur_page_name.c_str(), UI);
     if (flag_valid_page == 2) {
       contain_win++;
-      win_pages_set.insert(num_page);
+      UI.win_pages_set.insert(UI.page_num);
     }
     if (flag_valid_page == 3) {
       contain_lose++;
     }
-    num_page++;
+    UI.page_num++;
   }
 
-  if (max_choice_page > num_page - 2) {  //error handling
-    std::cerr << "Page " << max_choice_page << " given as choice but not found in story";
+  if (UI.max_choice_page > UI.page_num - 2) {  //error handling
+    std::cerr << "Page " << UI.max_choice_page
+              << " given as choice but not found in story";
     //          << std::endl;
 
     exit(EXIT_FAILURE);
@@ -186,12 +174,12 @@ int examine_whole_story(char * directory,
   //now we are sure that all the choices in our map are valid
   //but we are not sure if all those pages have been referenced by at least one other page!
   std::set<size_t> choices_set;
-  for (size_t i = 0; i < adj_map.size(); i++) {
-    for (size_t j = 0; j < adj_map[i].size(); j++) {
-      choices_set.insert(adj_map[i][j]);
+  for (size_t i = 0; i < UI.adj_map.size(); i++) {
+    for (size_t j = 0; j < UI.adj_map[i].size(); j++) {
+      choices_set.insert(UI.adj_map[i][j]);
     }
   }
-  for (size_t k = 2; k <= num_page - 2; k++) {
+  for (size_t k = 2; k <= UI.page_num - 2; k++) {
     if (choices_set.count(k) == 0) {
       std::cerr << "Page " << k << " found but not referenced in story by any other page"
                 << std::endl;
@@ -207,25 +195,24 @@ int examine_whole_story(char * directory,
     std::cerr << "Story must have at least one LOSE page" << std::endl;
     exit(EXIT_FAILURE);
   }
-  return num_page;
+  return UI.page_num;
 }
 void ReadaStory(char * directory_name, size_t num_page) {
   std::string nextpage = "1";  //We start reading from page1.
   std::string users_choice;
   size_t users_num = 0;
   int flag_valid_page = 0;
-  std::map<size_t, std::vector<size_t> > pages_MAP;
-  size_t max_choice_page = 0;
+
+  Useful_infor UI;
   while (1) {
     Page page;
     std::string prefix = directory_name;
     std::string cur_page_name = prefix += "/page";  //"story1/page"
     cur_page_name += nextpage;                      //"storyt1/page3"
     cur_page_name += ".txt";                        //"story1/page3.txt"
-    flag_valid_page =
-        ParsePage(page, cur_page_name.c_str(), pages_MAP, 0, max_choice_page);
+    flag_valid_page = ParsePage(page, cur_page_name.c_str(), UI);
     page.print_page();
-    //   std::cout << "********************************" << std::endl;
+
     if (flag_valid_page == 2 || flag_valid_page == 3) {
       return;  //we have finished the story!
     }
@@ -253,9 +240,9 @@ void ReadaStory(char * directory_name, size_t num_page) {
 }
 
 void printStoryDepth(char * directory) {
-  std::map<size_t, std::vector<size_t> > adj_map;
-  std::set<size_t> win_pages_set;
-  size_t num_page = examine_whole_story(directory, adj_map, win_pages_set);
+  Useful_infor UI;
+  size_t num_page = examine_whole_story(directory, UI);
+
   std::vector<size_t> depth_vector(
       num_page - 1, 0);  //because the returned num_page is 2+the real pages number
   std::vector<size_t> visited_vector(num_page - 1, 0);
@@ -267,7 +254,7 @@ void printStoryDepth(char * directory) {
     size_t cur_page = page_stack.top().first;
     size_t cur_depth = page_stack.top().second;
     page_stack.pop();
-    std::vector<size_t> cur_neighbour = adj_map[cur_page];
+    std::vector<size_t> cur_neighbour = UI.adj_map[cur_page];
     for (std::vector<size_t>::iterator it = cur_neighbour.begin();
          it != cur_neighbour.end();
          it++) {
@@ -307,9 +294,9 @@ void printPath(std::vector<std::pair<size_t, size_t> > & vec) {
 
 void FindAllWin(char * directory) {
   int flag_has_win = 0;  //this indicates if we have found at least one path to WIN
-  std::map<size_t, std::vector<size_t> > adj_map;
-  std::set<size_t> win_pages_set;
-  size_t num_page = examine_whole_story(directory, adj_map, win_pages_set);
+
+  Useful_infor UI;
+  size_t num_page = examine_whole_story(directory, UI);
 
   std::vector<size_t> visited_vector(num_page - 1, 0);
   std::stack<std::pair<size_t, std::vector<std::pair<size_t, size_t> > > >
@@ -327,7 +314,7 @@ void FindAllWin(char * directory) {
     //if current page is a Win page
     // print the current path vector
     // cannot mark it as visited (we could go to a win page more than once through different paths!)
-    if (win_pages_set.count(cur_page) > 0) {  //it is a win page!!
+    if (UI.win_pages_set.count(cur_page) > 0) {  //it is a win page!!
       cur_path_vec.push_back(std::pair<size_t, size_t>(cur_page, 0));
       printPath(cur_path_vec);
       flag_has_win = 1;
@@ -338,7 +325,7 @@ void FindAllWin(char * directory) {
       }
     }
     else {  //it is not a win page
-      std::vector<size_t> cur_neighbour = adj_map[cur_page];
+      std::vector<size_t> cur_neighbour = UI.adj_map[cur_page];
       for (size_t i = 0; i < cur_neighbour.size(); i++) {
         size_t neigh_page = cur_neighbour[i];
         if (visited_vector[neigh_page] == 0) {  //avoid cycle!!

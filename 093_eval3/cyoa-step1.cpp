@@ -7,9 +7,9 @@ int main(int argc, char ** argv) {
   }
 
   Page page;
-  std::map<size_t, std::vector<size_t> > adj_map;
-  size_t max_choice = 0;
-  int flag = ParsePage(page, argv[1], adj_map, 0, max_choice);
+
+  Useful_infor UI;
+  int flag = ParsePage(page, argv[1], UI);
   if (flag == -1) {
     std::cerr << "Invalid file name!\n";
     exit(EXIT_FAILURE);

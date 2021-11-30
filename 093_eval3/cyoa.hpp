@@ -19,21 +19,20 @@ class Page {
   void print_page();
 };
 
+class Useful_infor {
+ public:
+  std::map<size_t, std::vector<size_t> > adj_map;
+  std::set<size_t> win_pages_set;
+  size_t page_num;
+  size_t max_choice_page;
+  Useful_infor() { max_choice_page = 0; }
+};
+
 bool isPositiveNum(std::string & s);
-bool parseOneChoice(Page & page,
-                    std::string & cur,
-                    std::map<size_t, std::vector<size_t> > & adj_map,
-                    size_t page_num,
-                    size_t & max_choice_page);
-int ParsePage(Page & page,
-              const char * filename,
-              std::map<size_t, std::vector<size_t> > & adj_map,
-              size_t page_num,
-              size_t & max_choice_page);
-int examine_whole_story(char * directory,
-                        std::map<size_t, std::vector<size_t> > & adj_map,
-                        std::set<size_t> & win_pages_set);
+bool parseOneChoice(Page & page, std::string & cur, Useful_infor & UI);
+int ParsePage(Page & page, const char * filename, Useful_infor & UI);
+int examine_whole_story(char * directory, Useful_infor & UI);
 void ReadaStory(char * directory_name, size_t num_page);
-void printStoryDepth(size_t num_page, std::map<size_t, std::vector<size_t> > & adj_map);
+void printStoryDepth(char * directory);
 void printPath(std::vector<std::pair<size_t, size_t> > & vec);
 void FindAllWin(char * directory);
