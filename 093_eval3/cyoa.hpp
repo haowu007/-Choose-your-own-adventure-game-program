@@ -25,7 +25,10 @@ class Useful_infor {
   std::set<size_t> win_pages_set;
   size_t page_num;
   size_t max_choice_page;
-  Useful_infor() { max_choice_page = 0; }
+  Useful_infor() {
+    page_num = 0;
+    max_choice_page = 0;
+  }
 };
 
 bool isPositiveNum(std::string & s);
