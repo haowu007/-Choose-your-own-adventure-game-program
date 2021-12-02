@@ -16,13 +16,14 @@ class Page {
   std::vector<std::string> actual_text_vec;  //The text of this given page
   int result_flag;                           //1 for Win, 2 for lose, 3 for continue
 
-  void print_page();
+  void print_page();  //print out the content of a page in the format that step1 asked
 };
 
 class Useful_infor {
  public:
-  std::map<size_t, std::vector<size_t> > adj_map;
-  std::set<size_t> win_pages_set;
+  std::map<size_t, std::vector<size_t> >
+      adj_map;  //adjacent map ,key = page number, value = page numbers of its neighbours
+  std::set<size_t> win_pages_set;  // the page number of all the "WIN" pages
   size_t page_num;
   size_t max_choice_page;
   Useful_infor() {
