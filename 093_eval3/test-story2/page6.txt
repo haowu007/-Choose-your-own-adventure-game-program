@@ -1,4 +1,3 @@
-6:wowow
-7:wowo
+WIN
 #
 this is page 6

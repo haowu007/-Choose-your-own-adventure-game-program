@@ -1,6 +1,5 @@
 
-#error
-cyoa-step4 broken2
-cyoa-step4 broken1
-cyoa-step3 test-story2
 
+#success
+cyoa-step3 test-story2
+cyoa-step4 test-story2
