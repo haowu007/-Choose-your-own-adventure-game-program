@@ -1,6 +1,6 @@
-Grading at 12/03/2021:01:40:35.296277
-For commit ID f1706108dee5de8ebf23133ce23a843416bc2d91
-Grading at Thu Dec  2 20:40:11 EST 2021
+Grading at 12/03/2021:17:57:01.041205
+For commit ID 17a790ae007572661b725a81cf60354b04b35a39
+Grading at Fri Dec  3 12:56:34 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -104,7 +104,18 @@ Your program successfully indicated a failure case
 Test case 2 (error): cyoa-step4 broken1
 Your program successfully indicated a failure case
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+Compiling cyoa-step3
+rm -f cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4  *.~ *.cpp~ *.hpp~ *.txt~ 
+g++ -std=gnu++03  -pedantic -ggdb3 -Werror -Wall -o cyoa-step3 cyoa-step3.cpp
++-----------------------------------------------------------------------+
+Test case 3 (success): cyoa-step3 test-story2
+1c1
+< Page 1:2
+---
+> Page 1:0
+Your file did not match the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
