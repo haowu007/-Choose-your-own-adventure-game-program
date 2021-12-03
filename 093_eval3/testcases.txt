@@ -1,5 +1,6 @@
 
 
 #success
+cyoa-step2 test-story2 < step2-input1.txt
 cyoa-step3 test-story2
 cyoa-step4 test-story2

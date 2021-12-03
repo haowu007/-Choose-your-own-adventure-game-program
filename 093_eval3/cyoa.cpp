@@ -355,6 +355,7 @@ void FindAllWin(char * directory) {
         if (visited_in_this_path == 0) {  //avoid cycle!!
           std::vector<std::pair<size_t, size_t> > new_path_vec = cur_path_vec;
           new_path_vec.push_back(std::pair<size_t, size_t>(cur_page, i + 1));
+
           std::pair<size_t, std::vector<std::pair<size_t, size_t> > > pp(neigh_page,
                                                                          new_path_vec);
           page_stack.push(pp);
