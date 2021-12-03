@@ -1,4 +1,4 @@
 
-#success
+#error
 cyoa-step4 broken2
 cyoa-step4 broken1
