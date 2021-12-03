@@ -1,6 +1,6 @@
-Grading at 12/02/2021:22:22:26.610638
-For commit ID f34da08f1d814aa6c7656d5d5cb3e3dbe79a0c4b
-Grading at Thu Dec  2 17:21:58 EST 2021
+Grading at 12/03/2021:01:06:51.569206
+For commit ID ce7aa20bec8bdd0d767c561903142d3d8a5e2562
+Grading at Thu Dec  2 20:06:24 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -97,28 +97,24 @@ Test case 18 (success): cyoa-step4 /usr/local/ece551/cyoa/story2
 Your file matched the expected output
 Step 4: PASSED Pre-Grader Test Cases
 Running your test cases
-
-Compiling cyoa-step1
-rm -f cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4  *.~ *.cpp~ *.hpp~ *.txt~ 
-g++ -std=gnu++03  -pedantic -ggdb3 -Werror -Wall -o cyoa-step1 cyoa-step1.cpp
 +-----------------------------------------------------------------------+
-Test case 1 (error): cyoa-step1 page1.txt
+Test case 1 (error): cyoa-step4 broken2
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
-Test case 2 (error): cyoa-step1 page2.txt
+Test case 2 (error): cyoa-step4 broken1
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
-Test case 3 (error): cyoa-step1 page3.txt
-Your program successfully indicated a failure case
+Test case 3 (success): cyoa-step4 cycle
+Your file matched the expected output
 +-----------------------------------------------------------------------+
-Test case 4 (error): cyoa-step1 page4.txt
-Your program successfully indicated a failure case
+Test case 4 (success): cyoa-step4 story-diamond-win
+Your file matched the expected output
 +-----------------------------------------------------------------------+
-Test case 5 (error): cyoa-step1 page5.txt
-Your program successfully indicated a failure case
+Test case 5 (success): cyoa-step4 no_win
+Your file matched the expected output
 +-----------------------------------------------------------------------+
-Test case 6 (error): cyoa-step1 page6.txt
-Your program successfully indicated a failure case
+Test case 6 (success): cyoa-step4 test-story
+Your file matched the expected output
 
 You have PASSED all of your test cases
 Keep adding test cases until you are satisfied your program is correct
