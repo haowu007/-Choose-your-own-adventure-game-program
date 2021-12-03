@@ -1,8 +1,10 @@
 
 #error
-cyoa-step1 page1.txt
-cyoa-step1 page2.txt
-cyoa-step1 page3.txt
-cyoa-step1 page4.txt
-cyoa-step1 page5.txt
-cyoa-step1 page6.txt
+cyoa-step4 broken2
+cyoa-step4 broken1
+
+#success
+cyoa-step4 cycle
+cyoa-step4 story-diamond-win
+cyoa-step4 no_win
+cyoa-step4 test-story

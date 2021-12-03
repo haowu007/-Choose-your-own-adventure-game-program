@@ -297,15 +297,15 @@ void FindAllWin(char * directory) {
 
   Useful_infor UI;
   size_t num_page = examine_whole_story(directory, UI);
-
-  std::vector<size_t> visited_vector(num_page - 1, 0);
+  num_page++;  //just in case the warning "unused variable" comes out
+  //std::vector<size_t> visited_vector(num_page - 1, 0);
   std::stack<std::pair<size_t, std::vector<std::pair<size_t, size_t> > > >
       page_stack;  //first=page second=vector<<parent_page,parent_choice>>
   //Now we are ready to do DFS for the given adj_map
   std::vector<std::pair<size_t, size_t> > path_vector;
   std::pair<size_t, std::vector<std::pair<size_t, size_t> > > p(1, path_vector);
   page_stack.push(p);
-  visited_vector[1] = 1;
+  // visited_vector[1] = 1;
   while (!page_stack.empty()) {
     size_t cur_page = page_stack.top().first;
     std::vector<std::pair<size_t, size_t> > cur_path_vec = page_stack.top().second;
@@ -318,23 +318,31 @@ void FindAllWin(char * directory) {
       cur_path_vec.push_back(std::pair<size_t, size_t>(cur_page, 0));
       printPath(cur_path_vec);
       flag_has_win = 1;
-      for (std::vector<std::pair<size_t, size_t> >::iterator it = cur_path_vec.begin();
+      /*      for (std::vector<std::pair<size_t, size_t> >::iterator it = cur_path_vec.begin();
            it != cur_path_vec.end();
            it++) {
         visited_vector[it->first] = 0;
-      }
+           
+       }*/
     }
     else {  //it is not a win page
       std::vector<size_t> cur_neighbour = UI.adj_map[cur_page];
       for (size_t i = 0; i < cur_neighbour.size(); i++) {
         size_t neigh_page = cur_neighbour[i];
-        if (visited_vector[neigh_page] == 0) {  //avoid cycle!!
+        int visited_in_this_path = 0;
+        for (size_t j = 0; j < cur_path_vec.size(); j++) {
+          if (cur_path_vec[j].first == neigh_page) {
+            visited_in_this_path = 1;
+          }
+        }
+
+        if (visited_in_this_path == 0) {  //avoid cycle!!
           std::vector<std::pair<size_t, size_t> > new_path_vec = cur_path_vec;
           new_path_vec.push_back(std::pair<size_t, size_t>(cur_page, i + 1));
           std::pair<size_t, std::vector<std::pair<size_t, size_t> > > pp(neigh_page,
                                                                          new_path_vec);
           page_stack.push(pp);
-          visited_vector[neigh_page] = 1;
+          //   visited_vector[neigh_page] = 1;
         }
       }
     }
