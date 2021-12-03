@@ -2,7 +2,5 @@
 #error
 cyoa-step4 broken2
 cyoa-step4 broken1
-
-
-#success
 cyoa-step3 test-story2
+
