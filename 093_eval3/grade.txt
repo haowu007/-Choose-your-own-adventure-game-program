@@ -1,6 +1,6 @@
-Grading at 12/03/2021:01:35:05.338262
-For commit ID 6f2c6a71ad6fe50528ec594227a935684c69f2aa
-Grading at Thu Dec  2 20:34:41 EST 2021
+Grading at 12/03/2021:01:40:35.296277
+For commit ID f1706108dee5de8ebf23133ce23a843416bc2d91
+Grading at Thu Dec  2 20:40:11 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -98,21 +98,13 @@ Your file matched the expected output
 Step 4: PASSED Pre-Grader Test Cases
 Running your test cases
 +-----------------------------------------------------------------------+
-Test case 1 (success): cyoa-step4 broken2
-We considered this an error case and gave the following message:
-Page 4 given as choice but not found in story
-1d0
-< Page 4 given as choice but not found in story
-Your file did not match the expected output
+Test case 1 (error): cyoa-step4 broken2
+Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
-Test case 2 (success): cyoa-step4 broken1
-We considered this an error case and gave the following message:
-Expected page1.txt
-1d0
-< Page1 not found!!
-Your file did not match the expected output
+Test case 2 (error): cyoa-step4 broken1
+Your program successfully indicated a failure case
 
-You have FAILED one or more of your test cases
-Keep debugging
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
