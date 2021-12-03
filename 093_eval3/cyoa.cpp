@@ -336,8 +336,15 @@ void FindAllWin(char * directory) {
     }
     else {  //it is not a win page
       std::vector<size_t> cur_neighbour = UI.adj_map[cur_page];
+      std::set<size_t> used_page_numbers_set;
       for (size_t i = 0; i < cur_neighbour.size(); i++) {
         size_t neigh_page = cur_neighbour[i];
+        if (used_page_numbers_set.count(neigh_page) == 0) {
+          used_page_numbers_set.insert(neigh_page);
+        }
+        else {
+          continue;
+        }
         int visited_in_this_path = 0;
         for (size_t j = 0; j < cur_path_vec.size(); j++) {
           if (cur_path_vec[j].first == neigh_page) {
