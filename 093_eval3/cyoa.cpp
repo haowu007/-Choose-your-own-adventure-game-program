@@ -174,14 +174,6 @@ int examine_whole_story(char * directory, Useful_infor & UI) {
   //now we are sure that all the choices in our map are valid
   //but we are not sure if all those pages have been referenced by at least one other page!
   std::set<size_t> choices_set;
-  /*
-  for (size_t i = 0; i < UI.adj_map.size(); i++) {
-    for (size_t j = 0; j < UI.adj_map[i].size(); j++) {
-     
-      choices_set.insert(UI.adj_map[i][j]);
-    }
-  }
-  */
 
   for (std::map<size_t, std::vector<size_t> >::iterator it = UI.adj_map.begin();
        it != UI.adj_map.end();
